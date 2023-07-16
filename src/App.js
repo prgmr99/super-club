@@ -1,5 +1,3 @@
-// import ConfigRouter from "./router/Router";
-
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MainPage, MyPage, ProjectDetailPage, Recruit } from "./pages";
