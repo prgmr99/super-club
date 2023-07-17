@@ -1,3 +1,3 @@
-import BestProjectimport from "./BestProject";
-import ProjectList from "./ProjectList";
-export { BestProjectimport, ProjectList };
+import BestProject from "./project-main/BestProject";
+import ProjectList from "./project-main/ProjectList";
+export { BestProject, ProjectList };

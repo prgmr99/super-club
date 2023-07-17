@@ -6,8 +6,8 @@ import { NotFound, Header, Footer } from "./global";
 function App() {
   return (
     <>
-      <Header />
       <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/detail" element={<ProjectDetailPage />} />
