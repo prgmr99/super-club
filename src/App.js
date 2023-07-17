@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MainPage, MyPage, ProjectDetailPage, Recruit } from "./pages";
 import { NotFound, Header, Footer } from "./global";
+import { HeaderWrapper } from "./components";
 
 function App() {
   return (
