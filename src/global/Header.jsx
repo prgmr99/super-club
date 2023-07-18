@@ -1,15 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import { useLocation } from "react-router-dom";
+import HeaderWrapper from "../components/header/HeaderWrapper";
 
 const Header = () => {
-  return <StHeader>헤더입니다.</StHeader>;
+  const location = useLocation();
+  console.log(location.pathname);
+  return <HeaderWrapper />;
 };
 
 export default Header;
-
-const StHeader = styled.header`
-  height: 80px;
-  width: 100%;
-  text-align: center;
-  border-bottom: 2px solid;
-`;

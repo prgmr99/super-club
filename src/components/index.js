@@ -1,7 +1,6 @@
-import BestProject from "./BestProject.jsx";
-import ProjectList from "./ProjectList.jsx";
-// import ProjectDetailHeader from "./project-detail/ProjectDetailHeader.jsx";
-// import ProjectDetailWrap from "./project-detail/ProjectDetailWrap.jsx";
+import BestProject from "./project-main/BestProject";
+import ProjectList from "./project-main/ProjectList";
+import HeaderWrapper from "./header/HeaderWrapper";
 
 import Comment from "./comment/Comment.jsx";
 import CommentList from "./comment/CommentList.jsx";
@@ -16,6 +15,7 @@ import ProjectDetailTeamMember from "./project-detail/ProjectDetailTeamMember.js
 import ProjectDetailVideo from "./project-detail/ProjectDetailVideo.jsx";
 import ProjectDetailWrap from "./project-detail/ProjectDetailWrap.jsx";
 export {
+  HeaderWrapper,
   BestProject,
   ProjectList,
   Comment,
