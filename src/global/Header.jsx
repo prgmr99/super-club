@@ -4,7 +4,7 @@ import HeaderWrapper from "../components/header/HeaderWrapper";
 
 const Header = () => {
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
   return <HeaderWrapper />;
 };
 

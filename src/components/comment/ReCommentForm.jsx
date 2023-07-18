@@ -23,8 +23,8 @@ const ReCommentForm = ({ setAppearReCommentForm }) => {
         </form>
       </div>
       <div className="comment-submit">
-        <Button prupose="recomment-register">저장</Button>
-        <Button prupose="cancel" onClick={clickAppearForm}>
+        <Button purpose="recomment-register">저장</Button>
+        <Button purpose="cancel" onClick={clickAppearForm}>
           취소
         </Button>
       </div>
