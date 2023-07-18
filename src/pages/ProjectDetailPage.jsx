@@ -1,7 +1,13 @@
 import React from "react";
+import { ProjectDetailWrap } from "../components";
+import { GlobalLayout } from "../global";
 
 const ProjectDetailPage = () => {
-  return <h1>Detail</h1>;
+  return (
+    <GlobalLayout>
+      <ProjectDetailWrap />
+    </GlobalLayout>
+  );
 };
 
 export default ProjectDetailPage;

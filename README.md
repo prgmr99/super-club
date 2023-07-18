@@ -12,7 +12,7 @@
 - .env, api, key는 무조건 대문자로만
 - 함수명은 camelCase
 - 컴포넌트, 생성자 함수, Class는 PascalCase
-- Styled-components는 s.dot naming eX => import \* as S from ~~
+- Styled-components는 각 컴포넌트별로 생성 확장자는 js
 - className은 BEM 방식
 - 코드는 최대한 함수형으로 작성
 

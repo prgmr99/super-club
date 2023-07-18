@@ -11,4 +11,5 @@ const StHeader = styled.header`
   height: 80px;
   width: 100%;
   text-align: center;
+  border-bottom: 2px solid;
 `;

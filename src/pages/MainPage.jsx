@@ -1,12 +1,12 @@
 import React from "react";
 import { GlobalLayout } from "../global";
-import { BestProjectimport, ProjectList } from "../components";
+import { BestProject, ProjectList } from "../components";
 
 const MainPage = () => {
   return (
     <GlobalLayout>
       <h1>Main</h1>
-      <BestProjectimport />
+      <BestProject />
       <ProjectList />
     </GlobalLayout>
   );
