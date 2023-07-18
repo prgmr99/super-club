@@ -1,12 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  MainPage,
-  MyPage,
-  ProjectDetailPage,
-  Recruit,
-  ProjectUploadPage,
-} from "./pages";
+import { MainPage, MyPage, ProjectDetailPage, Recruit } from "./pages";
 import { NotFound, Header, Footer } from "./global";
 import { HeaderWrapper } from "./components";
 
@@ -17,7 +11,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/upload" element={<ProjectUploadPage />} />
           <Route path="/project/detail" element={<ProjectDetailPage />} />
           <Route path="/recruit" element={<Recruit />} />
           <Route path="/mypage" element={<MyPage />} />
