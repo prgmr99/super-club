@@ -1,7 +1,8 @@
 import React from "react";
+import { RecruitMain } from "../components";
 
 const Recruit = () => {
-  return <h1>Recruit</h1>;
+  return <RecruitMain>Recruit</RecruitMain>;
 };
 
 export default Recruit;

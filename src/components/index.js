@@ -1,3 +1,4 @@
 import BestProjectimport from "./BestProject";
 import ProjectList from "./ProjectList";
-export { BestProjectimport, ProjectList };
+import RecruitMain from "./recruitment-main/RecruitMain";
+export { BestProjectimport, ProjectList, RecruitMain };

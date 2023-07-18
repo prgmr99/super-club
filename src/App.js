@@ -2,12 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MainPage, MyPage, ProjectDetailPage, Recruit } from "./pages";
 import { NotFound, Header, Footer } from "./global";
+import RecruitMain from "./components/recruitment-main/RecruitMain";
 
 function App() {
   return (
     <>
       <Header />
-      <Router>
+      {/* <Router>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/detail" element={<ProjectDetailPage />} />
@@ -15,7 +16,8 @@ function App() {
           <Route path="/mypage" element={<MyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Router>
+      </Router> */}
+      <RecruitMain />
       <Footer />
     </>
   );
