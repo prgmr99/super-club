@@ -9,4 +9,6 @@ export const StHeaderWrapper = styled.header`
   background-color: #fff;
   display: flex;
   align-items: center;
+  padding: 0 5rem;
+  box-sizing: border-box;
 `;
