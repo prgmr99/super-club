@@ -11,13 +11,13 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/detail" element={<ProjectDetailPage />} />
+          <Route path="/project/detail" element={<ProjectDetailPage />} />
           <Route path="/recruit" element={<Recruit />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

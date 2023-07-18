@@ -8,7 +8,7 @@ const GlobalLayout = ({ children }) => {
 export default GlobalLayout;
 
 const StGlobalContainer = styled.div`
-  max-width: 1600px;
+  max-width: 160rem;
   width: 100%;
   margin: 0 auto;
 
