@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker, { DateObject } from "react-multi-date-picker";
 import InputIcon from "react-multi-date-picker/components/input_icon";
 import transition from "react-element-popper/animations/transition";
 import opacity from "react-element-popper/animations/opacity";
 
-const Date = () => {
-  // console.log(new Date(2023, 7, 5));
-  // console.log(new Date().getFullYear());
-  // console.log(new Date().getMonth() + 1);
-  // console.log(new Date().getDate());
-  const date = new DateObject();
-  // console.log(date.format("YYYY-MM-dd"));
+const Date = ({
+  setRecruitRequest,
+  recruitRequest,
+  setSaveValue,
+  saveValue,
+}) => {
+  const [state, setState] = useState({ format: "YYYY-MM-DD" });
+
+  const convert = (date, format = state.format) => {
+    let object = { date, format };
+
+    setState({
+      jsDate: date.toDate(),
+      ...object,
+    });
+  };
+
+  useEffect(() => {
+    if (state !== undefined) {
+      setRecruitRequest({
+        ...recruitRequest,
+        endDate: state.format.validatedValue?.[0],
+      });
+
+      setSaveValue({
+        ...saveValue,
+        endDate: state.format.validatedValue?.[0],
+      });
+    }
+  }, [state]);
 
   const weekDays = ["일", "월", "화", "수", "목", "금", "토"];
   return (
@@ -20,12 +43,14 @@ const Date = () => {
         inputClass="custom-input"
         headerOrder={["MONTH_YEAR", "LEFT_BUTTON", "RIGHT_BUTTON"]}
         render={<InputIcon />}
-        format="YYYY-MM-dd"
+        format="YYYY-MM-DD"
         disableMonthPicker
         monthYearSeparator="|"
         weekDays={weekDays}
         arrow={false}
         animations={[opacity(), transition({ from: 35, duration: 800 })]}
+        value={recruitRequest.endDate}
+        onChange={convert}
       />
     </>
   );

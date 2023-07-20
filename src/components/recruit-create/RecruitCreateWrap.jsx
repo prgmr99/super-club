@@ -7,7 +7,6 @@ import ProgressBar from "../../global/ProgressBar";
 
 const RecruitCreateWrap = () => {
   const [step, setStep] = useState(0);
-  console.log("step :", step);
 
   const stepPage = {
     0: <CreateIntro setStep={setStep} step={step} />,

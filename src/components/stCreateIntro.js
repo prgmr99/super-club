@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const StIntro = styled.div`
-  height: calc(100vh - 8.1rem);
+  height: calc(100vh - 8.1rem - 8rem);
   display: flex;
   align-items: center;
   justify-content: center;
