@@ -36,16 +36,6 @@ const DropTest = () => {
         // isLoading={false}
         // isRtl={isRtl}
       />
-
-      <div
-        style={{
-          color: "hsl(0, 0%, 40%)",
-          display: "inline-block",
-          fontSize: 12,
-          fontStyle: "italic",
-          marginTop: "1em",
-        }}
-      ></div>
     </>
   );
 };

@@ -6,11 +6,12 @@ import CreateIntro from "../CreateIntro";
 
 const RecruitCreateWrap = () => {
   const [step, setStep] = useState(0);
+  console.log("step :", step);
 
   const stepPage = {
-    0: <CreateIntro setStep={setStep} />,
-    1: <RecruitCreateStepOne />,
-    2: <RecruitCreateStepTwo />,
+    0: <CreateIntro setStep={setStep} step={step} />,
+    1: <RecruitCreateStepOne setStep={setStep} step={step} />,
+    2: <RecruitCreateStepTwo setStep={setStep} step={step} />,
   };
 
   return <StWrap>{stepPage[step]}</StWrap>;
