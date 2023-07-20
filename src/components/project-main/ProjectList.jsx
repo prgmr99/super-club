@@ -4,7 +4,6 @@ import { styled } from "styled-components";
 const ProjectList = () => {
   return (
     <StProject>
-      <h1>자랑하는 공간</h1>
       <div className="flex">
         <div className="item">1</div>
         <div className="item">2</div>
@@ -25,9 +24,6 @@ const StProject = styled.div`
   width: 100%;
   border: 1px solid #eee;
   margin-top: 50px;
-  h1 {
-    height: 150px;
-  }
   .flex {
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +32,7 @@ const StProject = styled.div`
     gap: 30px;
     padding-bottom: 50px;
     .item {
-      width: 360px;
+      width: 300px;
       height: 300px;
       border: 1px solid #ddd;
       border-radius: 12px;

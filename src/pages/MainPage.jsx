@@ -2,17 +2,20 @@ import React from "react";
 import { styled } from "styled-components";
 import { GlobalLayout } from "../global";
 import { BestProject, ProjectList } from "../components";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MainPage = () => {
-  const location = useLocation();
-  console.log(location.pathname);
+  const navigate = useNavigate();
+  const navigateToUpload = () => {
+    navigate("/project/upload");
+  };
   return (
     <GlobalLayout>
-      <h1>Main</h1>
       <BestProject />
       <ProjectList />
-      <Button>Upload</Button>
+      <div>
+        <Button onClick={navigateToUpload}>Upload</Button>
+      </div>
     </GlobalLayout>
   );
 };
@@ -21,8 +24,13 @@ const Button = styled.button`
   position: fixed;
   width: 100px;
   height: 50px;
-  top: 43vw;
-  left: 185vh;
+  top: 85%;
+  left: 90%;
+  background-color: #2c7dff;
+  border: none;
+  border-radius: 5rem;
+  color: white;
+  cursor: pointer;
 `;
 
 export default MainPage;
