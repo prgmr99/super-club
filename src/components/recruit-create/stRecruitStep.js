@@ -1,9 +1,7 @@
 import { styled } from "styled-components";
 
-export const StStepOne = styled.div`
-  /* background-color: pink; */
-  /* background-color: pink; */
-  height: calc(100vh - 8.1rem - 6rem);
+export const StStepWrap = styled.div`
+  height: calc(100vh - 8.1rem - 8rem);
   display: flex;
   flex-direction: column;
   align-items: center;

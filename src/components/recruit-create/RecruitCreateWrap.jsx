@@ -3,6 +3,7 @@ import RecruitCreateStepOne from "./RecruitCreateStepOne";
 import RecruitCreateStepTwo from "./RecruitCreateStepTwo";
 import { StWrap } from "./stRecruitCreateWrap";
 import CreateIntro from "../CreateIntro";
+import ProgressBar from "../../global/ProgressBar";
 
 const RecruitCreateWrap = () => {
   const [step, setStep] = useState(0);
@@ -14,7 +15,12 @@ const RecruitCreateWrap = () => {
     2: <RecruitCreateStepTwo setStep={setStep} step={step} />,
   };
 
-  return <StWrap>{stepPage[step]}</StWrap>;
+  return (
+    <>
+      <ProgressBar step={step} />
+      <StWrap>{stepPage[step]}</StWrap>
+    </>
+  );
 };
 
 export default RecruitCreateWrap;
