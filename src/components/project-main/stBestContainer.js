@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const BestContainer = styled.div`
+export const StBestContainer = styled.div`
   width: 1600px;
   height: 90%;
   border: 1px solid #eee;
