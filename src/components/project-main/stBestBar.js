@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const StBestBar = styled.div`
   width: 100%;
-  height: 60%;
+  height: 70%;
   top: 15vh;
   border: 1px solid #eee;
   display: flex;

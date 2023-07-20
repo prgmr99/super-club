@@ -24,7 +24,7 @@ const Info = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  line-height: 150%;
+  line-height: 240%;
 `;
 const StInfoTitle = styled.div`
   font-weight: 600;

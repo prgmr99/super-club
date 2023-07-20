@@ -1,18 +1,59 @@
 import React from "react";
 import { styled } from "styled-components";
+import Card from "./Card";
 
 const ProjectList = () => {
   return (
     <StProject>
       <div className="flex">
-        <div className="item">1</div>
-        <div className="item">2</div>
-        <div className="item">3</div>
-        <div className="item">4</div>
-        <div className="item">5</div>
-        <div className="item">6</div>
-        <div className="item">7</div>
-        <div className="item">8</div>
+        <Card
+          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20220602%2FWillbe_Youtube_thumbnail_257.png&w=1920&q=75"
+          title="Will-be"
+          views="842"
+          description="개발자로 취업하고 싶은 사람들을 위한 화상면접 연습 및 리뷰 커뮤니티"
+        />
+        <Card
+          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20220602%2FWillbe_Youtube_thumbnail_257.png&w=1920&q=75"
+          title="Will-be"
+          views="842"
+          description="개발자로 취업하고 싶은 사람들을 위한 화상면접 연습 및 리뷰 커뮤니티"
+        />
+        <Card
+          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20220602%2FWillbe_Youtube_thumbnail_257.png&w=1920&q=75"
+          title="Will-be"
+          views="842"
+          description="개발자로 취업하고 싶은 사람들을 위한 화상면접 연습 및 리뷰 커뮤니티"
+        />
+        <Card
+          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20220602%2FWillbe_Youtube_thumbnail_257.png&w=1920&q=75"
+          title="Will-be"
+          views="842"
+          description="개발자로 취업하고 싶은 사람들을 위한 화상면접 연습 및 리뷰 커뮤니티"
+        />
+        <Card
+          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20220602%2FWillbe_Youtube_thumbnail_257.png&w=1920&q=75"
+          title="Will-be"
+          views="842"
+          description="개발자로 취업하고 싶은 사람들을 위한 화상면접 연습 및 리뷰 커뮤니티"
+        />
+        <Card
+          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20220602%2FWillbe_Youtube_thumbnail_257.png&w=1920&q=75"
+          title="Will-be"
+          views="842"
+          description="개발자로 취업하고 싶은 사람들을 위한 화상면접 연습 및 리뷰 커뮤니티"
+        />
+        <Card
+          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20220602%2FWillbe_Youtube_thumbnail_257.png&w=1920&q=75"
+          title="Will-be"
+          views="842"
+          description="개발자로 취업하고 싶은 사람들을 위한 화상면접 연습 및 리뷰 커뮤니티"
+        />
+        <Card
+          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20220602%2FWillbe_Youtube_thumbnail_257.png&w=1920&q=75"
+          title="Will-be"
+          views="842"
+          description="개발자로 취업하고 싶은 사람들을 위한 화상면접 연습 및 리뷰 커뮤니티"
+        />
       </div>
     </StProject>
   );
@@ -29,7 +70,7 @@ const StProject = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
     padding-bottom: 50px;
     .item {
       width: 300px;
