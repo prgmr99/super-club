@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const StAnnounceFilter = styled.div`
+export const StPostingFilter = styled.div`
   margin: 30px 0 10px;
   display: flex;
   justify-content: space-between;
@@ -11,11 +11,13 @@ export const StAnnounceFilter = styled.div`
     align-items: center;
     gap: 15px;
     li {
+      cursor: pointer;
       font-size: 1.8rem;
       font-weight: 600;
     }
   }
-  /* div {
+  .recruit_checking {
+    cursor: pointer;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -24,9 +26,9 @@ export const StAnnounceFilter = styled.div`
       font-size: 1.8rem;
       font-weight: 600;
     }
-  } */
+  }
 
-  .wrapper {
+  /* .wrapper {
     width: 50px;
     height: 50px;
     text-align: center;
@@ -35,6 +37,7 @@ export const StAnnounceFilter = styled.div`
   #switch {
     position: absolute;
     /* hidden */
+  /*
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -54,6 +57,12 @@ export const StAnnounceFilter = styled.div`
   .switch_label:hover {
     background: #efefef;
   }
+  .checkbox-recruiting {
+    position: absolute;
+    left: -98px;
+    top: 7px;
+  }
+
   .onf_btn {
     position: absolute;
     top: 4px;
@@ -64,9 +73,10 @@ export const StAnnounceFilter = styled.div`
     border-radius: 20px;
     background: #daa;
     transition: 0.2s;
-  }
+  }*/
 
   /* checking style */
+  /*
   #switch:checked + .switch_label {
     background: #c44;
     border: 2px solid #c44;
@@ -77,9 +87,10 @@ export const StAnnounceFilter = styled.div`
   }
 
   /* move */
+  /*
   #switch:checked + .switch_label .onf_btn {
     left: 34px;
     background: #fff;
     box-shadow: 1px 2px 3px #00000020;
-  }
+  }*/
 `;

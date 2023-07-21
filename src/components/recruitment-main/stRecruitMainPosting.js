@@ -1,13 +1,14 @@
 import { styled } from "styled-components";
 
-export const StAnnounce = styled.div`
+export const StPosting = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(360px, auto);
   gap: 20px;
-  margin-bottom: 40px;
-  article.announcement__lists {
+  margin-bottom: 150px;
+
+  article.recruit_wrap {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -19,52 +20,50 @@ export const StAnnounce = styled.div`
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     font-weight: 600;
+    line-height: 1.2;
 
-    .announcement__list--d-day {
+    .recruit_d_day {
       font-size: 1.3rem;
       background-color: #eee;
       padding: 4px 10px 4px 8px;
       border-radius: 16px;
       margin-bottom: 10px;
     }
-    .announcement__list--deadline_views_comment {
+    .recruit_view {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      .announcement__list--deadline {
+      &_deadline {
         display: flex;
         font-size: 1.4rem;
         color: #888;
       }
-      .announcement__icon-lists {
+      &_icons {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 5px;
-        .announcement__icon-list {
+        &_box {
           display: flex;
           align-items: center;
           gap: 2px;
-          img {
-            width: 1.8rem;
-          }
-          .announcement__icon--views-eye {
+          svg {
             padding-bottom: 2px;
           }
-          .announcement__icon--count {
+          &_desc {
             font-size: 1.4rem;
           }
         }
       }
     }
-    .announcement__list--title {
+    .recruit_title {
       font-size: 2rem;
       text-align: left;
       margin: 8px 0;
     }
 
-    .announcement__list--tech-stack {
+    .recruit_tech_stack {
       ul {
         display: flex;
         gap: 8px;
@@ -76,7 +75,7 @@ export const StAnnounce = styled.div`
         }
       }
     }
-    .announcement__list--job-position {
+    .recruit_job_position {
       ul {
         display: flex;
         gap: 4px;
@@ -90,14 +89,15 @@ export const StAnnounce = styled.div`
         }
       }
     }
-    .announcement__list--writer-profile {
+    .recruit_profile {
       display: flex;
       align-items: center;
       gap: 2px;
-      img {
-        width: 2.6rem;
+      svg {
+        width: 38px;
+        height: 38px;
       }
-      .announcement__list--writer-profile--name {
+      &_nickname {
         font-size: 1.4rem;
       }
     }

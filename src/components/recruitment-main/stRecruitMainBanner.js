@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const StMainBanner = styled.div`
+export const StBanner = styled.div`
   background-color: #888;
   width: 100%;
   height: 330px;

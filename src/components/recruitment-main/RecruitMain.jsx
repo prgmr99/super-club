@@ -3,17 +3,20 @@ import { StWrapper } from "./stRecruitMain";
 import RecruitMainBanner from "./RecruitMainBanner";
 import RecruitMainCategory from "./RecruitMainCategory";
 import RecruitMainTechStack from "./RecruitMainTechStack";
-import RecruitMainAnnouncement from "./RecruitMainAnnouncement";
-import RecruitMainAnnouncementFilter from "./RecruitMainAnnouncementFilter";
+import RecruitMainPosting from "./RecruitMainPosting";
+import RecruitMainPostingFilter from "./RecruitMainPostingFilter";
+import GlobalLayout from "../../global/GlobalLayout";
 
 const RecruitMain = () => {
   return (
     <StWrapper>
       <RecruitMainBanner />
-      <RecruitMainCategory />
-      <RecruitMainTechStack />
-      <RecruitMainAnnouncementFilter />
-      <RecruitMainAnnouncement />
+      <GlobalLayout>
+        <RecruitMainCategory />
+        <RecruitMainTechStack />
+        <RecruitMainPostingFilter />
+        <RecruitMainPosting />
+      </GlobalLayout>
     </StWrapper>
   );
 };
