@@ -5,9 +5,12 @@ export const StButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
+  width: 10rem;
+  height: 4rem;
+  transition: all 0.5s;
 
-  ${({ prupose }) => {
-    switch (prupose) {
+  ${({ purpose }) => {
+    switch (purpose) {
       case "register":
         return css`
           background-color: #d1d5db;
@@ -15,8 +18,6 @@ export const StButton = styled.button`
             0 2px 4px -2px rgb(0 0 0/0.1);
           color: #4b5563;
           font-size: 2rem;
-          width: 10rem;
-          height: 4rem;
           font-weight: 500;
           &:hover {
             background-color: #3b82f6;
@@ -28,8 +29,6 @@ export const StButton = styled.button`
           background-color: transparent;
           color: #3b82f6;
           font-size: 2rem;
-          width: 10rem;
-          height: 4rem;
           font-weight: 500;
           border: 1px solid #eee;
           &:hover {
@@ -44,8 +43,40 @@ export const StButton = styled.button`
             0 2px 4px -2px rgb(0 0 0/0.1);
           color: #4b5563;
           font-size: 2rem;
-          width: 10rem;
-          height: 4rem;
+          font-weight: 500;
+          &:hover {
+            background-color: #3b82f6;
+            color: #fff;
+          }
+        `;
+
+      case "recruit-register":
+        return css`
+          position: absolute;
+          right: 28rem;
+          bottom: 0;
+          background-color: #d1d5db;
+          box-shadow: 0 4px 6px -1px rgb(0 0 0/0.1),
+            0 2px 4px -2px rgb(0 0 0/0.1);
+          color: #4b5563;
+          font-size: 2rem;
+          font-weight: 500;
+          &:hover {
+            background-color: #3b82f6;
+            color: #fff;
+          }
+        `;
+
+      case "step":
+        return css`
+          /* position: absolute;
+          right: 28rem;
+          bottom: 0; */
+          background-color: #d1d5db;
+          box-shadow: 0 4px 6px -1px rgb(0 0 0/0.1),
+            0 2px 4px -2px rgb(0 0 0/0.1);
+          color: #4b5563;
+          font-size: 2rem;
           font-weight: 500;
           &:hover {
             background-color: #3b82f6;
