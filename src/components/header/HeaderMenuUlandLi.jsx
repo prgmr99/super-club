@@ -8,13 +8,16 @@ const HeaderMenuUlandLi = () => {
   return (
     <StHeaderMenuUl>
       <StHeaderMenuLi>
+        <HeaderMenuLink to={SUPER_URL} message="슈퍼코딩" />
+      </StHeaderMenuLi>
+      <StHeaderMenuLi>
         <HeaderMenuLink to="/" message="메인 페이지" />
       </StHeaderMenuLi>
       <StHeaderMenuLi>
         <HeaderMenuLink to="/recruit" message="모집 페이지" />
       </StHeaderMenuLi>
       <StHeaderMenuLi>
-        <HeaderMenuLink to={SUPER_URL} message="슈퍼코딩" />
+        <HeaderMenuLink to="/project/upload" message="등록 페이지" />
       </StHeaderMenuLi>
       <StHeaderMenuLi>
         <HeaderMenuLink to="/my" message="MY" />

@@ -14,6 +14,13 @@ import ProjectDetailSkill from "./project-detail/ProjectDetailSkill.jsx";
 import ProjectDetailTeamMember from "./project-detail/ProjectDetailTeamMember.jsx";
 import ProjectDetailVideo from "./project-detail/ProjectDetailVideo.jsx";
 import ProjectDetailWrap from "./project-detail/ProjectDetailWrap.jsx";
+
+import ProjectAbout from "./project-upload/ProjectAbout";
+import ProjectCategory from "./project-upload/ProjectCategory";
+import ProjectIntro from "./project-upload/ProjectIntro";
+import ProjectTeam from "./project-upload/ProjectTeam";
+import ProjectTechStack from "./project-upload/ProjectTechStack";
+
 export {
   HeaderWrapper,
   BestProject,
@@ -30,4 +37,9 @@ export {
   ProjectDetailTeamMember,
   ProjectDetailVideo,
   ProjectDetailWrap,
+  ProjectAbout,
+  ProjectCategory,
+  ProjectIntro,
+  ProjectTeam,
+  ProjectTechStack,
 };
