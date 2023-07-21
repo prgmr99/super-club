@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const StBestWrapper = styled.div`
   width: 100%;
-  max-width: 1550px;
+  max-width: 1600px;
   border: 1px solid #eee;
   display: flex;
   justify-content: center;

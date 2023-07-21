@@ -11,14 +11,23 @@ const MainPage = () => {
   };
   return (
     <GlobalLayout>
-      <BestProject />
-      <ProjectList />
+      <Div>
+        <BestProject />
+        <ProjectList />
+      </Div>
       <div>
         <Button onClick={navigateToUpload}>Upload</Button>
       </div>
     </GlobalLayout>
   );
 };
+
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Button = styled.button`
   position: fixed;

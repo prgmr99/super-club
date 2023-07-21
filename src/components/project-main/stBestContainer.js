@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const StBestContainer = styled.div`
   top: 45px;
-  width: 1600px;
+  width: 100%;
   border: 1px solid #eee;
   display: flex;
   flex-direction: column;

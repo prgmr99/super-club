@@ -9,7 +9,6 @@ const BestContainer = () => {
   return (
     <StBestContainer>
       <Title>프로JET Top 10</Title>
-
       <StBestBarContainer>
         <PrevBtn>{<FcPrevious />}</PrevBtn>
         <BestBar />
@@ -22,16 +21,16 @@ const BestContainer = () => {
 export default BestContainer;
 
 const Title = styled.div`
-  width: 300px;
+  width: 100%;
   height: 50px;
   border: 1px solid #eee;
-  background-color: #1379ff;
-  color: white;
+  //background-color: #1379ff;
+  color: black;
   font-size: 3rem;
-  margin-bottom: 6rem;
+  margin-bottom: 1rem;
   margin-top: 4rem;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 `;
 
