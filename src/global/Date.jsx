@@ -12,6 +12,10 @@ const Date = ({
 }) => {
   const [state, setState] = useState({ format: "YYYY-MM-DD" });
 
+  // 오늘 날짜 뽑기
+  const today = new DateObject();
+  const string = today.format("YYYY-MM-DD");
+
   const convert = (date, format = state.format) => {
     let object = { date, format };
 
@@ -49,7 +53,8 @@ const Date = ({
         weekDays={weekDays}
         arrow={false}
         animations={[opacity(), transition({ from: 35, duration: 800 })]}
-        value={recruitRequest.endDate}
+        // value={recruitRequest.endDate}
+        value={string}
         onChange={convert}
       />
     </>
