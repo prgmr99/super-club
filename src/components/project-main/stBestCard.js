@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
 export const StBestCard = styled.div`
-  width: 30rem;
-  height: 40rem;
+  width: 40rem;
+  height: 50rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;

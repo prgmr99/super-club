@@ -34,19 +34,19 @@ export default ProjectUploadPage;
 
 const UploadWrapper = styled.div`
   position: relative;
+  top: 80px;
   width: 85%;
-  height: 100%;
-  min-height: 100vh;
+  height: 680px;
   margin: 0 auto;
-  background-color: blue;
+  border: black;
 `;
 
 const ButtonContainer = styled.div`
-  width: 750px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 0 auto;
+  gap: 62rem;
 `;
 
 const PrevButton = styled.button`

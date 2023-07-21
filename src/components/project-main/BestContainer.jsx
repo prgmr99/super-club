@@ -9,6 +9,7 @@ const BestContainer = () => {
   return (
     <StBestContainer>
       <Title>프로JET Top 10</Title>
+
       <StBestBarContainer>
         <PrevBtn>{<FcPrevious />}</PrevBtn>
         <BestBar />
