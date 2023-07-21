@@ -11,4 +11,7 @@ export const StCard = styled.div`
   border: 1px solid black;
   border-radius: 1rem;
   position: relative;
+  &.hovering {
+    translate: scale(1.125);
+  }
 `;

@@ -29,6 +29,8 @@ const Title = styled.div`
   font-size: 3rem;
   margin-bottom: 1rem;
   margin-top: 4rem;
+  padding-left: 8rem;
+  box-sizing: border-box;
   display: flex;
   justify-content: start;
   align-items: center;

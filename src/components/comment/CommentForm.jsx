@@ -13,7 +13,7 @@ const CommentForm = () => {
         </form>
       </div>
       <div className="comment-submit">
-        <Button prupose="register">저장</Button>
+        <Button purpose="register">저장</Button>
       </div>
     </StCommentForm>
   );

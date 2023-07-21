@@ -19,15 +19,7 @@ const ProjectUploadPage = () => {
     4: <ProjectTeam />,
     5: <ProjectCategory />,
   };
-  return (
-    <UploadWrapper>
-      {stepPage[step]}
-      <ButtonContainer>
-        <PrevButton>이전</PrevButton>
-        <NextButton>다음</NextButton>
-      </ButtonContainer>
-    </UploadWrapper>
-  );
+  return <UploadWrapper>{stepPage[step]}</UploadWrapper>;
 };
 
 export default ProjectUploadPage;
@@ -39,21 +31,4 @@ const UploadWrapper = styled.div`
   height: 680px;
   margin: 0 auto;
   border: black;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  gap: 62rem;
-`;
-
-const PrevButton = styled.button`
-  width: 60px;
-  height: 25px;
-`;
-const NextButton = styled.button`
-  width: 60px;
-  height: 25px;
 `;

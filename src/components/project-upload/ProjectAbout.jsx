@@ -16,6 +16,10 @@ const ProjectAbout = () => {
             className="about-textarea"
           ></textarea>
         </AboutTextarea>
+        <ButtonContainer>
+          <PrevButton>이전</PrevButton>
+          <NextButton>다음</NextButton>
+        </ButtonContainer>
       </AboutContainer>
     </AboutWrapper>
   );
@@ -64,4 +68,21 @@ const AboutTextarea = styled.div`
     font-size: 1.6rem;
     line-height: 160%;
   }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+`;
+
+const PrevButton = styled.button`
+  width: 60px;
+  height: 25px;
+`;
+const NextButton = styled.button`
+  width: 60px;
+  height: 25px;
 `;

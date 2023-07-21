@@ -11,4 +11,8 @@ export const StBestCard = styled.div`
   border: 1px solid black;
   border-radius: 1rem;
   position: relative;
+  &:hover {
+    transform: scale(1.02);
+    transition: ease-in-out 0.5s;
+  }
 `;

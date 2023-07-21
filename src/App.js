@@ -6,9 +6,9 @@ import {
   ProjectDetailPage,
   Recruit,
   ProjectUploadPage,
+  RecruitCreatePage,
 } from "./pages";
 import { NotFound, Header, Footer } from "./global";
-import { HeaderWrapper } from "./components";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           <Route path="/project/upload" element={<ProjectUploadPage />} />
           <Route path="/project/detail" element={<ProjectDetailPage />} />
           <Route path="/recruit" element={<Recruit />} />
+          <Route path="/recruit/create" element={<RecruitCreatePage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
