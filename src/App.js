@@ -7,8 +7,9 @@ import {
   Recruit,
   ProjectUploadPage,
   RecruitCreatePage,
+  RecruitDetailPage,
 } from "./pages";
-import { NotFound, Header, Footer } from "./global";
+import { NotFound, Header } from "./global";
 
 function App() {
   return (
@@ -21,11 +22,11 @@ function App() {
           <Route path="/project/detail" element={<ProjectDetailPage />} />
           <Route path="/recruit" element={<Recruit />} />
           <Route path="/recruit/create" element={<RecruitCreatePage />} />
+          <Route path="/recruit/detail" element={<RecruitDetailPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
-      {/* <Footer /> */}
     </>
   );
 }

@@ -16,6 +16,12 @@ export const StProfile = styled.div`
           width: 4.5rem;
           height: 4.5rem;
         `;
+      case "recruit-detail":
+        return css`
+          width: 5rem;
+          height: 5rem;
+        `;
+
       default:
         return css`
           width: 2rem;
