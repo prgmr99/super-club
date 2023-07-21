@@ -1,10 +1,10 @@
 import React from "react";
-import BInfoContainer from "./BInfoContainer";
+import InfoContainer from "./InfoContainer";
 
-const BestInfoContainer = (props) => {
+const NormalInfoContainer = (props) => {
   return (
     <div>
-      <BInfoContainer
+      <InfoContainer
         title={props.title}
         views={props.views}
         description={props.description}
@@ -13,4 +13,4 @@ const BestInfoContainer = (props) => {
   );
 };
 
-export default BestInfoContainer;
+export default NormalInfoContainer;

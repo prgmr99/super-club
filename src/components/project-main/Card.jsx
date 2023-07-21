@@ -1,13 +1,13 @@
 import React from "react";
 import { StCard } from "./stCard";
-import BestImgContainer from "./BestImgContainer";
-import BestInfoContainer from "./BestInfoContainer";
+import NormalImgContainer from "./NormalImgContainer";
+import NormalInfoContainer from "./NormalInfoContainer";
 
 const Card = (props) => {
   return (
     <StCard>
-      <BestImgContainer src={props.src} />
-      <BestInfoContainer
+      <NormalImgContainer src={props.src} />
+      <NormalInfoContainer
         title={props.title}
         views={props.views}
         description={props.description}

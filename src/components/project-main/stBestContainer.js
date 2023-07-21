@@ -1,7 +1,8 @@
 import { styled } from "styled-components";
 
 export const StBestContainer = styled.div`
-  width: 1600px;
+  top: 45px;
+  width: 1550px;
   height: 90%;
   border: 1px solid #eee;
   display: flex;

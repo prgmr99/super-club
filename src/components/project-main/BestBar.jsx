@@ -7,7 +7,6 @@ import BestCard from "./BestCard";
 const BestBar = () => {
   return (
     <StBestBar>
-      <PrevBtn>{<FcPrevious />}</PrevBtn>
       <BestCard
         src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20211203%2Fthumb.jpeg&w=1920&q=75"
         title="InSplace"
@@ -32,23 +31,22 @@ const BestBar = () => {
         views="763"
         description="날씨 정보와 사용자의 선호도를 토대로 만든 알고리즘으로 개인화된 날씨 점수를 제공하는 서비스"
       />
-      <NextBtn>{<FcNext />}</NextBtn>
     </StBestBar>
   );
 };
 
 export default BestBar;
 
-const PrevBtn = styled.div`
-  left: 0;
-  color: #6e93f7;
-  transition: color 0.3s ease;
-  font-size: 50px;
-`;
+// const PrevBtn = styled.div`
+//   left: 0;
+//   color: #6e93f7;
+//   transition: color 0.3s ease;
+//   font-size: 50px;
+// `;
 
-const NextBtn = styled.div`
-  right: 0;
-  color: #6e93f7;
-  transition: color 0.3s ease;
-  font-size: 50px;
-`;
+// const NextBtn = styled.div`
+//   right: 0;
+//   color: #6e93f7;
+//   transition: color 0.3s ease;
+//   font-size: 50px;
+// `;
