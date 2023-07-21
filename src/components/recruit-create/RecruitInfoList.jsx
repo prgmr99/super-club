@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { StDropWrap } from "./stRecruitInfoList";
 import { StSelect } from "./stSelect";
 import Date from "../../global/Date";
@@ -33,7 +33,7 @@ const RecruitInfoList = ({ setStep, step }) => {
     contents: "",
   });
 
-  console.log(recruitRequest);
+  // console.log(recruitRequest);
 
   const onChangeProgress = (e) => {
     console.log(e);
@@ -90,13 +90,11 @@ const RecruitInfoList = ({ setStep, step }) => {
 
   const onClickNext = () => {
     setStep(step + 1);
-    // console.log(idArr, skillArr);
 
     localStorage.setItem("save", JSON.stringify(saveValue));
   };
 
   // const save = JSON.parse(localStorage.getItem("save"));
-  // console.log(save.);
 
   return (
     <StDropWrap>
