@@ -14,8 +14,6 @@ import { NotFound, Header, Footer, Modal } from "./global";
 import { HeaderWrapper } from "./components";
 import RecruitMain from "./components/recruitment-main/RecruitMain";
 
-
-
 function App() {
   return (
     <>

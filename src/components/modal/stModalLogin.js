@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const StModalContent = styled.div`
+export const StModalLogin = styled.div`
   position: fixed;
   z-index: 2;
   top: 50%;

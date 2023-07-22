@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import ModalContent from "../components/modal/ModalContent";
+import ModalLogin from "../components/modal/ModalLogin";
 import { StModal } from "./stModal";
 
 const Modal = () => {
@@ -19,10 +19,7 @@ const Modal = () => {
         createPortal(
           <>
             <div className="modal_bg" onClick={closeHandler} />
-            <ModalContent
-              className="login"
-              onClose={() => setShowModal(false)}
-            />
+            <ModalLogin className="login" onClose={() => setShowModal(false)} />
           </>,
           document.body
         )}

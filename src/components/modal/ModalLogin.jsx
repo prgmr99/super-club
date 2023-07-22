@@ -1,10 +1,10 @@
 import React from "react";
-import { StModalContent } from "./stModalContent";
+import { StModalLogin } from "./stModalLogin";
 import { IoClose } from "react-icons/io5";
 
-const ModalContent = ({ onClose }) => {
+const ModalLogin = ({ onClose }) => {
   return (
-    <StModalContent>
+    <StModalLogin>
       <div className="modal">
         <button className="modal_btn_close" onClick={onClose}>
           <IoClose />
@@ -14,8 +14,8 @@ const ModalContent = ({ onClose }) => {
           <img src="kakao_login_large_narrow.png" alt="카카오로그인버튼" />
         </div>
       </div>
-    </StModalContent>
+    </StModalLogin>
   );
 };
 
-export default ModalContent;
+export default ModalLogin;
