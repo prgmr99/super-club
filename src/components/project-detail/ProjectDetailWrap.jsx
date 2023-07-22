@@ -14,6 +14,8 @@ import CommentList from "../comment/CommentList";
 import CommentForm from "../comment/CommentForm";
 import Reply from "../../global/Reply";
 import { SlBubble } from "react-icons/sl";
+import HeartMark from "./../fixed/HeartMark";
+import Quarter from "../../global/Quarter";
 
 const ProjectDetailWrap = () => {
   return (
@@ -25,16 +27,14 @@ const ProjectDetailWrap = () => {
       <ProjectDetailSkill />
       <ProjectDetailDesc />
       <ProjectDetailTeamMember />
-      <Heart location="project-detail">
-        <AiOutlineHeart />
-        <span>0개</span>
-      </Heart>
+
       <View location="project-detail">
         <div className="view-flex">
           <AiFillEye />
           <span>0회</span>
         </div>
       </View>
+      <Quarter />
 
       {/* 댓글 */}
       <Reply location="project-detail">
@@ -46,6 +46,8 @@ const ProjectDetailWrap = () => {
       <div className="comment-flex">
         <CommentList />
       </div>
+
+      <HeartMark />
     </StWraper>
   );
 };
