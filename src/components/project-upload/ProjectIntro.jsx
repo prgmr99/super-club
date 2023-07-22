@@ -7,12 +7,12 @@ import opacity from "react-element-popper/animations/opacity";
 import Button from "../../global/Button";
 
 const ProjectIntro = ({ setStep, step }) => {
-  const [ssum, setSsum] = useState(true);
+  const [show, setShow] = useState(true);
   const [imgFile, setImgFile] = useState("");
   const [imgChecked, setImgChecked] = useState(true);
-  const [videoChecked, setVideoChecked] = useState(false);
+  const [videoUrl, setvideoUrl] = useState("");
   const imgRef = useRef();
-  const [value, setValue] = useState(new Date());
+  const [value, setValue] = useState([new Date(), new Date()]);
   const [state, setState] = useState({ format: "YYYY-MM-DD" });
   const today = new DateObject();
   const weekDays = ["일", "월", "화", "수", "목", "금", "토"];
@@ -24,35 +24,40 @@ const ProjectIntro = ({ setStep, step }) => {
     endDate: "",
     image: "",
   });
-  const convert = (date, format = state.format) => {
-    let object = { date, format };
-
-    setState({
-      jsDate: date.toDate(),
-      ...object,
-    });
+  //   const convert = (date, format = state.format) => {
+  //     let object = { date, format };
+  //     console.log(date, format);
+  //     console.log(state);
+  //     setState({
+  //       jsDate: date?.toDate(),
+  //       ...object,
+  //     });
+  //   };
+  const handleChange = (event) => {
+    console.log(event);
   };
   const readImg = () => {
-    const file = imgRef.current.files[0];
+    const file = imgRef?.current?.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setImgFile(reader.result);
+      setImgFile(reader?.result);
     };
   };
-
+  console.log(string);
   const handleImg = () => {
-    setVideoChecked(false);
-    setImgChecked(true);
+    setShow(true);
   };
   const handleVideo = () => {
-    setImgChecked(false);
-    setVideoChecked(true);
+    setShow(false);
   };
   const onClickNext = () => {
     setStep(step + 1);
-
     localStorage.setItem("save", JSON.stringify(saveValue));
+  };
+  const handleOnClick = (event) => {
+    console.log(event);
+    //setvideoUrl(event);
   };
   return (
     <IntroWrapper>
@@ -80,32 +85,41 @@ const ProjectIntro = ({ setStep, step }) => {
             />
             <label for="video">영상</label>
           </div>
-          {imgChecked ? (
-            <input
-              type="file"
-              placeholder="사진을 선택해주세요."
-              accept="image/*"
-              onChange={readImg}
-              ref={imgRef}
-              style={imgFile ? { display: "none" } : {}}
-            />
+          {show ? (
+            <>
+              <label className="file-label" htmlFor="filePicture">
+                사진 선택하기
+              </label>
+              <input
+                type="file"
+                placeholder="사진을 선택해주세요."
+                accept="image/*"
+                onChange={readImg}
+                ref={imgRef}
+                className="file-input"
+                id="filePicture"
+              />
+            </>
           ) : (
-            <input
-              type="file"
-              placeholder="영상을 선택해주세요."
-              accept="image/*"
-              onChange={readImg}
-              ref={imgRef}
-              style={imgFile ? { display: "none" } : {}}
-            />
+            <div className="file-link">
+              <StInputLink
+                type="text"
+                placeholder="영상의 링크를 입력해주세요."
+                accept="image/*"
+                onChange={readImg}
+                ref={imgRef}
+                value={videoUrl}
+                id="fileVideo"
+              />
+              <button onClick={handleOnClick}>등록</button>
+            </div>
           )}
-
-          {imgChecked && imgFile && <Img src={imgFile ? imgFile : "noImage"} />}
         </li>
+      </ul>
+      <ul>
         <li>
-          <Test>기간 선택</Test>
-          <div>
-            <label>시작일</label>
+          <Test>진행 기간</Test>
+          <div className="divSsum">
             <DatePicker
               className="blue"
               inputClass="custom-input"
@@ -119,25 +133,29 @@ const ProjectIntro = ({ setStep, step }) => {
               animations={[opacity(), transition({ from: 35, duration: 800 })]}
               // value={recruitRequest.endDate}
               value={string}
-              onChange={convert}
-            />
-            <label>종료일</label>
-            <DatePicker
-              className="blue"
-              inputClass="custom-input"
-              headerOrder={["MONTH_YEAR", "LEFT_BUTTON", "RIGHT_BUTTON"]}
-              render={<InputIcon />}
-              format="YYYY-MM-DD"
-              disableMonthPicker
-              monthYearSeparator="|"
-              weekDays={weekDays}
-              arrow={false}
-              animations={[opacity(), transition({ from: 35, duration: 800 })]}
-              // value={recruitRequest.endDate}
-              value={string}
-              onChange={convert}
+              onChange={handleChange}
+              range
+              dateSeparator=" to "
             />
           </div>
+        </li>
+        <li>
+          <StPreview>
+            {show ? (
+              <Img src={imgFile ? imgFile : "nope"} alt="썸네일 미리보기" />
+            ) : videoUrl ? (
+              <iframe
+                width="100%"
+                height="100%"
+                src={``}
+                title="Project Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            ) : (
+              "nothing"
+            )}
+          </StPreview>
         </li>
       </ul>
       <div className="button-box">
@@ -157,10 +175,9 @@ export default ProjectIntro;
 const IntroWrapper = styled.ul`
   ul {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 4.5rem;
-    gap: 5rem;
+    gap: 10rem;
     li {
       width: 50%;
       display: flex;
@@ -177,10 +194,46 @@ const IntroWrapper = styled.ul`
         }
       }
 
-      div {
+      .divSsum {
         display: flex;
         justify-content: space-between;
-        gap: 3rem;
+        width: 100%;
+        gap: 10rem;
+      }
+      .rmdp-container {
+        width: 100%;
+        input {
+          width: 100%;
+          height: 5.6rem;
+          padding: 0 0.8rem;
+          box-sizing: border-box;
+          border-color: #ccc;
+          border-radius: 8px;
+          color: #333;
+          cursor: pointer;
+          font-size: 1.6rem;
+          /* color: #808080; */
+          color: #1f1f1f;
+          font-weight: 700;
+          &:hover {
+            border-color: #0047ff;
+          }
+          &:focus {
+            border: 2px solid #0047ff;
+            box-shadow: none;
+          }
+          &:focus + svg {
+            stroke: #666;
+          }
+        }
+        svg {
+          width: 2.5rem;
+          height: 2.5rem;
+          margin-right: 0.8rem;
+          stroke: #ccc;
+          transition: all 0.5s;
+          /* fill: pink; */
+        }
       }
     }
   }
@@ -190,18 +243,36 @@ const IntroWrapper = styled.ul`
     justify-content: space-between;
     align-items: center;
   }
+  .file-input {
+    display: none;
+  }
+  .file-label {
+    margin-top: 1rem;
+    font-weight: 200;
+    &:hover {
+      color: #0984e3;
+      transition: ease-in-out 0.5s;
+    }
+    cursor: pointer;
+  }
+  .file-link {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 const StInput = styled.input`
   border: none;
-  outline: gray solid 2px;
+  outline: gray solid 1px;
   border-radius: 1rem;
-  width: 500px;
+  width: 100%;
   height: 60px;
   padding-left: 1.1rem;
   font-weight: bold;
   font-size: 20px;
   margin-top: 10px;
+  box-sizing: border-box;
 `;
 
 const Test = styled.label`
@@ -209,7 +280,27 @@ const Test = styled.label`
 `;
 
 const Img = styled.img`
-  width: 480px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   border-radius: 1.5rem;
+`;
+
+const StPreview = styled.div`
+  width: 100%;
+  height: 350px;
+  border: gray solid 1px;
+  border-radius: 1.5rem;
+  box-shadow: 2px 2px 2px gray;
+  overflow: hidden;
+`;
+
+const StInputLink = styled.input`
+  border: none;
+  outline: gray solid 1px;
+  border-radius: 1rem;
+  width: 90%;
+  height: 27px;
+  padding-left: 1.1rem;
+  font-size: 15px;
+  box-sizing: border-box;
 `;

@@ -23,14 +23,14 @@ const ProjectTeam = ({ setStep, step }) => {
           <StInput type="text" placeholder="팀명을 입력해주세요." />
         </li>
         <li>
-          <Test>Github 주소</Test>
-          <StInput type="text" placeholder="Github 주소를 입력해주세요." />
+          <Test>팀원</Test>
+          <StInput type="text" placeholder="팀원을 입력해주세요." />
         </li>
       </ul>
       <ul>
         <li>
-          <Test>팀원</Test>
-          <StInput type="text" placeholder="팀원을 입력해주세요." />
+          <Test>Github 주소</Test>
+          <StInput type="text" placeholder="Github 주소를 입력해주세요." />
         </li>
         <li>
           <Test>사이트 주소</Test>
@@ -94,14 +94,14 @@ const TeamWrapper = styled.ul`
 `;
 const StInput = styled.input`
   border: none;
-  outline: gray solid 2px;
+  outline: gray solid 1px;
   border-radius: 1rem;
   width: 100%;
   height: 50px;
   box-sizing: border-box;
   padding-left: 1.1rem;
+  font-size: 17px;
   font-weight: bold;
-  font-size: 20px;
   margin-top: 10px;
 `;
 

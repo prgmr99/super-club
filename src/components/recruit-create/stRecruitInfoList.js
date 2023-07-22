@@ -98,5 +98,6 @@ export const StDropWrap = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 100px;
   }
 `;
