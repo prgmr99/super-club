@@ -6,9 +6,9 @@ const GlobalSytle = createGlobalStyle`
   src: url();
 } */
 
-:root{
-
-}
+:root {
+    --main-color: #0047ff;
+  }
 /* reset css */
 body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -41,6 +41,14 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	overflow-x: hidden;
+	.modal_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+  }
 }
 ol, ul {
 	list-style: none;

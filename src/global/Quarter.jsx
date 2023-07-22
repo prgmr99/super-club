@@ -2,11 +2,7 @@ import React from "react";
 import { StQuarter } from "./stQuarter";
 
 const Quarter = () => {
-  return (
-    <>
-      <StQuarter />
-    </>
-  );
+  return <StQuarter />;
 };
 
 export default Quarter;

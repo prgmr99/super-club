@@ -15,11 +15,13 @@ import ProjectDetailTeamMember from "./project-detail/ProjectDetailTeamMember.js
 import ProjectDetailVideo from "./project-detail/ProjectDetailVideo.jsx";
 import ProjectDetailWrap from "./project-detail/ProjectDetailWrap.jsx";
 
+import RecruitMain from "./recruitment-main/RecruitMain";
 import ProjectAbout from "./project-upload/ProjectAbout";
 import ProjectCategory from "./project-upload/ProjectCategory";
 import ProjectIntro from "./project-upload/ProjectIntro";
 import ProjectTeam from "./project-upload/ProjectTeam";
 import ProjectTechStack from "./project-upload/ProjectTechStack";
+
 
 export {
   HeaderWrapper,
@@ -37,6 +39,7 @@ export {
   ProjectDetailTeamMember,
   ProjectDetailVideo,
   ProjectDetailWrap,
+  RecruitMain,
   ProjectAbout,
   ProjectCategory,
   ProjectIntro,

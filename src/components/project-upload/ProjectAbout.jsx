@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
+import Button from "../../global/Button";
 
-const ProjectAbout = () => {
+const ProjectAbout = ({ setStep, step }) => {
+  const [saveValue, setSaveValue] = useState({
+    description: "",
+  });
+
+  const onClickNext = () => {
+    setStep(step + 1);
+    // getItem 사용해서 기존의 값 불러오고 추가하는 식으로 구현하기.
+    localStorage.setItem("save", JSON.stringify({ ...saveValue }));
+  };
   return (
     <AboutWrapper>
       <AboutContainer>
-        <AboutTitle>프로젝트에 대해 소개해주세요.</AboutTitle>
         <AboutSub>
           프로젝트의 목적과 기능을 기반으로 간단하게 작성해주세요.
         </AboutSub>
@@ -16,10 +25,14 @@ const ProjectAbout = () => {
             className="about-textarea"
           ></textarea>
         </AboutTextarea>
-        <ButtonContainer>
-          <PrevButton>이전</PrevButton>
-          <NextButton>다음</NextButton>
-        </ButtonContainer>
+        <div className="button-box">
+          <Button purpose="step" onClick={() => setStep(step - 1)}>
+            이전
+          </Button>
+          <Button purpose="step" onClick={onClickNext}>
+            다음
+          </Button>
+        </div>
       </AboutContainer>
     </AboutWrapper>
   );
@@ -33,19 +46,6 @@ const AboutWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const AboutContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-`;
-
-const AboutTitle = styled.h1`
-  margin-bottom: 1rem;
-  font-weight: 800;
-  font-size: 3rem;
-  line-height: 150%;
 `;
 
 const AboutSub = styled.div`
@@ -70,19 +70,14 @@ const AboutTextarea = styled.div`
   }
 `;
 
-const ButtonContainer = styled.div`
+const AboutContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  width: 100%;
-`;
-
-const PrevButton = styled.button`
-  width: 60px;
-  height: 25px;
-`;
-const NextButton = styled.button`
-  width: 60px;
-  height: 25px;
+  flex-direction: column;
+  align-items: start;
+  .button-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
