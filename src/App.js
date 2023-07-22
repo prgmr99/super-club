@@ -5,27 +5,34 @@ import {
   MyPage,
   ProjectDetailPage,
   Recruit,
+  ProjectUploadPage,
   RecruitCreatePage,
+  RecruitDetailPage,
 } from "./pages";
-import { NotFound, Header, Footer } from "./global";
+
+import { NotFound, Header, Footer, Modal } from "./global";
 import { HeaderWrapper } from "./components";
 import RecruitMain from "./components/recruitment-main/RecruitMain";
+
+
 
 function App() {
   return (
     <>
-      <Header />
       <Router>
+        <Modal />
+        <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/project/upload" element={<ProjectUploadPage />} />
           <Route path="/project/detail" element={<ProjectDetailPage />} />
           <Route path="/recruit" element={<Recruit />} />
           <Route path="/recruit/create" element={<RecruitCreatePage />} />
+          <Route path="/recruit/detail" element={<RecruitDetailPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
-      <Footer />
     </>
   );
 }

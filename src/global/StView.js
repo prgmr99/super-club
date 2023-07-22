@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components";
 
 export const StView = styled.div`
-  background-color: pink;
+  /* background-color: pink; */
   position: relative;
+  display: flex;
+  align-items: center;
   ${({ location }) => {
     switch (location) {
       case "project-detail":
@@ -29,8 +31,9 @@ export const StView = styled.div`
           return css`
             position: absolute;
             right: 0;
-            top: -60px;
+            top: -10px;
           `;
+
         default:
           return css`
             position: static;
