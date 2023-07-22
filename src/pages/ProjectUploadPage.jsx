@@ -10,7 +10,7 @@ import {
 } from "../components";
 
 const ProjectUploadPage = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
 
   const stepPage = {
     1: <ProjectIntro />,
