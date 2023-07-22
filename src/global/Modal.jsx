@@ -10,7 +10,7 @@ const Modal = () => {
       setShowModal(false);
     }
   };
-  console.log(showModal);
+  // console.log(showModal);
 
   return (
     <>

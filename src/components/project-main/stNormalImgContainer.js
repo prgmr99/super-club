@@ -8,7 +8,6 @@ export const StNormalImgContainer = styled.div`
 export const StNormalImg = styled.img`
   display: block;
   box-sizing: border-box;
-  position: absolute;
   height: 17rem;
-  width: 30rem;
+  width: 100%;
 `;

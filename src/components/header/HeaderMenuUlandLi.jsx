@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { StHeaderMenuUl, StHeaderMenuLi } from "./stHeaderMenuUlandLi";
 import HeaderMenuLink from "./HeaderMenuLink";
+import HeaderMyDrop from "./HeaderMyDrop";
 
 const SUPER_URL = "https://supercoding.net/Course/CourseIntro";
 
 const HeaderMenuUlandLi = () => {
+  const [openDrop, setOpenDrop] = useState(false);
+  console.log(openDrop);
+
   return (
     <StHeaderMenuUl>
       <StHeaderMenuLi>
@@ -19,8 +23,12 @@ const HeaderMenuUlandLi = () => {
       <StHeaderMenuLi>
         <HeaderMenuLink to="/project/upload" message="등록 페이지" />
       </StHeaderMenuLi>
-      <StHeaderMenuLi>
-        <HeaderMenuLink to="/mypage" message="MY" />
+      <StHeaderMenuLi
+        onMouseEnter={() => setOpenDrop((prev) => !prev)}
+        onMouseLeave={() => setOpenDrop((prev) => !prev)}
+      >
+        <HeaderMenuLink message="MY" />
+        {openDrop && <HeaderMyDrop />}
       </StHeaderMenuLi>
     </StHeaderMenuUl>
   );

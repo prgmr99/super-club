@@ -8,6 +8,8 @@ import {
   ProjectUploadPage,
   RecruitCreatePage,
   RecruitDetailPage,
+  PostPage,
+  LikePage,
 } from "./pages";
 
 import { NotFound, Header, Modal } from "./global";
@@ -25,7 +27,8 @@ function App() {
           <Route path="/recruit" element={<RecruitMainPage />} />
           <Route path="/recruit/create" element={<RecruitCreatePage />} />
           <Route path="/recruit/detail" element={<RecruitDetailPage />} />
-          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/mypost" element={<PostPage />} />
+          <Route path="/mylikes" element={<LikePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

@@ -6,6 +6,7 @@ export const StStepWrap = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 6rem;
+  /* background-color: pink; */
   h2 {
     font-size: 2.6rem;
     color: #333;
