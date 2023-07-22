@@ -42,6 +42,19 @@ const ProjectCategory = ({ setStep, step }) => {
             // value={saveValue.skill}
           />
         </li>
+        <li>
+          <label>카테고리 (선택)</label>
+          <StSelect
+            className="react-select-container"
+            classNamePrefix="react-select"
+            options={categoryOption}
+            isMulti
+            placeholder="프로젝트 카테고리"
+            noOptionsMessage={() => "옵션이 더 이상 없어요."}
+            onChange={onChangeCategory}
+            // value={saveValue.skill}
+          />
+        </li>
       </ul>
       <div className="button-box">
         <Button purpose="step" onClick={() => setStep(step - 1)}>

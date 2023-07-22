@@ -24,6 +24,7 @@ const ProjectAbout = ({ setStep, step }) => {
             placeholder="프로젝트에 대한 소개글을 10자 이상 작성해주세요."
             className="about-textarea"
           ></textarea>
+          <div className="current-number">0/1500</div>
         </AboutTextarea>
         <div className="button-box">
           <Button purpose="step" onClick={() => setStep(step - 1)}>
@@ -45,6 +46,13 @@ const AboutWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  .current-number {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    color: gray;
+    cursor: default;
+  }
 `;
 
 const AboutSub = styled.div`

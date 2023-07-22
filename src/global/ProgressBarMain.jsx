@@ -11,18 +11,21 @@ const ProgressBar = ({ step }) => {
   useEffect(() => {
     switch (step) {
       case 0:
-        setProgressValue(getProgressWidth(1));
+        setProgressValue(getProgressWidth(0));
         break;
       case 1:
-        setProgressValue(getProgressWidth(2));
+        setProgressValue(getProgressWidth(1));
         break;
       case 2:
-        setProgressValue(getProgressWidth(3));
+        setProgressValue(getProgressWidth(2));
         break;
       case 3:
-        setProgressValue(getProgressWidth(4));
+        setProgressValue(getProgressWidth(3));
         break;
       case 4:
+        setProgressValue(getProgressWidth(4));
+        break;
+      case 5:
         setProgressValue(getProgressWidth(5));
         break;
       default:
