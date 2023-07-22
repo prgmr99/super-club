@@ -23,17 +23,8 @@ const RecruitMainPostingFilter = () => {
           onClick={recuitingHandler}
         />
         {recuiting === true ? "모집중" : "전체"}
-        {console.log(recuiting)}
-        {/* {console.log(recuitingHandler)}
-        {console.log(setRecuiting)} */}
+        {/* {console.log(recuiting)} */}
       </div>
-      {/* <div className="wrapper">
-        <input type="checkbox" id="switch" />
-        <label for="switch" class="switch_label">
-          <span className="checkbox-recruiting">모집중만 보기</span>
-          <span className="onf_btn"></span>
-        </label>
-      </div> */}
     </StPostingFilter>
   );
 };
