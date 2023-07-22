@@ -42,7 +42,6 @@ export default ProjectAbout;
 
 const AboutWrapper = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,12 +60,24 @@ const AboutTextarea = styled.div`
   position: relative;
   .about-textarea {
     width: 100%;
-    min-height: 300px;
-    border-radius: 1rem;
-    padding: 1.5rem;
+    height: 34rem;
+    box-sizing: border-box;
+    resize: none;
+    padding: 1rem;
     outline: none;
-    font-size: 1.6rem;
-    line-height: 160%;
+    font-size: 1.8rem;
+    font-weight: 800;
+    border-radius: 12px;
+    color: #333;
+    border: 1px solid #ccc;
+    &::placeholder {
+      font-weight: 500;
+      color: #8b8b8b;
+      font-size: 1.6rem;
+    }
+    &:focus {
+      border: 2px solid #2563eb;
+    }
   }
 `;
 
@@ -79,5 +90,6 @@ const AboutContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
   }
 `;

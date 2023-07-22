@@ -23,12 +23,14 @@ const ProjectTeam = ({ setStep, step }) => {
           <StInput type="text" placeholder="팀명을 입력해주세요." />
         </li>
         <li>
-          <Test>팀원</Test>
-          <StInput type="text" placeholder="팀원을 입력해주세요." />
-        </li>
-        <li>
           <Test>Github 주소</Test>
           <StInput type="text" placeholder="Github 주소를 입력해주세요." />
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <Test>팀원</Test>
+          <StInput type="text" placeholder="팀원을 입력해주세요." />
         </li>
         <li>
           <Test>사이트 주소</Test>
@@ -43,7 +45,7 @@ const ProjectTeam = ({ setStep, step }) => {
           이전
         </Button>
         <Button purpose="step" onClick={submitProject}>
-          다음
+          업로드
         </Button>
       </div>
     </TeamWrapper>
@@ -52,21 +54,20 @@ const ProjectTeam = ({ setStep, step }) => {
 
 export default ProjectTeam;
 const TeamWrapper = styled.ul`
-  max-width: 80%;
   ul {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 4.5rem;
-    margin-left: 5rem;
-    gap: 5rem;
+    gap: 10rem;
+
     li {
       width: 50%;
       display: flex;
       flex-direction: column;
       align-items: start;
       gap: 1rem;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
 
       label {
         color: #333;
@@ -88,14 +89,16 @@ const TeamWrapper = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 100px;
   }
 `;
 const StInput = styled.input`
   border: none;
   outline: gray solid 2px;
   border-radius: 1rem;
-  width: 400px;
-  height: 40px;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
   padding-left: 1.1rem;
   font-weight: bold;
   font-size: 20px;
@@ -105,4 +108,5 @@ const StInput = styled.input`
 const Test = styled.label`
   font-size: 2.6rem;
   font-weight: bold;
+  margin-top: 1rem;
 `;

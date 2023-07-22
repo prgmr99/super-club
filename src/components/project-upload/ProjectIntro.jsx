@@ -155,13 +155,11 @@ const ProjectIntro = ({ setStep, step }) => {
 export default ProjectIntro;
 
 const IntroWrapper = styled.ul`
-  max-width: 80%;
   ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 4.5rem;
-    margin-left: 5rem;
     gap: 5rem;
     li {
       width: 50%;
@@ -198,7 +196,7 @@ const StInput = styled.input`
   border: none;
   outline: gray solid 2px;
   border-radius: 1rem;
-  width: 750px;
+  width: 500px;
   height: 60px;
   padding-left: 1.1rem;
   font-weight: bold;
