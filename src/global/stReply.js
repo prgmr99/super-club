@@ -7,10 +7,16 @@ export const StReply = styled.div`
   align-items: center;
   margin-left: 2rem;
   gap: 1rem;
+  margin-top: 2rem;
   svg {
     ${({ location }) => {
       switch (location) {
         case "project-detail":
+          return css`
+            width: 4rem;
+            height: 4rem;
+          `;
+        case "recruit-detail":
           return css`
             width: 4rem;
             height: 4rem;

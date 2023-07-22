@@ -4,6 +4,7 @@ import ProjectDetailPage from "./ProjectDetailPage";
 import Recruit from "./Recruit";
 import ProjectUploadPage from "./ProjectUploadPage";
 import RecruitCreatePage from "./RecruitCreatePage";
+import RecruitDetailPage from "./RecruitDetailPage";
 
 export {
   MainPage,
@@ -12,4 +13,5 @@ export {
   Recruit,
   RecruitCreatePage,
   ProjectUploadPage,
+  RecruitDetailPage,
 };
