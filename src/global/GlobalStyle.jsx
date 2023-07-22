@@ -9,6 +9,7 @@ const GlobalSytle = createGlobalStyle`
 :root {
     --main-color: #0047ff;
   }
+
 /* reset css */
 body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

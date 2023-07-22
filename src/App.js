@@ -11,8 +11,10 @@ import {
 } from "./pages";
 
 import { NotFound, Header, Footer, Modal } from "./global";
-import { HeaderWrapper } from "./components";
-import RecruitMain from "./components/recruitment-main/RecruitMain";
+
+// swiper global
+import { register } from "swiper/element/bundle";
+register();
 
 function App() {
   return (
