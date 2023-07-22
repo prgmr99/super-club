@@ -49,6 +49,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     width: 100vw;
     height: 100vh;
+		z-index: 1;
   }
 }
 ol, ul {

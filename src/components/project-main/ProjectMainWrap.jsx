@@ -18,7 +18,6 @@ const ProjectMainWrap = () => {
       {/* 아이템 리스트 */}
       <h2>프로젝트</h2>
       <ProjectList />
-      {/* <ProjectList /> */}
       {/* <Button onClick={navigateToUpload}>Upload</Button> */}
     </StWrap>
   );

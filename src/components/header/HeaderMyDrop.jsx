@@ -2,7 +2,7 @@ import React from "react";
 import { StDrop } from "./stHeaderMyDrop";
 import { useNavigate } from "react-router-dom";
 
-const HeaderMyDrop = () => {
+const HeaderMyDrop = ({ handleLogout }) => {
   const navigate = useNavigate();
   return (
     <StDrop>
@@ -12,7 +12,9 @@ const HeaderMyDrop = () => {
       <div className="item" onClick={() => navigate("/mylikes")}>
         내 관심
       </div>
-      <div className="item">로그아웃</div>
+      <div className="item" onClick={handleLogout}>
+        로그아웃
+      </div>
     </StDrop>
   );
 };
