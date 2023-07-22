@@ -4,7 +4,7 @@ import { GlobalLayout } from "../global";
 import { BestProject, ProjectList } from "../components";
 import { useNavigate } from "react-router-dom";
 
-const MainPage = () => {
+const ProjectMainPage = () => {
   const navigate = useNavigate();
   const navigateToUpload = () => {
     navigate("/project/upload");
@@ -43,4 +43,4 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export default MainPage;
+export default ProjectMainPage;

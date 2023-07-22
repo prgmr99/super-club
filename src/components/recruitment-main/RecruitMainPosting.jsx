@@ -1,6 +1,6 @@
 import React from "react";
 import { StPosting } from "./stRecruitMainPosting";
-import { register } from "swiper/element/bundle";
+// import { register } from "swiper/element/bundle";
 // register();
 
 import { HiOutlineEye, HiUserCircle } from "react-icons/hi";

@@ -1,16 +1,16 @@
-import MainPage from "./MainPage";
+import ProjectMainPage from "./ProjectMainPage";
 import MyPage from "./MyPage";
 import ProjectDetailPage from "./ProjectDetailPage";
-import Recruit from "./Recruit";
+import RecruitMainPage from "./RecruitMainPage";
 import ProjectUploadPage from "./ProjectUploadPage";
 import RecruitCreatePage from "./RecruitCreatePage";
 import RecruitDetailPage from "./RecruitDetailPage";
 
 export {
-  MainPage,
+  ProjectMainPage,
   MyPage,
   ProjectDetailPage,
-  Recruit,
+  RecruitMainPage,
   RecruitCreatePage,
   ProjectUploadPage,
   RecruitDetailPage,
