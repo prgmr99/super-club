@@ -9,12 +9,15 @@ import {
   RecruitCreatePage,
   RecruitDetailPage,
 } from "./pages";
-import { NotFound, Header } from "./global";
+
+import { NotFound, Header, Footer, Modal } from "./global";
+
 
 function App() {
   return (
     <>
       <Router>
+        <Modal />
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
