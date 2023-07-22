@@ -7,17 +7,17 @@ import opacity from "react-element-popper/animations/opacity";
 import Button from "../../global/Button";
 
 const ProjectIntro = ({ setStep, step }) => {
+  const imgRef = useRef();
   const [show, setShow] = useState(true);
   const [imgFile, setImgFile] = useState("");
-  const [imgChecked, setImgChecked] = useState(true);
   const [videoUrl, setvideoUrl] = useState("");
-  const imgRef = useRef();
+  const [tempUrl, setTempUrl] = useState("");
+  const [moveUrl, setMoveUrl] = useState(false);
   const [value, setValue] = useState([new Date(), new Date()]);
   const [state, setState] = useState({ format: "YYYY-MM-DD" });
   const today = new DateObject();
   const weekDays = ["일", "월", "화", "수", "목", "금", "토"];
   const string = today.format("YYYY-MM-DD");
-
   const [saveValue, setSaveValue] = useState({
     name: "",
     startDate: "",
@@ -37,14 +37,16 @@ const ProjectIntro = ({ setStep, step }) => {
     console.log(event);
   };
   const readImg = () => {
-    const file = imgRef?.current?.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImgFile(reader?.result);
-    };
+    if (imgRef.current !== undefined) {
+      const file = imgRef.current.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImgFile(reader?.result);
+      };
+    } else return;
   };
-  console.log(string);
+
   const handleImg = () => {
     setShow(true);
   };
@@ -53,11 +55,17 @@ const ProjectIntro = ({ setStep, step }) => {
   };
   const onClickNext = () => {
     setStep(step + 1);
-    localStorage.setItem("save", JSON.stringify(saveValue));
+    //localStorage.setItem("save", JSON.stringify(saveValue));
   };
-  const handleOnClick = (event) => {
-    console.log(event);
-    //setvideoUrl(event);
+  const handleOnChange = (event) => {
+    console.log(event.target.value);
+    setvideoUrl(event.target.value);
+    setTempUrl(event.target.value);
+  };
+  const handleSubmit = () => {
+    setMoveUrl(true);
+    setTempUrl(tempUrl.slice(-11));
+    setvideoUrl("");
   };
   return (
     <IntroWrapper>
@@ -106,12 +114,12 @@ const ProjectIntro = ({ setStep, step }) => {
                 type="text"
                 placeholder="영상의 링크를 입력해주세요."
                 accept="image/*"
-                onChange={readImg}
+                onChange={handleOnChange}
                 ref={imgRef}
                 value={videoUrl}
                 id="fileVideo"
               />
-              <button onClick={handleOnClick}>등록</button>
+              <button onClick={handleSubmit}>등록</button>
             </div>
           )}
         </li>
@@ -143,11 +151,11 @@ const ProjectIntro = ({ setStep, step }) => {
           <StPreview>
             {show ? (
               <Img src={imgFile ? imgFile : "nope"} alt="썸네일 미리보기" />
-            ) : videoUrl ? (
+            ) : tempUrl && moveUrl ? (
               <iframe
                 width="100%"
                 height="100%"
-                src={``}
+                src={`https://www.youtube.com/embed/${tempUrl}`}
                 title="Project Video"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
