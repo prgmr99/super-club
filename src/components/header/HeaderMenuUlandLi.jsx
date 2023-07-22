@@ -20,7 +20,7 @@ const HeaderMenuUlandLi = () => {
         <HeaderMenuLink to="/project/upload" message="등록 페이지" />
       </StHeaderMenuLi>
       <StHeaderMenuLi>
-        <HeaderMenuLink to="/my" message="MY" />
+        <HeaderMenuLink to="/mypage" message="MY" />
       </StHeaderMenuLi>
     </StHeaderMenuUl>
   );
