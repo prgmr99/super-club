@@ -8,12 +8,13 @@ import {
   ProjectUploadPage,
   RecruitCreatePage,
 } from "./pages";
-import { NotFound, Header, Footer } from "./global";
+import { NotFound, Header, Footer, Modal } from "./global";
 
 function App() {
   return (
     <>
       <Router>
+        <Modal />
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />

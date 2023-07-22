@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const StHeaderWrapper = styled.header`
   width: 100%;
   height: 80px;
-  position: fixed;
+  /* position: fixed; */
   z-index: 999;
   top: 0;
   left: 0;
