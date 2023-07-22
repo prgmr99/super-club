@@ -150,7 +150,13 @@ const ProjectIntro = ({ setStep, step }) => {
         <li>
           <StPreview>
             {show ? (
-              <Img src={imgFile ? imgFile : "nope"} alt="썸네일 미리보기" />
+              <Img
+                src={
+                  imgFile
+                    ? imgFile
+                    : "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
+                }
+              />
             ) : tempUrl && moveUrl ? (
               <iframe
                 width="100%"
@@ -161,7 +167,7 @@ const ProjectIntro = ({ setStep, step }) => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
             ) : (
-              "nothing"
+              <Img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" />
             )}
           </StPreview>
         </li>
