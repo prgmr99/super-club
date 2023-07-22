@@ -1,5 +1,5 @@
-import BestProject from "./project-main/BestProject";
-import ProjectList from "./project-main/ProjectList";
+// import BestProject from "./project-main/BestProject";
+// import ProjectList from "./project-main/ProjectList";
 import HeaderWrapper from "./header/HeaderWrapper";
 
 import Comment from "./comment/Comment.jsx";
@@ -22,11 +22,10 @@ import ProjectIntro from "./project-upload/ProjectIntro";
 import ProjectTeam from "./project-upload/ProjectTeam";
 import ProjectTechStack from "./project-upload/ProjectTechStack";
 
-
 export {
   HeaderWrapper,
-  BestProject,
-  ProjectList,
+  // BestProject,
+  // ProjectList,
   Comment,
   CommentList,
   ReComment,

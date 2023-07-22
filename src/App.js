@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { register } from "swiper/element/bundle";
 import {
   ProjectMainPage,
   MyPage,
@@ -13,6 +14,8 @@ import {
 } from "./pages";
 
 import { NotFound, Header, Modal } from "./global";
+
+register();
 
 function App() {
   return (

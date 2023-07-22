@@ -15,4 +15,5 @@ const StGlobalContainer = styled.div`
   font-weight: bold;
 
   /* border: 1px solid; */
+  /* border: 1px solid; */
 `;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StLikeWrap } from "./stLikesWrap";
-import Card from "../project-main/Card";
-import ProjectList from "../project-main/ProjectList";
+// import Card from "../project-main/Card";
+// import ProjectList from "../project-main/ProjectList";
 
 const LikesWrap = () => {
   const categoryItem = ["프로젝트", "모집 공고"];
@@ -42,7 +42,7 @@ const LikesWrap = () => {
         <Card />
         <Card />
       </div> */}
-      <ProjectList />
+      {/* <ProjectList /> */}
     </StLikeWrap>
   );
 };

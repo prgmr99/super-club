@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+
 const GlobalSytle = createGlobalStyle`
 //웹 폰트
 /* @font-face {

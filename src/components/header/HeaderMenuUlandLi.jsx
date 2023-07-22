@@ -7,7 +7,7 @@ const SUPER_URL = "https://supercoding.net/Course/CourseIntro";
 
 const HeaderMenuUlandLi = () => {
   const [openDrop, setOpenDrop] = useState(false);
-  console.log(openDrop);
+  // console.log(openDrop);
 
   return (
     <StHeaderMenuUl>
