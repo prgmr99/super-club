@@ -1,15 +1,8 @@
 import styled, { css } from "styled-components";
 
-export const StHeart = styled.div`
+export const StMark = styled.div`
   ${({ location }) => {
     switch (location) {
-      case "project-detail":
-        return css`
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-        `;
       case "recruit-detail":
         return css`
           display: flex;
@@ -42,11 +35,6 @@ export const StHeart = styled.div`
     cursor: pointer;
     ${({ location }) => {
       switch (location) {
-        case "project-detail":
-          return css`
-            width: 5rem;
-            height: 5rem;
-          `;
         case "recruit-detail":
           return css`
             width: 4rem;
