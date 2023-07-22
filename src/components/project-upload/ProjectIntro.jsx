@@ -126,6 +126,7 @@ const ProjectIntro = ({ setStep, step }) => {
       </ul>
       <ul>
         <li>
+          <div className="li-ssum"></div>
           <Test>진행 기간</Test>
           <div className="divSsum">
             <DatePicker
@@ -190,7 +191,7 @@ const IntroWrapper = styled.ul`
   ul {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     gap: 10rem;
     li {
       width: 50%;
@@ -199,6 +200,9 @@ const IntroWrapper = styled.ul`
       align-items: start;
       gap: 1rem;
       margin-bottom: 20px;
+      .li-ssum {
+        margin-top: 20px;
+      }
 
       label {
         color: #333;
@@ -212,7 +216,7 @@ const IntroWrapper = styled.ul`
         display: flex;
         justify-content: space-between;
         width: 100%;
-        gap: 10rem;
+        margin-top: 10px;
       }
       .rmdp-container {
         width: 100%;
