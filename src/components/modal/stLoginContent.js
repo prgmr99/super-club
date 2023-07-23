@@ -29,8 +29,9 @@ export const StModalLogin = styled.div`
         width: 4.8rem;
         height: 4.8rem;
         transition: 0.25s ease-in-out;
+        opacity: 0.4;
         &:hover {
-          opacity: 0.4;
+          opacity: 1;
         }
       }
     }

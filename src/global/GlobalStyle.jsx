@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+
 const GlobalSytle = createGlobalStyle`
 //웹 폰트
 /* @font-face {
@@ -49,6 +50,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     width: 100vw;
     height: 100vh;
+		z-index: 1;
   }
 }
 ol, ul {

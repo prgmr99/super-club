@@ -5,7 +5,7 @@ export const StDropWrap = styled.ul`
   ul {
     margin-bottom: 2rem;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
     gap: 5rem;
