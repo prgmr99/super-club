@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { styled } from "styled-components";
+import { StUploadWrapper } from "./stUploadWrapper";
 import ProgressBarMain from "../../global/ProgressBarMain";
 import UploadStepOne from "./UploadStepOne";
 import UploadStepTwo from "./UploadStepTwo";
@@ -22,14 +22,9 @@ const ProjectCreateWrap = () => {
   return (
     <>
       <ProgressBarMain step={step} />
-      <UploadWrapper>{stepPage[step]}</UploadWrapper>
+      <StUploadWrapper>{stepPage[step]}</StUploadWrapper>
     </>
   );
 };
 
 export default ProjectCreateWrap;
-
-const UploadWrapper = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-`;

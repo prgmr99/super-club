@@ -1,6 +1,9 @@
 import React, { useState, useRef } from "react";
 import { styled } from "styled-components";
 import DatePicker, { DateObject } from "react-multi-date-picker";
+import { StIntroWrapper } from "./stIntroWrapper";
+import { StInput, StInputLink } from "./stInputFrom";
+import { StPreview, StImg } from "./stPreviewImg";
 import InputIcon from "react-multi-date-picker/components/input_icon";
 import transition from "react-element-popper/animations/transition";
 import opacity from "react-element-popper/animations/opacity";
@@ -68,14 +71,14 @@ const ProjectIntro = ({ setStep, step }) => {
     setvideoUrl("");
   };
   return (
-    <IntroWrapper>
+    <StIntroWrapper>
       <ul className="introduction">
         <li>
-          <Test>프로젝트 이름</Test>
+          <div className="intro-title">프로젝트 이름</div>
           <StInput type="text" placeholder="프로젝트 이름을 입력해주세요." />
         </li>
         <li>
-          <Test>썸네일 선택</Test>
+          <div className="intro-title">썸네일 선택</div>
           <div>
             <input
               type="radio"
@@ -127,8 +130,8 @@ const ProjectIntro = ({ setStep, step }) => {
       <ul>
         <li>
           <div className="li-ssum"></div>
-          <Test>진행 기간</Test>
-          <div className="divSsum">
+          <div className="intro-title">진행 기간</div>
+          <div className="div-ssum">
             <DatePicker
               className="blue"
               inputClass="custom-input"
@@ -151,7 +154,7 @@ const ProjectIntro = ({ setStep, step }) => {
         <li>
           <StPreview>
             {show ? (
-              <Img
+              <StImg
                 src={
                   imgFile
                     ? imgFile
@@ -168,7 +171,7 @@ const ProjectIntro = ({ setStep, step }) => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
             ) : (
-              <Img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" />
+              <StImg src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" />
             )}
           </StPreview>
         </li>
@@ -181,144 +184,8 @@ const ProjectIntro = ({ setStep, step }) => {
           다음
         </Button>
       </div>
-    </IntroWrapper>
+    </StIntroWrapper>
   );
 };
 
 export default ProjectIntro;
-
-const IntroWrapper = styled.ul`
-  ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    gap: 10rem;
-    li {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      gap: 1rem;
-      margin-bottom: 20px;
-      .li-ssum {
-        margin-top: 20px;
-      }
-
-      label {
-        color: #333;
-        font-weight: bold;
-        .radioLabel {
-          font-size: 2rem;
-        }
-      }
-
-      .divSsum {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 10px;
-      }
-      .rmdp-container {
-        width: 100%;
-        input {
-          width: 100%;
-          height: 5.6rem;
-          padding: 0 0.8rem;
-          box-sizing: border-box;
-          border-color: #ccc;
-          border-radius: 8px;
-          color: #333;
-          cursor: pointer;
-          font-size: 1.6rem;
-          /* color: #808080; */
-          color: #1f1f1f;
-          font-weight: 700;
-          &:hover {
-            border-color: #0047ff;
-          }
-          &:focus {
-            border: 2px solid #0047ff;
-            box-shadow: none;
-          }
-          &:focus + svg {
-            stroke: #666;
-          }
-        }
-        svg {
-          width: 2.5rem;
-          height: 2.5rem;
-          margin-right: 0.8rem;
-          stroke: #ccc;
-          transition: all 0.5s;
-          /* fill: pink; */
-        }
-      }
-    }
-  }
-  .button-box {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .file-input {
-    display: none;
-  }
-  .file-label {
-    margin-top: 1rem;
-    font-weight: 200;
-    &:hover {
-      color: #0984e3;
-      transition: ease-in-out 0.5s;
-    }
-    cursor: pointer;
-  }
-  .file-link {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
-`;
-
-const StInput = styled.input`
-  border: none;
-  outline: gray solid 1px;
-  border-radius: 1rem;
-  width: 100%;
-  height: 60px;
-  padding-left: 1.1rem;
-  font-weight: bold;
-  font-size: 20px;
-  margin-top: 10px;
-  box-sizing: border-box;
-`;
-
-const Test = styled.label`
-  font-size: 2.6rem;
-`;
-
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 1.5rem;
-`;
-
-const StPreview = styled.div`
-  width: 100%;
-  height: 350px;
-  border: gray solid 1px;
-  border-radius: 1.5rem;
-  box-shadow: 2px 2px 2px gray;
-  overflow: hidden;
-`;
-
-const StInputLink = styled.input`
-  border: none;
-  outline: gray solid 1px;
-  border-radius: 1rem;
-  width: 90%;
-  height: 27px;
-  padding-left: 1.1rem;
-  font-size: 15px;
-  box-sizing: border-box;
-`;
