@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { register } from "swiper/element/bundle";
+// import { register } from "swiper/element/bundle";
 import {
   ProjectMainPage,
   ProjectDetailPage,
@@ -14,12 +14,7 @@ import {
 
 import { NotFound, Header, Footer } from "./global";
 
-
-
-
-
-register();
-
+// register();
 
 function App() {
   return (
