@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StIntro } from "./stCreateIntro";
 import Button from "../global/Button";
-<<<<<<< HEAD
+
 import { useLocation } from "react-router-dom";
+import Confirm from "../global/Confirm";
 
 const CreateIntro = ({ setStep }) => {
+  const [openConfirm, setOpenConfirm] = useState(false);
+
   const location = useLocation();
-  console.log(location.pathname);
-=======
 
-const CreateIntro = ({ setStep }) => {
->>>>>>> parent of 9e09a24 (feat #18 : 임시저장 기능 완료)
   const recruitIntro = [
     {
       id: 1,
@@ -77,9 +76,32 @@ const CreateIntro = ({ setStep }) => {
     setStep(1);
   };
 
+  // 임시 저장이 있는지 없는지 확인하는 함수
+  const checkConfirm = () => {
+    if (openConfirm) {
+      return <Confirm setStep={setStep} setOpenConfirm={setOpenConfirm} />;
+    } else {
+      return (
+        <div className="intro_desc">
+          <h2>공고문을 등록해봅시다!</h2>
+          <div className="intro_desc_order">{divideRecruit(recruitIntro)}</div>
+          <Button purpose="recruit-register" onClick={goNextStep}>
+            등록하기
+          </Button>
+        </div>
+      );
+    }
+  };
+
+  useEffect(() => {
+    const savedItem = localStorage.getItem("saveItem");
+    if (savedItem) {
+      setOpenConfirm(true);
+    }
+  }, []);
+
   return (
     <StIntro>
-<<<<<<< HEAD
       {location.pathname === "/project/upload" ? (
         <div className="intro_desc">
           <h2>프로젝트를 등록해봅시다!</h2>
@@ -93,23 +115,8 @@ const CreateIntro = ({ setStep }) => {
           </Button>
         </div>
       ) : (
-        <div className="intro_desc">
-          <h2>공고문을 등록해봅시다!</h2>
-          <div className="intro_desc_order">{divideRecruit(recruitIntro)}</div>
-          <Button purpose="recruit-register" onClick={goNextStep}>
-            등록하기
-          </Button>
-        </div>
+        <>{checkConfirm()}</>
       )}
-=======
-      <div className="intro_desc">
-        <h2>공고문을 등록해봅시다!</h2>
-        <div className="intro_desc_order">{divideRecruit()}</div>
-        <Button purpose="recruit-register" onClick={goNextStep}>
-          등록하기
-        </Button>
-      </div>
->>>>>>> parent of 9e09a24 (feat #18 : 임시저장 기능 완료)
     </StIntro>
   );
 };

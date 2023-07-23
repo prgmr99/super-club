@@ -12,7 +12,9 @@ const DatePick = ({ onChangeEndDate }) => {
     onChangeEndDate(new DateObject(e).format("YYYY-MM-DD"));
   };
 
-  console.log(dateValue);
+  useEffect(() => {
+    onChangeDate(new DateObject().format("YYYY-MM-DD"));
+  }, []);
 
   const weekDays = ["일", "월", "화", "수", "목", "금", "토"];
   return (

@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from "react";
-// import { register } from "swiper/element/bundle";
+
 import View from "../../global/View";
 import { AiOutlineHeart, AiFillEye } from "react-icons/ai";
 
-import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 import { StCurrent } from "./stCurrentSlide";
 
