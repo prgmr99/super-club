@@ -1,6 +1,9 @@
 import { createStore, combineReducers } from "redux";
+import recruit from "./modules/recruit";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  recruit,
+});
 
 const store = createStore(rootReducer);
 

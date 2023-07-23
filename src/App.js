@@ -8,7 +8,7 @@ import {
   RecruitCreatePage,
 } from "./pages";
 import { NotFound, Header, Footer } from "./global";
-import { HeaderWrapper } from "./components";
+// import { HeaderWrapper } from "./components";
 
 function App() {
   return (

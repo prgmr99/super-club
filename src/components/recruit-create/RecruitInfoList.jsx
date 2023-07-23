@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StDropWrap } from "./stRecruitInfoList";
 import { StSelect } from "./stSelect";
-import Date from "../../global/Date";
 import Button from "../../global/Button";
 import {
   positionOption,
@@ -9,8 +8,14 @@ import {
   methodOption,
   skillOption,
 } from "./data/recruitOption";
+import { useDispatch, useSelector } from "react-redux";
+import DatePick from "../../global/DatePick";
 
 const RecruitInfoList = ({ setStep, step }) => {
+  const dispatch = useDispatch();
+  const recruit = useSelector((state) => state.recruit);
+  console.log("recruit :", recruit);
+
   // data
   const [recruitRequest, setRecruitRequest] = useState({
     progress: 0,
@@ -99,7 +104,7 @@ const RecruitInfoList = ({ setStep, step }) => {
   return (
     <StDropWrap>
       <ul className="test">
-        <li>
+        {/* <li>
           <label>진행 방식 *</label>
           <StSelect
             className="react-select-container"
@@ -110,8 +115,8 @@ const RecruitInfoList = ({ setStep, step }) => {
             // value={}
             onChange={onChangeProgress}
           />
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <label>진행 기간 *</label>
           <StSelect
             className="react-select-container"
@@ -121,10 +126,10 @@ const RecruitInfoList = ({ setStep, step }) => {
             // value={saveValue.duration}
             onChange={onChangeDuration}
           />
-        </li>
+        </li> */}
       </ul>
       <ul>
-        <li>
+        {/* <li>
           <label>모집 포지션 *</label>
           <StSelect
             className="react-select-container"
@@ -136,14 +141,14 @@ const RecruitInfoList = ({ setStep, step }) => {
             onChange={onChangePosition}
             // value={saveValue.position}
           />
-        </li>
+        </li> */}
         <li>
           <label>모집 마감일 *</label>
-          <Date
-            recruitRequest={recruitRequest}
-            setRecruitRequest={setRecruitRequest}
-            saveValue={saveValue.endDate}
-            setSaveValue={setSaveValue}
+          <DatePick
+          // recruitRequest={recruitRequest}
+          // setRecruitRequest={setRecruitRequest}
+          // saveValue={saveValue.endDate}
+          // setSaveValue={setSaveValue}
           />
         </li>
       </ul>
