@@ -1,7 +1,8 @@
 import React from "react";
+import PostWrap from "../components/my/PostWrap";
 
 const PostPage = () => {
-  return <div>Post</div>;
+  return <PostWrap />;
 };
 
 export default PostPage;

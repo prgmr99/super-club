@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import ModalContent from "../modal/ModalContent";
+
 import { StLogin } from "./stLoginModal";
+import LoginContent from "../modal/LoginContent";
 
 const LoginModal = ({ setToken }) => {
   const [showModal, setShowModal] = useState(false);
@@ -18,7 +19,7 @@ const LoginModal = ({ setToken }) => {
         createPortal(
           <>
             <div className="modal_bg" onClick={closeHandler} />
-            <ModalContent
+            <LoginContent
               className="login"
               onClose={() => setShowModal(false)}
               setToken={setToken}

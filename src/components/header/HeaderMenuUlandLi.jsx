@@ -8,18 +8,18 @@ const SUPER_URL = "https://supercoding.net/Course/CourseIntro";
 
 const HeaderMenuUlandLi = () => {
   const [openDrop, setOpenDrop] = useState(false);
-  console.log("openDrop :", openDrop);
+  // console.log("openDrop :", openDrop);
 
   const [token, setToken] = useState(localStorage.getItem("token"));
-  console.log("token :", token);
+  // console.log("token :", token);
 
   useEffect(() => {
-    console.log("useEffect");
+    // console.log("useEffect");
     setToken(localStorage.getItem("token"));
   }, [token]);
 
   const handleLogout = () => {
-    console.log("로그아웃 눌러");
+    // console.log("로그아웃 눌러");
     localStorage.removeItem("token");
     setOpenDrop(false); // 로그아웃 후 드롭다운을 닫습니다.
   };
@@ -42,14 +42,16 @@ const HeaderMenuUlandLi = () => {
         onMouseOver={() => setOpenDrop(true)}
         onMouseOut={() => setOpenDrop(false)}
       >
-        {token ? (
+        <HeaderMenuLink message="MY" />
+        {openDrop && <HeaderMyDrop />}
+        {/* {token ? (
           <HeaderMenuLink message="MY" />
         ) : (
           <LoginModal setToken={setToken} />
         )}
-        {openDrop === true && token === "abc" ? (
+        {openDrop === false && token === "abc" ? (
           <HeaderMyDrop handleLogout={handleLogout} />
-        ) : null}
+        ) : null} */}
       </StHeaderMenuLi>
     </StHeaderMenuUl>
   );
