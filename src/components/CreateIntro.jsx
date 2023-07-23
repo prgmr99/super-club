@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StIntro } from "./stCreateIntro";
 import Button from "../global/Button";
+import Confirm from "./../global/Confirm";
 
 const CreateIntro = ({ setStep }) => {
+  const [openConfirm, setOpenConfirm] = useState(false);
+  // console.log(openConfirm);
+
   const recruitIntro = [
     {
       id: 1,
@@ -33,18 +37,31 @@ const CreateIntro = ({ setStep }) => {
   };
 
   const goNextStep = () => {
-    setStep(1);
+    const savedData = localStorage.getItem("saveItem");
+    if (savedData) {
+      setOpenConfirm(true);
+    } else {
+      setStep(1);
+    }
   };
+
+  useEffect(() => {
+    // goNextStep();
+  }, []);
 
   return (
     <StIntro>
-      <div className="intro_desc">
-        <h2>공고문을 등록해봅시다!</h2>
-        <div className="intro_desc_order">{divideRecruit()}</div>
-        <Button purpose="recruit-register" onClick={goNextStep}>
-          등록하기
-        </Button>
-      </div>
+      {openConfirm ? (
+        <Confirm setOpenConfirm={setOpenConfirm} setStep={setStep} />
+      ) : (
+        <div className="intro_desc">
+          <h2>공고문을 등록해봅시다!</h2>
+          <div className="intro_desc_order">{divideRecruit()}</div>
+          <Button purpose="recruit-register" onClick={goNextStep}>
+            등록하기
+          </Button>
+        </div>
+      )}
     </StIntro>
   );
 };

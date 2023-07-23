@@ -27,12 +27,14 @@ export const StButton = styled.button`
       case "cancel":
         return css`
           background-color: transparent;
-          color: #3b82f6;
+          color: #4b5563;
           font-size: 2rem;
           font-weight: 500;
-          border: 1px solid #eee;
+          border: 1px solid #d1d5db;
           &:hover {
-            border: 2px solid #3b82f6;
+            /* border: 2px solid #3b82f6; */
+            background-color: #d1d5db;
+            color: #3b82f6;
           }
         `;
 

@@ -28,17 +28,18 @@ const recruit = (state = initalState, action) => {
   switch (action.type) {
     case ADD_RECRUIT:
       // console.log("id :", action.payload.progress.id);
-      const progressId = action.payload.progress.id;
-      const positionArr = action.payload.position.map((el) => el.id);
-      const durationValue = action.payload.duration.value;
+      const progress = action.payload.progress.id;
+      const position = action.payload.position.map((el) => el.id);
+      const duration = action.payload.duration.value;
+      const skill = action.payload.skill.map((el) => el.id);
 
       return {
         ...state,
-        progress: progressId,
-        position: positionArr,
-        durationValue: durationValue,
+        progress,
+        position,
+        duration,
         endDate: action.payload.endDate,
-        skill: action.payload.skill,
+        skill,
         github: action.payload.github,
         title: action.payload.title,
         contents: action.payload.contents,
