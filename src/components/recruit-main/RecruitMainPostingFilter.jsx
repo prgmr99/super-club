@@ -6,6 +6,7 @@ const RecruitMainPostingFilter = () => {
 
   const recuitingHandler = (e) => {
     e.target.checked ? setRecuiting(true) : setRecuiting(false);
+    console.log(e);
   };
 
   return (
@@ -16,14 +17,21 @@ const RecruitMainPostingFilter = () => {
         <li>조회수 순</li>
       </ul>
       <div className="recruit_checking">
-        <label htmlFor="checkbox-recruiting">모집중만 보기</label>
-        <input
-          type="checkbox"
-          id="checkbox-recruiting"
-          onClick={recuitingHandler}
-        />
-        {recuiting === true ? "모집중" : "전체"}
-        {/* {console.log(recuiting)} */}
+        <div className="recruit_checking_title">모집중만 보기</div>
+        <div className="recruit_checking_switch">
+          <input
+            type="checkbox"
+            id="checkbox-recruiting"
+            hidden
+            onClick={recuitingHandler}
+          />
+          {/* {recuiting === true ? "모집중" : "전체"} */}
+          {recuiting === true ? "" : ""}
+          {/* {console.log(recuiting)} */}
+          <label htmlFor="checkbox-recruiting" className="switch_toggle">
+            <span className="switch_toggle_btn"></span>
+          </label>
+        </div>
       </div>
     </StPostingFilter>
   );

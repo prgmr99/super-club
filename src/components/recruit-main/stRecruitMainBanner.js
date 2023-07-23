@@ -3,17 +3,18 @@ import { styled } from "styled-components";
 export const StBanner = styled.div`
   display: flex;
   swiper-container {
+    cursor: pointer;
     background-color: #888;
     max-width: 100%;
     height: 330px;
     margin-bottom: 10px;
     display: flex;
-    background-color: #6aa8ff;
+    background-color: #161774;
     swiper-slide {
       display: flex;
       width: 100%;
       height: 100%;
-
+      transition: 0.5s ease-in-out;
       .swiper-slide_item {
         width: 100%;
         display: flex;
@@ -44,7 +45,6 @@ export const StBanner = styled.div`
             width: 100%;
             align-items: center;
           }
-
           h3 {
             display: flex;
             justify-content: flex-start;
@@ -130,14 +130,13 @@ export const StBanner = styled.div`
         }
       }
       .banner_community {
-        background-color: #6aa8ff;
-        opacity: rgba;
+        background-color: #0e2568;
       }
       .banner_project {
-        background-color: #563a2e;
+        background-color: #75635b;
       }
       .banner_levelup {
-        background-color: #421989;
+        background-color: #236547;
       }
     }
   }

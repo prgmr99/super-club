@@ -11,86 +11,85 @@ export const StPostingFilter = styled.div`
     align-items: center;
     gap: 15px;
     li {
+      color: #b8b8b8;
       cursor: pointer;
+      user-select: none;
       font-size: 1.8rem;
       font-weight: 600;
+      transition: 0.3s ease-in-out;
+      @media (max-width: 1380px) {
+        font-size: 1.6rem;
+      }
+      @media (max-width: 920px) {
+        font-size: 1.5rem;
+      }
+      @media (max-width: 760px) {
+        font-size: 1.4rem;
+      }
+    }
+    li:first-child {
+      color: #000;
+    }
+    li:hover {
+      color: #000;
     }
   }
   .recruit_checking {
-    cursor: pointer;
+    user-select: none;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 15px;
-    label {
+    gap: 10px;
+    &_title {
+      display: flex;
       font-size: 1.8rem;
       font-weight: 600;
+      @media (max-width: 1380px) {
+        font-size: 1.6rem;
+      }
+      @media (max-width: 920px) {
+        font-size: 1.5rem;
+      }
+      @media (max-width: 760px) {
+        font-size: 1.4rem;
+      }
+    }
+    @media (max-width: 560px) {
+      gap: 6px;
+    }
+    &_switch {
+      margin-bottom: 2px;
     }
   }
 
-  /* .wrapper {
+  .switch_toggle {
     width: 50px;
-    height: 50px;
-    text-align: center;
-    margin: 50px auto;
-  }
-  #switch {
-    position: absolute;
-    /* hidden */
-  /*
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-
-  .switch_label {
+    height: 26px;
+    display: flex;
     position: relative;
+    border-radius: 30px;
+    background-color: #fff;
+    border: 1px solid #eee;
     cursor: pointer;
-    display: inline-block;
-    width: 58px;
-    height: 28px;
+    transition: all 0.2s ease-in;
+    &_btn {
+      width: 22px;
+      height: 22px;
+      position: absolute;
+      top: 50%;
+      left: 2px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background-color: var(--main-color);
+      transition: all 0.2s ease-in;
+    }
+  }
+  #checkbox-recruiting:checked ~ .switch_toggle {
+    background-color: var(--main-color);
+  }
+
+  #checkbox-recruiting:checked ~ .switch_toggle .switch_toggle_btn {
+    left: calc(100% - 24px);
     background: #fff;
-    border: 2px solid #daa;
-    border-radius: 20px;
-    transition: 0.2s;
   }
-  .switch_label:hover {
-    background: #efefef;
-  }
-  .checkbox-recruiting {
-    position: absolute;
-    left: -98px;
-    top: 7px;
-  }
-
-  .onf_btn {
-    position: absolute;
-    top: 4px;
-    left: 3px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    background: #daa;
-    transition: 0.2s;
-  }*/
-
-  /* checking style */
-  /*
-  #switch:checked + .switch_label {
-    background: #c44;
-    border: 2px solid #c44;
-  }
-
-  #switch:checked + .switch_label:hover {
-    background: #e55;
-  }
-
-  /* move */
-  /*
-  #switch:checked + .switch_label .onf_btn {
-    left: 34px;
-    background: #fff;
-    box-shadow: 1px 2px 3px #00000020;
-  }*/
 `;
