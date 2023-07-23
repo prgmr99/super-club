@@ -8,7 +8,7 @@ export const StIntroduce = styled.div`
   justify-content: center;
   position: relative;
   font-size: 1.7rem;
-  gap: 1.5rem;
+  gap: 2rem;
   label {
     width: 90%;
     display: flex;
@@ -37,23 +37,13 @@ export const StIntroduce = styled.div`
       border: 2px solid #0047ff;
     }
   }
-  .title-box {
-    /* background-color: pink; */
+  .sub {
     width: 90%;
+    color: gray;
     display: flex;
-    flex-direction: column;
-    align-items: start;
-    .sub {
-      margin-top: 1rem;
-      width: 90%;
-      color: gray;
-      display: flex;
-      text-align: start;
-      font-size: 1.6rem;
-      cursor: default;
-    }
+    text-align: start;
+    cursor: default;
   }
-
   textarea {
     width: 90%;
     height: 34rem;

@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { StIntro } from "./stCreateIntro";
 import Button from "../global/Button";
+<<<<<<< HEAD
 import { useLocation } from "react-router-dom";
 
 const CreateIntro = ({ setStep }) => {
   const location = useLocation();
   console.log(location.pathname);
+=======
+
+const CreateIntro = ({ setStep }) => {
+>>>>>>> parent of 9e09a24 (feat #18 : 임시저장 기능 완료)
   const recruitIntro = [
     {
       id: 1,
@@ -69,20 +74,12 @@ const CreateIntro = ({ setStep }) => {
   };
 
   const goNextStep = () => {
-    const savedData = localStorage.getItem("saveItem");
-    if (savedData) {
-      setOpenConfirm(true);
-    } else {
-      setStep(1);
-    }
+    setStep(1);
   };
-
-  useEffect(() => {
-    // goNextStep();
-  }, []);
 
   return (
     <StIntro>
+<<<<<<< HEAD
       {location.pathname === "/project/upload" ? (
         <div className="intro_desc">
           <h2>프로젝트를 등록해봅시다!</h2>
@@ -104,6 +101,15 @@ const CreateIntro = ({ setStep }) => {
           </Button>
         </div>
       )}
+=======
+      <div className="intro_desc">
+        <h2>공고문을 등록해봅시다!</h2>
+        <div className="intro_desc_order">{divideRecruit()}</div>
+        <Button purpose="recruit-register" onClick={goNextStep}>
+          등록하기
+        </Button>
+      </div>
+>>>>>>> parent of 9e09a24 (feat #18 : 임시저장 기능 완료)
     </StIntro>
   );
 };
