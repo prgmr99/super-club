@@ -60,6 +60,10 @@ export const StDropWrap = styled.ul`
           /* fill: pink; */
         }
       }
+      .valid {
+        font-size: 1.2rem;
+        color: red;
+      }
     }
   }
 

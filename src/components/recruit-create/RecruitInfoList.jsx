@@ -21,8 +21,47 @@ const RecruitInfoList = ({
   // addRecruit
   const dispatch = useDispatch();
 
+  const [errors, setErrors] = useState({});
+
+  // 날짜 포맷 맞추는 함수 YYYY-MM-DD
+  let now = () => {
+    let now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+
+    const formatDate = `${year}-${month.toString().padStart(2, "0")}-${day
+      .toString()
+      .padStart(2, "0")}`;
+
+    return formatDate;
+  };
+
+  // 유효성 검사
   const validate = () => {
+    const today = now();
+
     let errors = {};
+    if (recruitRequest.progress.length === 0) {
+      errors.progress = "진행방식을 선택해주세요.";
+    }
+    if (recruitRequest.duration.length === 0) {
+      errors.duration = "진행기간을 선택해주세요.";
+    }
+    if (recruitRequest.position.length === 0) {
+      errors.position = "최소 하나는 선택해주세요.";
+    }
+    if (recruitRequest.endDate === "") {
+      errors.endDate = "최소 하루 다음날로 지정하셔야해요.";
+    } else if (recruitRequest.endDate < today) {
+      errors.endDate = "오늘 보다 전날은 안돼요.";
+    }
+    if (recruitRequest.skill.length === 0) {
+      errors.skill = "최소 하나는 선택해주세요.";
+    } else if (recruitRequest.skill.length > 10) {
+      errors.skill = "최대 10개 선택이 가능합니다.";
+    }
+    return errors;
   };
 
   const onChangeProgress = (e) => {
@@ -64,9 +103,14 @@ const RecruitInfoList = ({
   };
 
   const onClickNext = () => {
-    localStorage.setItem("saveItem", JSON.stringify(recruitRequest));
-    dispatch(addRecruit(recruitRequest));
-    setStep(step + 1);
+    const errors = validate();
+    if (Object.keys(errors).length === 0) {
+      localStorage.setItem("saveItem", JSON.stringify(recruitRequest));
+      dispatch(addRecruit(recruitRequest));
+      setStep(step + 1);
+    } else {
+      setErrors(errors);
+    }
   };
 
   useEffect(() => {
@@ -75,9 +119,9 @@ const RecruitInfoList = ({
       setRecruitRequest(JSON.parse(savedData));
     } else {
       setRecruitRequest({
-        progress: 0,
+        ...recruitRequest,
+        progress: "",
         position: [],
-        endDate: "",
         skill: [],
         github: "",
         title: "",
@@ -101,6 +145,7 @@ const RecruitInfoList = ({
             value={recruitRequest.progress}
             onChange={onChangeProgress}
           />
+          {errors.progress && <div className="valid">{errors.progress}</div>}
         </li>
         <li>
           <label>진행 기간 *</label>
@@ -113,6 +158,7 @@ const RecruitInfoList = ({
             value={recruitRequest.duration}
             onChange={onChangeDuration}
           />
+          {errors.duration && <div className="valid">{errors.duration}</div>}
         </li>
       </ul>
       <ul>
@@ -128,10 +174,12 @@ const RecruitInfoList = ({
             onChange={onChangePosition}
             value={recruitRequest.position}
           />
+          {errors.position && <div className="valid">{errors.position}</div>}
         </li>
         <li>
           <label>모집 마감일 *</label>
           <DatePick onChangeEndDate={onChangeEndDate} />
+          {errors.endDate && <div className="valid">{errors.endDate}</div>}
         </li>
       </ul>
 
@@ -148,6 +196,7 @@ const RecruitInfoList = ({
             onChange={onChangeSkill}
             value={recruitRequest.skill}
           />
+          {errors.skill && <div className="valid">{errors.skill}</div>}
         </li>
       </ul>
       <ul>

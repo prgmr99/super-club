@@ -9,7 +9,7 @@ const RecruitCreateWrap = () => {
   const [step, setStep] = useState(0);
 
   const [recruitRequest, setRecruitRequest] = useState({
-    progress: 0,
+    progress: "",
     position: [],
     endDate: "",
     skill: [],
