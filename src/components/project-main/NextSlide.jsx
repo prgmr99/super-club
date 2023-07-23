@@ -2,7 +2,7 @@ import React from "react";
 import { StSubSlide } from "./stNextSlide";
 import { AiOutlineHeart } from "react-icons/ai";
 
-const NextSlide = () => {
+const NextSlide = ({ src }) => {
   return (
     // <div className="sub-slide">
     //   <swiper-container
@@ -55,10 +55,7 @@ const NextSlide = () => {
     // </div>
     <StSubSlide className="sub-slide">
       <div className="item">
-        <img
-          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20211203%2Fthumb.jpeg&w=1920&q=75"
-          alt=""
-        />
+        <img src={src} alt="" />
         <AiOutlineHeart className="heart" />
       </div>
 
