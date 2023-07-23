@@ -13,7 +13,16 @@ const StGlobalContainer = styled.div`
   margin: 0 auto;
   font-size: 24px;
   font-weight: bold;
-
-  /* border: 1px solid; */
-  /* border: 1px solid; */
+  @media (max-width: 1700px) {
+    max-width: 150rem;
+  }
+  @media (max-width: 1560px) {
+    max-width: 134rem;
+  }
+  @media (max-width: 1380px) {
+    max-width: 120rem;
+  }
+  @media (max-width: 1240px) {
+    max-width: 90%;
+  }
 `;
