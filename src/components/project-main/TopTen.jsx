@@ -16,6 +16,9 @@ const TopTen = () => {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(1);
   const [back, setBack] = useState(false);
+  const changeBack = (value) => {
+    setBack(value);
+  };
   const changeIndex = (value) => {
     setIndex(value);
     // console.log(value);
@@ -79,6 +82,7 @@ const TopTen = () => {
   ];
   console.log(index);
   console.log((index + 1) % 4);
+  console.log(back);
   // const dataMap = () =>{
   //   return data.map((el,index)=>(
 
@@ -89,13 +93,37 @@ const TopTen = () => {
   return (
     <StTop>
       <h2>프로JET Top 10</h2>
-      <AnimatePresence mode="wait">
-        <div className="slide">
-          <CurrentSlide data={testData[index]} />
-          <NextSlide src={testData[(index + 1) % 4].src} />
-          <SlideControl changeIndex={changeIndex} />
-        </div>
-      </AnimatePresence>
+      <div className="slide">
+        <AnimatePresence>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: !back ? 200 : -200 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: back ? 200 : -200 }}
+            transition={{
+              x: { type: "spring", damping: 30, stiffness: 300 },
+              opacity: { duration: 0.2 },
+            }}
+          >
+            <CurrentSlide data={testData[index]} />
+          </motion.div>
+        </AnimatePresence>
+        <AnimatePresence>
+          <motion.div
+            key={(index + 1) % 4}
+            initial={{ opacity: 0, x: !back ? 200 : -200 }}
+            animate={{ opacity: 1, x: 0, zIndex: 1 }}
+            exit={{ opacity: 0, x: back ? 200 : -200 }}
+            transition={{
+              x: { type: "spring", damping: 30, stiffness: 300 },
+              opacity: { duration: 0.2 },
+            }}
+          >
+            <NextSlide src={testData[(index + 1) % 4].src} />
+          </motion.div>
+        </AnimatePresence>
+        <SlideControl changeIndex={changeIndex} changeBack={changeBack} />
+      </div>
     </StTop>
   );
 };

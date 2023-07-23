@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
 import { StSlideControl } from "./stSlideControl";
 
-const SlideControl = ({ changeIndex }) => {
+const SlideControl = ({ changeIndex, changeBack }) => {
   const [pages, setPages] = useState(0);
+  const [back, setBack] = useState(false);
   const increaseIndex = () => {
     setPages((pages + 1) % 4);
     changeIndex((pages + 1) % 4);
+    changeBack(false);
   };
   const decreaseIndex = () => {
     setPages((pages - 1 + 4) % 4);
     changeIndex((pages - 1 + 4) % 4);
+    changeBack(true);
   };
   //console.log(pages);
   return (
