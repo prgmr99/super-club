@@ -12,9 +12,14 @@ import {
   LikePage,
 } from "./pages";
 
-import { NotFound, Header } from "./global";
+import { NotFound, Header, Footer } from "./global";
+
+
+
+
 
 register();
+
 
 function App() {
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import Quarter from "./../../global/Quarter";
 import RecruitInfoList from "./RecruitInfoList";
 import { StStepWrap } from "./stRecruitStep";
+import { useSelector } from "react-redux";
 
 const RecruitCreateStepOne = ({ setStep, step }) => {
   return (
