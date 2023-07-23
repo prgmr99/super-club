@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StDropWrap } from "./stRecruitInfoList";
 import { StSelect } from "./stSelect";
-import Date from "../../global/Date";
 import Button from "../../global/Button";
 import {
   positionOption,
@@ -9,96 +8,75 @@ import {
   methodOption,
   skillOption,
 } from "./data/recruitOption";
+import { useDispatch, useSelector } from "react-redux";
+import DatePick from "../../global/DatePick";
+import { addRecruit } from "../../modules/recruit";
 
-const RecruitInfoList = ({ setStep, step }) => {
-  // data
-  const [recruitRequest, setRecruitRequest] = useState({
-    progress: 0,
-    position: [],
-    endDate: "",
-    skill: [],
-    github: "",
-    title: "",
-    contents: "",
-  });
-
-  //select는 key: { value: "", label: "" }
-  const [saveValue, setSaveValue] = useState({
-    progress: 0,
-    position: [],
-    endDate: "",
-    skill: [],
-    github: "",
-    title: "",
-    contents: "",
-  });
-
-  // console.log(recruitRequest);
+const RecruitInfoList = ({
+  setStep,
+  recruitRequest,
+  setRecruitRequest,
+  step,
+}) => {
+  // addRecruit
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.recruit);
+  console.log(recruitRequest);
 
   const onChangeProgress = (e) => {
-    console.log(e);
-    setRecruitRequest({ ...recruitRequest, progress: e.id });
-    setSaveValue({ ...saveValue, progress: e });
+    setRecruitRequest({ ...recruitRequest, progress: e });
   };
 
   const onChangeDuration = (e) => {
-    const { name, id } = e;
-    setRecruitRequest({ ...recruitRequest, [name]: id });
-    setSaveValue({ ...saveValue, [name]: e });
+    const { name } = e;
+    setRecruitRequest({ ...recruitRequest, [name]: e });
   };
 
   const onChangePosition = (e) => {
-    let idArr = e.map((el) => el.id);
-
     setRecruitRequest({
       ...recruitRequest,
-      position: [...idArr],
-    });
-
-    setSaveValue({
-      ...saveValue,
       position: [...e],
     });
   };
 
-  const onChangeSkill = (e) => {
-    let skillArr = e.map((el) => el.id);
+  const onChangeEndDate = (newDate) => {
     setRecruitRequest({
       ...recruitRequest,
-      skill: [...skillArr],
+      endDate: newDate,
     });
+  };
 
-    setSaveValue({
-      ...saveValue,
+  const onChangeSkill = (e) => {
+    setRecruitRequest({
+      ...recruitRequest,
       skill: [...e],
     });
   };
 
   const onChangeGithub = (e) => {
-    console.log(e.target);
     const { name, value } = e.target;
     setRecruitRequest({
       ...recruitRequest,
       [name]: value,
     });
-
-    setSaveValue({
-      ...saveValue,
-      github: e.target.value,
-    });
   };
 
   const onClickNext = () => {
+    localStorage.setItem("saveItem", JSON.stringify(recruitRequest));
+    dispatch(addRecruit(recruitRequest));
     setStep(step + 1);
-
-    localStorage.setItem("save", JSON.stringify(saveValue));
   };
 
-  // const save = JSON.parse(localStorage.getItem("save"));
+  useEffect(() => {
+    const savedData = localStorage.getItem("saveItem");
+    if (savedData) {
+      setRecruitRequest(JSON.parse(savedData));
+    }
+  }, []);
 
   return (
     <StDropWrap>
-      <ul>
+      <ul className="test">
         <li>
           <label>진행 방식 *</label>
           <StSelect
@@ -107,7 +85,7 @@ const RecruitInfoList = ({ setStep, step }) => {
             options={methodOption}
             name="progress"
             placeholder="온라인/오프라인"
-            // value={}
+            value={recruitRequest.progress}
             onChange={onChangeProgress}
           />
         </li>
@@ -117,8 +95,9 @@ const RecruitInfoList = ({ setStep, step }) => {
             className="react-select-container"
             classNamePrefix="react-select"
             options={durationOption}
+            name="duration"
             placeholder="기간미정 ~ 6개월 이상"
-            // value={saveValue.duration}
+            value={recruitRequest.duration}
             onChange={onChangeDuration}
           />
         </li>
@@ -134,17 +113,12 @@ const RecruitInfoList = ({ setStep, step }) => {
             placeholder="프론트엔드/백엔드/디자이너"
             noOptionsMessage={() => "옵션이 더 이상 없어요."}
             onChange={onChangePosition}
-            // value={saveValue.position}
+            value={recruitRequest.position}
           />
         </li>
         <li>
           <label>모집 마감일 *</label>
-          <Date
-            recruitRequest={recruitRequest}
-            setRecruitRequest={setRecruitRequest}
-            saveValue={saveValue.endDate}
-            setSaveValue={setSaveValue}
-          />
+          <DatePick onChangeEndDate={onChangeEndDate} />
         </li>
       </ul>
 
@@ -159,7 +133,7 @@ const RecruitInfoList = ({ setStep, step }) => {
             placeholder="프로젝트 사용 스택"
             noOptionsMessage={() => "옵션이 더 이상 없어요."}
             onChange={onChangeSkill}
-            // value={saveValue.skill}
+            value={recruitRequest.skill}
           />
         </li>
       </ul>
@@ -170,7 +144,7 @@ const RecruitInfoList = ({ setStep, step }) => {
             type="text"
             placeholder="Github ID를 작성하면 잔디를 보실 수 있습니다."
             name="github"
-            // value={saveValue.github}
+            value={recruitRequest.github}
             onChange={onChangeGithub}
           />
         </li>
