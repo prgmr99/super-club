@@ -10,7 +10,13 @@ import {
   RecruitDetailPage,
 } from "./pages";
 
-import { NotFound, Header, Modal } from "./global";
+
+import { NotFound, Header, Footer, Modal } from "./global";
+
+// swiper global
+import { register } from "swiper/element/bundle";
+register();
+
 
 function App() {
   return (

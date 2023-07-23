@@ -1,14 +1,8 @@
 import { styled } from "styled-components";
 
-export const StPosting = styled.section`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: minmax(360px, auto);
-  gap: 20px;
-  margin-bottom: 150px;
-
+export const StRecruitMainPostingBox = styled.div`
   article.recruit_wrap {
+    cursor: pointer;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -21,7 +15,10 @@ export const StPosting = styled.section`
     border-radius: 30px;
     font-weight: 600;
     line-height: 1.2;
-
+    transition: 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.02);
+    }
     .recruit_d_day {
       font-size: 1.3rem;
       background-color: #eee;
@@ -61,6 +58,12 @@ export const StPosting = styled.section`
       font-size: 2rem;
       text-align: left;
       margin: 8px 0;
+      @media (max-width: 920px) {
+        font-size: 1.8rem;
+      }
+      @media (max-width: 760px) {
+        font-size: 1.6rem;
+      }
     }
 
     .recruit_tech_stack {
