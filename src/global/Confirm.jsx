@@ -10,7 +10,8 @@ const Confirm = ({ setOpenConfirm, setStep }) => {
 
   const clickCancel = () => {
     localStorage.removeItem("saveItem");
-    setStep(1);
+    setStep(0);
+    setOpenConfirm(false);
   };
   return (
     <StConfirm>

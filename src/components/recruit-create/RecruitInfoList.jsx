@@ -20,8 +20,10 @@ const RecruitInfoList = ({
 }) => {
   // addRecruit
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.recruit);
-  console.log(recruitRequest);
+
+  const validate = () => {
+    let errors = {};
+  };
 
   const onChangeProgress = (e) => {
     setRecruitRequest({ ...recruitRequest, progress: e });
@@ -71,6 +73,17 @@ const RecruitInfoList = ({
     const savedData = localStorage.getItem("saveItem");
     if (savedData) {
       setRecruitRequest(JSON.parse(savedData));
+    } else {
+      setRecruitRequest({
+        progress: 0,
+        position: [],
+        endDate: "",
+        skill: [],
+        github: "",
+        title: "",
+        contents: "",
+        duration: "",
+      });
     }
   }, []);
 
