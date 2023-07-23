@@ -6,13 +6,25 @@ export const StModalLogin = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   width: 42rem;
-  height: 32rem;
+  height: 27rem;
   background-color: #fff;
-  border-radius: 2rem;
-  padding: 2rem 2rem 6rem;
+  border-radius: 1.6rem;
+  padding: 2rem 2rem 2rem;
   box-sizing: border-box;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  @media (max-width: 1380px) {
+    width: 36rem;
+    height: 24rem;
+  }
+  @media (max-width: 760px) {
+    width: 30rem;
+    height: 21rem;
+    padding: 1.4rem 1.4rem 2rem;
+  }
+  @media (max-width: 560px) {
+    width: 28rem;
+  }
 
   .modal {
     display: flex;
@@ -30,6 +42,14 @@ export const StModalLogin = styled.div`
         height: 4.8rem;
         transition: 0.25s ease-in-out;
         opacity: 0.4;
+        @media (max-width: 1380px) {
+          width: 4.4rem;
+          height: 4.4rem;
+        }
+        @media (max-width: 760px) {
+          width: 4rem;
+          height: 4rem;
+        }
         &:hover {
           opacity: 1;
         }
@@ -44,6 +64,12 @@ export const StModalLogin = styled.div`
       h2 {
         font-size: 3.6rem;
         font-weight: 600;
+        @media (max-width: 1380px) {
+          font-size: 2.5rem;
+        }
+        @media (max-width: 760px) {
+          font-size: 2rem;
+        }
       }
       img {
         width: 80%;

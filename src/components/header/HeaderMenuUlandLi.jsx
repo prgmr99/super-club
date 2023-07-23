@@ -42,8 +42,9 @@ const HeaderMenuUlandLi = () => {
         onMouseOver={() => setOpenDrop(true)}
         onMouseOut={() => setOpenDrop(false)}
       >
-        <HeaderMenuLink message="MY" />
-        {openDrop && <HeaderMyDrop />}
+        {/* <HeaderMenuLink message="MY" />
+        {openDrop && <HeaderMyDrop />} */}
+        <LoginModal />
         {/* {token ? (
           <HeaderMenuLink message="MY" />
         ) : (
