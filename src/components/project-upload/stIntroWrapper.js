@@ -1,30 +1,41 @@
 import { styled } from "styled-components";
 
-export const StDropWrap = styled.ul`
-  /* background-color: pink; */
+export const StIntroWrapper = styled.ul`
   ul {
-    margin-bottom: 2rem;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    gap: 5rem;
+    align-items: start;
+    gap: 10rem;
     li {
-      width: 45%;
+      width: 50%;
       display: flex;
       flex-direction: column;
       align-items: start;
       gap: 1rem;
-
-      /* background-color: pink; */
-
+      margin-bottom: 20px;
       label {
         color: #333;
-        font-size: 2rem;
         font-weight: bold;
+        .radioLabel {
+          font-size: 2rem;
+        }
       }
 
-      /* datePicker */
+      .li-ssum {
+        margin-top: 20px;
+      }
+
+      .intro-title {
+        font-size: 2.6rem;
+      }
+
+      .div-ssum {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+      }
+
       .rmdp-container {
         width: 100%;
         input {
@@ -62,43 +73,27 @@ export const StDropWrap = styled.ul`
       }
     }
   }
-
-  .skill {
-    width: 100%;
-    /* background-color: pink; */
-    li {
-      width: 100%;
-      /* background-color: pink; */
-    }
-  }
-
-  .github {
-    width: 45%;
-    input {
-      width: 100%;
-      padding: 0 0.8rem;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      height: 5.6rem;
-      border-radius: 8px;
-      font-size: 1.6rem;
-      outline: none;
-      color: #1f1f1f;
-      font-weight: 700;
-      &:hover {
-        border-color: #0047ff;
-      }
-      &:focus {
-        border: 2px solid #0047ff;
-      }
-    }
-  }
-
   .button-box {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 100px;
+  }
+  .file-input {
+    display: none;
+  }
+  .file-label {
+    margin-top: 1rem;
+    font-weight: 200;
+    &:hover {
+      color: #0984e3;
+      transition: ease-in-out 0.5s;
+    }
+    cursor: pointer;
+  }
+  .file-link {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
   }
 `;
