@@ -1,45 +1,18 @@
 import React from "react";
-import { styled } from "styled-components";
+import { StListWrap } from "./stProjectList";
+import ProjectItem from "./ProjectItem";
 
 const ProjectList = () => {
   return (
-    <StProject>
-      <h1>자랑하는 공간</h1>
-      <div className="flex">
-        <div className="item">1</div>
-        <div className="item">2</div>
-        <div className="item">3</div>
-        <div className="item">4</div>
-        <div className="item">5</div>
-        <div className="item">6</div>
-        <div className="item">7</div>
-        <div className="item">8</div>
-      </div>
-    </StProject>
+    <StListWrap>
+      <ProjectItem />
+      <ProjectItem />
+      <ProjectItem />
+      <ProjectItem />
+      <ProjectItem />
+      <ProjectItem />
+    </StListWrap>
   );
 };
 
 export default ProjectList;
-
-const StProject = styled.div`
-  width: 100%;
-  border: 1px solid #eee;
-  margin-top: 50px;
-  h1 {
-    height: 150px;
-  }
-  .flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    padding-bottom: 50px;
-    .item {
-      width: 360px;
-      height: 300px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-    }
-  }
-`;
