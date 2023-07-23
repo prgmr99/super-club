@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { StIntro } from "./stCreateIntro";
 import Button from "../global/Button";
-import Confirm from "./../global/Confirm";
+import { useLocation } from "react-router-dom";
 
 const CreateIntro = ({ setStep }) => {
-  const [openConfirm, setOpenConfirm] = useState(false);
-  // console.log(openConfirm);
-
+  const location = useLocation();
+  console.log(location.pathname);
   const recruitIntro = [
     {
       id: 1,
@@ -23,9 +22,42 @@ const CreateIntro = ({ setStep }) => {
     },
   ];
 
+  const uploadIntro = [
+    {
+      id: 1,
+      label: "프로젝트의 기본 정보를 입력해주세요.",
+      text: "프로젝트 명, 프로젝트의 이미지나 영상, 진행 기간을 알려주세요.",
+      subText: "이미지나 영상 중 하나만 등록하시면 됩니다.",
+    },
+    {
+      id: 2,
+      label: "프로젝트에 대해 소개해주세요.",
+      text: `프로젝트를 만들게 된 계기, 프로젝트의 목적과 기능을 알려주세요.`,
+      subText: "페이지를 이동해도 기존 작성 내용이 임시로 저장됩니다.",
+    },
+    {
+      id: 3,
+      label: "프로젝트에 사용된 기술 스택에 대해 소개해주세요.",
+      text: `프로젝트에 사용된 주요한 기술 스택을 우선적으로 선택해주세요.`,
+      subText: "",
+    },
+    {
+      id: 4,
+      label: "프로젝트의 카테고리를 선택해주세요.",
+      text: `프로젝트와 부합한 카테고리를 선택해주세요.`,
+      subText: "최대 2개까지 선택할 수 있습니다.",
+    },
+    {
+      id: 5,
+      label: `함께 진행한 팀원들과 \n Github 주소를 입력해주세요.`,
+      text: "Github 주소는 옵션이지만, 배포한 페이지 주소는 필수입니다.",
+      subText: "",
+    },
+  ];
+
   // 프로젝트 인지 공고인지 나누는 함수. 추후 매개변수 추가
-  const divideRecruit = () => {
-    return recruitIntro.map((desc) => (
+  const divideRecruit = (props) => {
+    return props.map((desc) => (
       <div className="intro_desc_order_item" key={desc.id}>
         <label>
           {desc.id}. {desc.label}
@@ -51,12 +83,22 @@ const CreateIntro = ({ setStep }) => {
 
   return (
     <StIntro>
-      {openConfirm ? (
-        <Confirm setOpenConfirm={setOpenConfirm} setStep={setStep} />
+      {location.pathname === "/project/upload" ? (
+        <div className="intro_desc">
+          <h2>프로젝트를 등록해봅시다!</h2>
+          <div className="intro_desc_order">{divideRecruit(uploadIntro)}</div>
+          <Button
+            className="hi"
+            purpose="recruit-register"
+            onClick={goNextStep}
+          >
+            등록하기
+          </Button>
+        </div>
       ) : (
         <div className="intro_desc">
           <h2>공고문을 등록해봅시다!</h2>
-          <div className="intro_desc_order">{divideRecruit()}</div>
+          <div className="intro_desc_order">{divideRecruit(recruitIntro)}</div>
           <Button purpose="recruit-register" onClick={goNextStep}>
             등록하기
           </Button>

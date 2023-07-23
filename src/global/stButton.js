@@ -19,6 +19,7 @@ export const StButton = styled.button`
           color: #4b5563;
           font-size: 2rem;
           font-weight: 500;
+          margin-bottom: 1rem;
           &:hover {
             background-color: #3b82f6;
             color: #fff;

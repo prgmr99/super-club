@@ -5,9 +5,10 @@ export const StDropWrap = styled.ul`
   ul {
     margin-bottom: 2rem;
     display: flex;
+    /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4.5rem;
+    gap: 5rem;
     li {
       width: 45%;
       display: flex;
@@ -98,5 +99,6 @@ export const StDropWrap = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 100px;
   }
 `;

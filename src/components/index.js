@@ -1,5 +1,5 @@
-import BestProject from "./project-main/BestProject";
-import ProjectList from "./project-main/ProjectList";
+// import BestProject from "./project-main/BestProject";
+// import ProjectList from "./project-main/ProjectList";
 import HeaderWrapper from "./header/HeaderWrapper";
 
 import Comment from "./comment/Comment.jsx";
@@ -14,10 +14,19 @@ import ProjectDetailSkill from "./project-detail/ProjectDetailSkill.jsx";
 import ProjectDetailTeamMember from "./project-detail/ProjectDetailTeamMember.jsx";
 import ProjectDetailVideo from "./project-detail/ProjectDetailVideo.jsx";
 import ProjectDetailWrap from "./project-detail/ProjectDetailWrap.jsx";
+
+import ProjectAbout from "./project-upload/ProjectAbout";
+import ProjectCategory from "./project-upload/ProjectCategory";
+import ProjectIntro from "./project-upload/ProjectIntro";
+import ProjectTeam from "./project-upload/ProjectTeam";
+import ProjectTechStack from "./project-upload/ProjectTechStack";
+
+import RecruitMain from "./recruit-main/RecruitMain";
+
 export {
   HeaderWrapper,
-  BestProject,
-  ProjectList,
+  // BestProject,
+  // ProjectList,
   Comment,
   CommentList,
   ReComment,
@@ -30,4 +39,10 @@ export {
   ProjectDetailTeamMember,
   ProjectDetailVideo,
   ProjectDetailWrap,
+  RecruitMain,
+  ProjectAbout,
+  ProjectCategory,
+  ProjectIntro,
+  ProjectTeam,
+  ProjectTechStack,
 };

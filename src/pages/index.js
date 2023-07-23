@@ -1,7 +1,20 @@
-import MainPage from "./MainPage";
-import MyPage from "./MyPage";
-import ProjectDetailPage from "./ProjectDetailPage";
-import Recruit from "./Recruit";
-import RecruitCreatePage from "./RecruitCreatePage";
+import ProjectMainPage from "./ProjectMainPage";
 
-export { MainPage, MyPage, ProjectDetailPage, Recruit, RecruitCreatePage };
+import ProjectDetailPage from "./ProjectDetailPage";
+import RecruitMainPage from "./RecruitMainPage";
+import ProjectUploadPage from "./ProjectUploadPage";
+import RecruitCreatePage from "./RecruitCreatePage";
+import RecruitDetailPage from "./RecruitDetailPage";
+import LikePage from "./LikePage";
+import PostPage from "./PostPage";
+
+export {
+  ProjectMainPage,
+  LikePage,
+  PostPage,
+  ProjectDetailPage,
+  RecruitMainPage,
+  RecruitCreatePage,
+  ProjectUploadPage,
+  RecruitDetailPage,
+};

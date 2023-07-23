@@ -78,7 +78,7 @@ const RecruitInfoList = ({
 
   return (
     <StDropWrap>
-      <ul className="test">
+      <ul>
         <li>
           <label>진행 방식 *</label>
           <StSelect
