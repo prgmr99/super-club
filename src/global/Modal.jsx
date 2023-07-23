@@ -14,7 +14,14 @@ const Modal = () => {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>로그인1</button>
+      <button
+        onClick={(e) => {
+          setShowModal(true);
+          document.body.style.overflow = "hidden";
+        }}
+      >
+        로그인1
+      </button>
       {showModal &&
         createPortal(
           <>
