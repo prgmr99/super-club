@@ -108,7 +108,7 @@ const CreateIntro = ({ setStep }) => {
           <div className="intro_desc_order">{divideRecruit(uploadIntro)}</div>
           <Button
             className="hi"
-            purpose="recruit-register"
+            purpose="project-register"
             onClick={goNextStep}
           >
             등록하기

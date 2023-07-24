@@ -68,6 +68,22 @@ export const StButton = styled.button`
             color: #fff;
           }
         `;
+      case "project-register":
+        return css`
+          position: absolute;
+          right: 28rem;
+          bottom: 0;
+          background-color: #d1d5db;
+          box-shadow: 0 4px 6px -1px rgb(0 0 0/0.1),
+            0 2px 4px -2px rgb(0 0 0/0.1);
+          color: #4b5563;
+          font-size: 2rem;
+          font-weight: 500;
+          &:hover {
+            background-color: #3b82f6;
+            color: #fff;
+          }
+        `;
 
       case "step":
         return css`
