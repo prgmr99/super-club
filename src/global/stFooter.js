@@ -53,7 +53,8 @@ export const StFooter = styled.div`
     .column {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      gap:1rem;
       margin-bottom: 1.6rem;
       @media (max-width: 620px) {
         align-items: center;
