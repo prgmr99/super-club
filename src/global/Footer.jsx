@@ -5,6 +5,7 @@ import { BsFillImageFill } from "react-icons/bs";
 
 const Footer = () => {
   return (
+
     <StFooter>
       <footer>
         <div className="footer_box column">
@@ -41,6 +42,7 @@ const Footer = () => {
         </div>
       </footer>
     </StFooter>
+
   );
 };
 
