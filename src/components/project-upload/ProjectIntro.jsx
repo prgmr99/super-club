@@ -1,34 +1,25 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { styled } from "styled-components";
 import DatePicker, { DateObject } from "react-multi-date-picker";
 import { StIntroWrapper } from "./stIntroWrapper";
 import { StInput, StInputLink } from "./stInputFrom";
 import { StPreview, StImg } from "./stPreviewImg";
-import InputIcon from "react-multi-date-picker/components/input_icon";
-import transition from "react-element-popper/animations/transition";
-import opacity from "react-element-popper/animations/opacity";
-import Button from "../../global/Button";
 import { useDispatch } from "react-redux";
+import Button from "../../global/Button";
+import DatePick from "../../global/DatePick";
+import { addProject } from "../../modules/upload";
 
-const ProjectIntro = ({ setStep, step }) => {
+// title, startDate, endDate, pic, youtube
+
+const ProjectIntro = ({ setStep, step, uploadRequest, setUploadRequest }) => {
   const imgRef = useRef();
   const dispatch = useDispatch();
   const [show, setShow] = useState(true);
   const [imgFile, setImgFile] = useState("");
-  const [videoUrl, setvideoUrl] = useState("");
   const [tempUrl, setTempUrl] = useState("");
   const [moveUrl, setMoveUrl] = useState(false);
-  const [value, setValue] = useState([new Date(), new Date()]);
-  const [state, setState] = useState({ format: "YYYY-MM-DD" });
-  const today = new DateObject();
-  const weekDays = ["일", "월", "화", "수", "목", "금", "토"];
-  const string = today.format("YYYY-MM-DD");
-  const [saveValue, setSaveValue] = useState({
-    name: "",
-    startDate: "",
-    endDate: "",
-    image: "",
-  });
+  const [errors, setErrors] = useState({});
+
   // 날짜 포맷 맞추는 함수 YYYY-MM-DD
   let now = () => {
     let now = new Date();
@@ -42,12 +33,28 @@ const ProjectIntro = ({ setStep, step }) => {
 
     return formatDate;
   };
-  const handleChange = (event) => {
-    console.log(event);
+
+  const validate = () => {
+    const today = now();
+    let errors = {};
+    if (uploadRequest.title.length === 0) {
+      errors.title = "프로젝트 명을 입력해주세요.";
+    }
+    if (uploadRequest.pic.length === 0 && uploadRequest.youtube.length === 0) {
+      errors.pic = "사진이나 영상을 넣어주세요.";
+    }
+    if (uploadRequest.startDate === "") {
+      errors.startDate = "시작일을 지정해주세요.";
+    } else if (uploadRequest.startDate > today) {
+      errors.startDate = "오늘보다 전 날이어야 합니다.";
+    }
+    return errors;
   };
+
   const readImg = () => {
     if (imgRef.current !== undefined) {
       const file = imgRef.current.files[0];
+      uploadRequest.pic = file.name;
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onloadend = () => {
@@ -62,35 +69,76 @@ const ProjectIntro = ({ setStep, step }) => {
   const handleVideo = () => {
     setShow(false);
   };
-  const onClickNext = () => {
-    setStep(step + 1);
-    //localStorage.setItem("save", JSON.stringify(saveValue));
-  };
   const handleOnChange = (event) => {
-    console.log(event.target.value);
-    setvideoUrl(event.target.value);
     setTempUrl(event.target.value);
   };
   const handleSubmit = () => {
     setMoveUrl(true);
     setTempUrl(tempUrl.slice(-11));
-    setvideoUrl("");
   };
+  const onChangeTitle = (event) => {
+    setUploadRequest({
+      ...uploadRequest,
+      title: event.target.value,
+    });
+  };
+
+  const onClickNext = () => {
+    const errors = validate();
+    console.log(errors);
+    if (Object.keys(errors).length === 0) {
+      localStorage.setItem("saveItem_project", JSON.stringify(uploadRequest));
+      dispatch(addProject(uploadRequest));
+      setStep(step + 1);
+    } else {
+      setErrors(errors);
+    }
+  };
+
+  useEffect(() => {
+    const savedData = localStorage.getItem("saveItem_project");
+    if (savedData) {
+      setUploadRequest(JSON.parse(savedData));
+    } else {
+      setUploadRequest({
+        ...uploadRequest,
+        title: "",
+        startDate: "",
+        endDate: "",
+        pic: "",
+        youtube: "",
+        contents: "",
+        skills: [],
+        categories: [],
+        teamName: "",
+        members: [],
+        github: "",
+        deploy: "",
+      });
+    }
+  }, []);
+  console.log(uploadRequest.pic);
   return (
     <StIntroWrapper>
       <ul className="introduction">
         <li>
           <div className="intro-title">프로젝트 이름</div>
-          <StInput type="text" placeholder="프로젝트 이름을 입력해주세요." />
+          <StInput
+            type="text"
+            value={uploadRequest.title}
+            placeholder="프로젝트 이름을 입력해주세요."
+            onChange={onChangeTitle}
+          />
+          {errors.title && <div className="valid">{errors.title}</div>}
         </li>
         <li>
           <div className="intro-title">썸네일 선택</div>
           <div>
             <input
               type="radio"
-              value="picture"
               name="ssum"
               onChange={handleImg}
+              value="picture"
               defaultChecked
             />
             <label for="picture">사진</label>
@@ -116,6 +164,9 @@ const ProjectIntro = ({ setStep, step }) => {
                 className="file-input"
                 id="filePicture"
               />
+              {!errors.pic && !errors.youtube && (
+                <div className="valid">{errors.pic}</div>
+              )}
             </>
           ) : (
             <div className="file-link">
@@ -125,7 +176,6 @@ const ProjectIntro = ({ setStep, step }) => {
                 accept="image/*"
                 onChange={handleOnChange}
                 ref={imgRef}
-                value={videoUrl}
                 id="fileVideo"
               />
               <button onClick={handleSubmit}>등록</button>
@@ -138,40 +188,20 @@ const ProjectIntro = ({ setStep, step }) => {
           <div className="li-ssum"></div>
           <div className="intro-title">진행 기간</div>
           <div className="div-duration">
-            <DatePicker
-              className="blue"
-              inputClass="custom-input"
-              headerOrder={["MONTH_YEAR", "LEFT_BUTTON", "RIGHT_BUTTON"]}
-              render={<InputIcon />}
-              format="YYYY-MM-DD"
-              disableMonthPicker
-              monthYearSeparator="|"
-              weekDays={weekDays}
-              arrow={false}
-              animations={[opacity(), transition({ from: 35, duration: 800 })]}
-              // value={recruitRequest.endDate}
-              value={string}
-              onChange={handleChange}
-              range
-              dateSeparator=" to "
+            <DatePick
+              start={"start"}
+              uploadRequest={uploadRequest}
+              setUploadRequest={setUploadRequest}
             />
-            <DatePicker
-              className="blue"
-              inputClass="custom-input"
-              headerOrder={["MONTH_YEAR", "LEFT_BUTTON", "RIGHT_BUTTON"]}
-              render={<InputIcon />}
-              format="YYYY-MM-DD"
-              disableMonthPicker
-              monthYearSeparator="|"
-              weekDays={weekDays}
-              arrow={false}
-              animations={[opacity(), transition({ from: 35, duration: 800 })]}
-              // value={recruitRequest.endDate}
-              value={string}
-              onChange={handleChange}
-              range
-              dateSeparator=" to "
+            {errors.startDate && (
+              <div className="valid">{errors.startDate}</div>
+            )}
+            <DatePick
+              end={"end"}
+              uploadRequest={uploadRequest}
+              setUploadRequest={setUploadRequest}
             />
+            {errors.endDate && <div className="valid">{errors.endDate}</div>}
           </div>
         </li>
         <li>

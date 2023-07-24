@@ -12,7 +12,7 @@ const ProjectCreateWrap = () => {
   const [step, setStep] = useState(0);
 
   const [uploadRequest, setUploadRequest] = useState({
-    name: "",
+    title: "",
     startDate: "",
     endDate: "",
     pic: "",

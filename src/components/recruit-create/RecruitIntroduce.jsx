@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { StIntroduce } from "./stRecruitIntroduce";
 import Button from "../../global/Button";
 import { useNavigate } from "react-router-dom";
-
 import { addRecruit } from "./../../modules/recruit";
 import { useDispatch } from "react-redux";
 

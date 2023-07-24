@@ -18,6 +18,19 @@ export const StAboutWrapper = styled.div`
       margin-top: 20px;
     }
   }
+  .content-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    .current-number {
+      width: 90%;
+      display: flex;
+      justify-content: end;
+      color: gray;
+      cursor: default;
+    }
+  }
 
   .current-number {
     width: 100%;

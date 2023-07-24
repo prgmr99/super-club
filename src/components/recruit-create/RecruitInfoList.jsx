@@ -182,7 +182,6 @@ const RecruitInfoList = ({
           {errors.endDate && <div className="valid">{errors.endDate}</div>}
         </li>
       </ul>
-
       <ul className="skill">
         <li>
           <label>기술 스택 *</label>
