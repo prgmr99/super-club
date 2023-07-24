@@ -13,7 +13,7 @@ const RecruitMainPostingFilter = () => {
     <StPostingFilter>
       <ul>
         <li>최신순(기본)</li>
-        <li>좋아요 순</li>
+        <li>스크랩 순</li>
         <li>조회수 순</li>
       </ul>
       <div className="recruit_checking">
