@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import View from "../../global/View";
-import { AiFillEye, AiOutlineHeart } from "react-icons/ai";
+import { AiFillEye, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { StProjectItem } from "./stProjectItem";
 
 const ProjectItem = () => {
+  const [heart, setHeart] = useState(true);
+  const handleHeart = () => {
+    setHeart((cur) => !cur);
+  };
   return (
     <StProjectItem>
       <img
@@ -28,7 +32,11 @@ const ProjectItem = () => {
         <div className="item-skill__item"></div>
         <div className="item-skill__item"></div>
       </div>
-      <AiOutlineHeart className="item-heart" />
+      {heart ? (
+        <AiOutlineHeart className="item-heart" onClick={handleHeart} />
+      ) : (
+        <AiFillHeart className="item-heart" onClick={handleHeart} />
+      )}
     </StProjectItem>
   );
 };

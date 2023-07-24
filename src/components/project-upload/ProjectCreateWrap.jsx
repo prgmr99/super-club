@@ -11,13 +11,62 @@ import CreateIntro from "../CreateIntro";
 const ProjectCreateWrap = () => {
   const [step, setStep] = useState(0);
 
+  const [uploadRequest, setUploadRequest] = useState({
+    name: "",
+    startDate: "",
+    endDate: "",
+    pic: "",
+    youtube: "",
+    contents: "",
+    skills: [],
+    categories: [],
+    members: [],
+    github: "",
+    deploy: "",
+  });
+
   const stepPage = {
     0: <CreateIntro setStep={setStep} step={step} />,
-    1: <UploadStepOne setStep={setStep} step={step} />,
-    2: <UploadStepTwo setStep={setStep} step={step} />,
-    3: <UploadStepThree setStep={setStep} step={step} />,
-    4: <UploadStepFour setStep={setStep} step={step} />,
-    5: <UploadStepFive setStep={setStep} step={step} />,
+    1: (
+      <UploadStepOne
+        setStep={setStep}
+        step={step}
+        uploadRequest={uploadRequest}
+        setUploadRequest={setUploadRequest}
+      />
+    ),
+    2: (
+      <UploadStepTwo
+        setStep={setStep}
+        step={step}
+        uploadRequest={uploadRequest}
+        setUploadRequest={setUploadRequest}
+      />
+    ),
+    3: (
+      <UploadStepThree
+        setStep={setStep}
+        step={step}
+        uploadRequest={uploadRequest}
+        setUploadRequest={setUploadRequest}
+      />
+    ),
+    4: (
+      <UploadStepFour
+        setStep={setStep}
+        step={step}
+        uploadRequest={uploadRequest}
+        setUploadRequest={setUploadRequest}
+      />
+    ),
+    5: (
+      <UploadStepFive
+        setStep={setStep}
+        step={step}
+        uploadRequest={uploadRequest}
+        setUploadRequest={setUploadRequest}
+      />
+    ),
   };
   return (
     <>

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { StSubSlide } from "./stNextSlide";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-const NextSlide = () => {
+const NextSlide = ({ src }) => {
+  const [heart, setHeart] = useState(true);
+  const handleHeart = () => {
+    setHeart((cur) => !cur);
+  };
   return (
     // <div className="sub-slide">
     //   <swiper-container
@@ -55,11 +59,12 @@ const NextSlide = () => {
     // </div>
     <StSubSlide className="sub-slide">
       <div className="item">
-        <img
-          src="https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20211203%2Fthumb.jpeg&w=1920&q=75"
-          alt=""
-        />
-        <AiOutlineHeart className="heart" />
+        <img src={src} alt="" />
+        {heart ? (
+          <AiOutlineHeart className="heart" onClick={handleHeart} />
+        ) : (
+          <AiFillHeart className="heart" onClick={handleHeart} />
+        )}
       </div>
 
       {/* <div className="item">

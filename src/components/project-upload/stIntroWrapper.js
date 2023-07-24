@@ -29,11 +29,12 @@ export const StIntroWrapper = styled.ul`
         font-size: 2.6rem;
       }
 
-      .div-ssum {
+      .div-duration {
         display: flex;
         justify-content: space-between;
         width: 100%;
         margin-top: 10px;
+        gap: 2rem;
       }
 
       .rmdp-container {
