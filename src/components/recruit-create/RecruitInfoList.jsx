@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StDropWrap } from "./stRecruitInfoList";
 import { StSelect } from "./stSelect";
-import Date from "../../global/Date";
 import Button from "../../global/Button";
 import {
   positionOption,
@@ -9,96 +8,132 @@ import {
   methodOption,
   skillOption,
 } from "./data/recruitOption";
+import { useDispatch, useSelector } from "react-redux";
+import DatePick from "../../global/DatePick";
+import { addRecruit } from "../../modules/recruit";
 
-const RecruitInfoList = ({ setStep, step }) => {
-  // data
-  const [recruitRequest, setRecruitRequest] = useState({
-    progress: 0,
-    position: [],
-    endDate: "",
-    skill: [],
-    github: "",
-    title: "",
-    contents: "",
-  });
+const RecruitInfoList = ({
+  setStep,
+  recruitRequest,
+  setRecruitRequest,
+  step,
+}) => {
+  // addRecruit
+  const dispatch = useDispatch();
 
-  //select는 key: { value: "", label: "" }
-  const [saveValue, setSaveValue] = useState({
-    progress: 0,
-    position: [],
-    endDate: "",
-    skill: [],
-    github: "",
-    title: "",
-    contents: "",
-  });
+  const [errors, setErrors] = useState({});
 
-  // console.log(recruitRequest);
+  // 날짜 포맷 맞추는 함수 YYYY-MM-DD
+  let now = () => {
+    let now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+
+    const formatDate = `${year}-${month.toString().padStart(2, "0")}-${day
+      .toString()
+      .padStart(2, "0")}`;
+
+    return formatDate;
+  };
+
+  // 유효성 검사
+  const validate = () => {
+    const today = now();
+
+    let errors = {};
+    if (recruitRequest.progress.length === 0) {
+      errors.progress = "진행방식을 선택해주세요.";
+    }
+    if (recruitRequest.duration.length === 0) {
+      errors.duration = "진행기간을 선택해주세요.";
+    }
+    if (recruitRequest.position.length === 0) {
+      errors.position = "최소 하나는 선택해주세요.";
+    }
+    if (recruitRequest.endDate === "") {
+      errors.endDate = "최소 하루 다음날로 지정하셔야해요.";
+    } else if (recruitRequest.endDate < today) {
+      errors.endDate = "오늘 보다 전날은 안돼요.";
+    }
+    if (recruitRequest.skill.length === 0) {
+      errors.skill = "최소 하나는 선택해주세요.";
+    } else if (recruitRequest.skill.length > 10) {
+      errors.skill = "최대 10개 선택이 가능합니다.";
+    }
+    return errors;
+  };
 
   const onChangeProgress = (e) => {
-    console.log(e);
-    setRecruitRequest({ ...recruitRequest, progress: e.id });
-    setSaveValue({ ...saveValue, progress: e });
+    setRecruitRequest({ ...recruitRequest, progress: e });
   };
 
   const onChangeDuration = (e) => {
-    const { name, id } = e;
-    setRecruitRequest({ ...recruitRequest, [name]: id });
-    setSaveValue({ ...saveValue, [name]: e });
+    const { name } = e;
+    setRecruitRequest({ ...recruitRequest, [name]: e });
   };
 
   const onChangePosition = (e) => {
-    let idArr = e.map((el) => el.id);
-
     setRecruitRequest({
       ...recruitRequest,
-      position: [...idArr],
-    });
-
-    setSaveValue({
-      ...saveValue,
       position: [...e],
     });
   };
 
-  const onChangeSkill = (e) => {
-    let skillArr = e.map((el) => el.id);
+  const onChangeEndDate = (newDate) => {
     setRecruitRequest({
       ...recruitRequest,
-      skill: [...skillArr],
+      endDate: newDate,
     });
+  };
 
-    setSaveValue({
-      ...saveValue,
+  const onChangeSkill = (e) => {
+    setRecruitRequest({
+      ...recruitRequest,
       skill: [...e],
     });
   };
 
   const onChangeGithub = (e) => {
-    console.log(e.target);
     const { name, value } = e.target;
     setRecruitRequest({
       ...recruitRequest,
       [name]: value,
     });
-
-    setSaveValue({
-      ...saveValue,
-      github: e.target.value,
-    });
   };
 
   const onClickNext = () => {
-    setStep(step + 1);
-
-    localStorage.setItem("save", JSON.stringify(saveValue));
+    const errors = validate();
+    if (Object.keys(errors).length === 0) {
+      localStorage.setItem("saveItem", JSON.stringify(recruitRequest));
+      dispatch(addRecruit(recruitRequest));
+      setStep(step + 1);
+    } else {
+      setErrors(errors);
+    }
   };
 
-  // const save = JSON.parse(localStorage.getItem("save"));
+  useEffect(() => {
+    const savedData = localStorage.getItem("saveItem");
+    if (savedData) {
+      setRecruitRequest(JSON.parse(savedData));
+    } else {
+      setRecruitRequest({
+        ...recruitRequest,
+        progress: "",
+        position: [],
+        skill: [],
+        github: "",
+        title: "",
+        contents: "",
+        duration: "",
+      });
+    }
+  }, []);
 
   return (
     <StDropWrap>
-      <ul>
+      <ul className="test">
         <li>
           <label>진행 방식 *</label>
           <StSelect
@@ -107,9 +142,10 @@ const RecruitInfoList = ({ setStep, step }) => {
             options={methodOption}
             name="progress"
             placeholder="온라인/오프라인"
-            // value={}
+            value={recruitRequest.progress}
             onChange={onChangeProgress}
           />
+          {errors.progress && <div className="valid">{errors.progress}</div>}
         </li>
         <li>
           <label>진행 기간 *</label>
@@ -117,10 +153,12 @@ const RecruitInfoList = ({ setStep, step }) => {
             className="react-select-container"
             classNamePrefix="react-select"
             options={durationOption}
+            name="duration"
             placeholder="기간미정 ~ 6개월 이상"
-            // value={saveValue.duration}
+            value={recruitRequest.duration}
             onChange={onChangeDuration}
           />
+          {errors.duration && <div className="valid">{errors.duration}</div>}
         </li>
       </ul>
       <ul>
@@ -134,17 +172,14 @@ const RecruitInfoList = ({ setStep, step }) => {
             placeholder="프론트엔드/백엔드/디자이너"
             noOptionsMessage={() => "옵션이 더 이상 없어요."}
             onChange={onChangePosition}
-            // value={saveValue.position}
+            value={recruitRequest.position}
           />
+          {errors.position && <div className="valid">{errors.position}</div>}
         </li>
         <li>
           <label>모집 마감일 *</label>
-          <Date
-            recruitRequest={recruitRequest}
-            setRecruitRequest={setRecruitRequest}
-            saveValue={saveValue.endDate}
-            setSaveValue={setSaveValue}
-          />
+          <DatePick onChangeEndDate={onChangeEndDate} />
+          {errors.endDate && <div className="valid">{errors.endDate}</div>}
         </li>
       </ul>
 
@@ -159,8 +194,9 @@ const RecruitInfoList = ({ setStep, step }) => {
             placeholder="프로젝트 사용 스택"
             noOptionsMessage={() => "옵션이 더 이상 없어요."}
             onChange={onChangeSkill}
-            // value={saveValue.skill}
+            value={recruitRequest.skill}
           />
+          {errors.skill && <div className="valid">{errors.skill}</div>}
         </li>
       </ul>
       <ul>
@@ -170,7 +206,7 @@ const RecruitInfoList = ({ setStep, step }) => {
             type="text"
             placeholder="Github ID를 작성하면 잔디를 보실 수 있습니다."
             name="github"
-            // value={saveValue.github}
+            value={recruitRequest.github}
             onChange={onChangeGithub}
           />
         </li>

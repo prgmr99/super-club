@@ -8,7 +8,7 @@ export const StIntroduce = styled.div`
   justify-content: center;
   position: relative;
   font-size: 1.7rem;
-  gap: 2rem;
+  gap: 1.2rem;
   label {
     width: 90%;
     display: flex;
@@ -37,13 +37,29 @@ export const StIntroduce = styled.div`
       border: 2px solid #0047ff;
     }
   }
-  .sub {
-    width: 90%;
-    color: gray;
+  .valid {
+    font-size: 1.2rem;
+    color: red;
     display: flex;
-    text-align: start;
-    cursor: default;
+    width: 90%;
   }
+  .title-box {
+    /* background-color: pink; */
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    .sub {
+      margin-top: 1rem;
+      width: 90%;
+      color: gray;
+      display: flex;
+      text-align: start;
+      font-size: 1.6rem;
+      cursor: default;
+    }
+  }
+
   textarea {
     width: 90%;
     height: 34rem;
@@ -65,13 +81,20 @@ export const StIntroduce = styled.div`
       border: 2px solid #2563eb;
     }
   }
-  .current-number {
-    width: 90%;
+  .content-bottom {
     display: flex;
-    justify-content: end;
-    color: gray;
-    cursor: default;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    .current-number {
+      width: 90%;
+      display: flex;
+      justify-content: end;
+      color: gray;
+      cursor: default;
+    }
   }
+
   .button-box {
     width: 90%;
     display: flex;

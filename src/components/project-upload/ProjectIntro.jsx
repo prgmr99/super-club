@@ -8,9 +8,11 @@ import InputIcon from "react-multi-date-picker/components/input_icon";
 import transition from "react-element-popper/animations/transition";
 import opacity from "react-element-popper/animations/opacity";
 import Button from "../../global/Button";
+import { useDispatch } from "react-redux";
 
 const ProjectIntro = ({ setStep, step }) => {
   const imgRef = useRef();
+  const dispatch = useDispatch();
   const [show, setShow] = useState(true);
   const [imgFile, setImgFile] = useState("");
   const [videoUrl, setvideoUrl] = useState("");
@@ -27,15 +29,19 @@ const ProjectIntro = ({ setStep, step }) => {
     endDate: "",
     image: "",
   });
-  //   const convert = (date, format = state.format) => {
-  //     let object = { date, format };
-  //     console.log(date, format);
-  //     console.log(state);
-  //     setState({
-  //       jsDate: date?.toDate(),
-  //       ...object,
-  //     });
-  //   };
+  // 날짜 포맷 맞추는 함수 YYYY-MM-DD
+  let now = () => {
+    let now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+
+    const formatDate = `${year}-${month.toString().padStart(2, "0")}-${day
+      .toString()
+      .padStart(2, "0")}`;
+
+    return formatDate;
+  };
   const handleChange = (event) => {
     console.log(event);
   };
@@ -131,7 +137,24 @@ const ProjectIntro = ({ setStep, step }) => {
         <li>
           <div className="li-ssum"></div>
           <div className="intro-title">진행 기간</div>
-          <div className="div-ssum">
+          <div className="div-duration">
+            <DatePicker
+              className="blue"
+              inputClass="custom-input"
+              headerOrder={["MONTH_YEAR", "LEFT_BUTTON", "RIGHT_BUTTON"]}
+              render={<InputIcon />}
+              format="YYYY-MM-DD"
+              disableMonthPicker
+              monthYearSeparator="|"
+              weekDays={weekDays}
+              arrow={false}
+              animations={[opacity(), transition({ from: 35, duration: 800 })]}
+              // value={recruitRequest.endDate}
+              value={string}
+              onChange={handleChange}
+              range
+              dateSeparator=" to "
+            />
             <DatePicker
               className="blue"
               inputClass="custom-input"

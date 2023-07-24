@@ -26,6 +26,7 @@ export const StSlideControl = styled.div`
       color: #333333;
       font-size: 2.2rem;
       vertical-align: middle;
+      margin-top: 0.2rem;
     }
     &__total {
       color: #868686;

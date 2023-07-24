@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StIntro } from "./stCreateIntro";
 import Button from "../global/Button";
+
 import { useLocation } from "react-router-dom";
+import Confirm from "../global/Confirm";
 
 const CreateIntro = ({ setStep }) => {
+  const [openConfirm, setOpenConfirm] = useState(false);
+
   const location = useLocation();
-  console.log(location.pathname);
+
   const recruitIntro = [
     {
       id: 1,
@@ -72,6 +76,30 @@ const CreateIntro = ({ setStep }) => {
     setStep(1);
   };
 
+  // 임시 저장이 있는지 없는지 확인하는 함수
+  const checkConfirm = () => {
+    if (openConfirm) {
+      return <Confirm setStep={setStep} setOpenConfirm={setOpenConfirm} />;
+    } else {
+      return (
+        <div className="intro_desc">
+          <h2>공고문을 등록해봅시다!</h2>
+          <div className="intro_desc_order">{divideRecruit(recruitIntro)}</div>
+          <Button purpose="recruit-register" onClick={goNextStep}>
+            등록하기
+          </Button>
+        </div>
+      );
+    }
+  };
+
+  useEffect(() => {
+    const savedItem = localStorage.getItem("saveItem");
+    if (savedItem) {
+      setOpenConfirm(true);
+    }
+  }, []);
+
   return (
     <StIntro>
       {location.pathname === "/project/upload" ? (
@@ -80,20 +108,14 @@ const CreateIntro = ({ setStep }) => {
           <div className="intro_desc_order">{divideRecruit(uploadIntro)}</div>
           <Button
             className="hi"
-            purpose="recruit-register"
+            purpose="project-register"
             onClick={goNextStep}
           >
             등록하기
           </Button>
         </div>
       ) : (
-        <div className="intro_desc">
-          <h2>공고문을 등록해봅시다!</h2>
-          <div className="intro_desc_order">{divideRecruit(recruitIntro)}</div>
-          <Button purpose="recruit-register" onClick={goNextStep}>
-            등록하기
-          </Button>
-        </div>
+        <>{checkConfirm()}</>
       )}
     </StIntro>
   );
