@@ -32,6 +32,7 @@ function App() {
           <Route path="/mylikes" element={<LikePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
