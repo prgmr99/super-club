@@ -1,13 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import { register } from "swiper/element/bundle";
 import View from "../../global/View";
-import { AiOutlineHeart, AiFillEye } from "react-icons/ai";
+import { AiOutlineHeart, AiFillEye, AiFillHeart } from "react-icons/ai";
 
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 import { StCurrent } from "./stCurrentSlide";
 
 const CurrentSlide = ({ data }) => {
+  const [heart, setHeart] = useState(true);
+  const handleHeart = () => {
+    setHeart((cur) => !cur);
+  };
   return (
     // <div className="first-slide">
     //   <swiper-container
@@ -147,7 +151,11 @@ const CurrentSlide = ({ data }) => {
           <div className="item-skill__item"></div>
           <div className="item-skill__item"></div>
         </div>
-        <AiOutlineHeart className="item-heart" />
+        {heart ? (
+          <AiOutlineHeart className="item-heart" onClick={handleHeart} />
+        ) : (
+          <AiFillHeart className="item-heart" onClick={handleHeart} />
+        )}
       </div>
 
       {/* <div className="item">
