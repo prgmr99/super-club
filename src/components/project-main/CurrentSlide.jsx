@@ -1,10 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-// import { register } from "swiper/element/bundle";
 import View from "../../global/View";
 import { AiOutlineHeart, AiFillEye, AiFillHeart } from "react-icons/ai";
-
-import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
 import { StCurrent } from "./stCurrentSlide";
 
 const CurrentSlide = ({ data }) => {
