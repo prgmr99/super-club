@@ -20,7 +20,8 @@ const ProjectCreateWrap = () => {
     contents: "",
     skills: [],
     categories: [],
-    members: [],
+    teamName: "",
+    members: "",
     github: "",
     deploy: "",
   });

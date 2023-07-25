@@ -4,7 +4,7 @@ export const StTeamWrapper = styled.ul`
   ul {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     margin-bottom: 4.5rem;
     gap: 10rem;
 
@@ -33,6 +33,44 @@ export const StTeamWrapper = styled.ul`
         font-size: 2.6rem;
         font-weight: bold;
         margin-top: 1rem;
+      }
+      .team-member {
+        border: none;
+        outline: gray solid 1px;
+        border-radius: 1rem;
+        width: 100%;
+        height: 60px;
+        box-sizing: border-box;
+        padding-left: 1.1rem;
+        font-weight: bold;
+        margin-top: 10px;
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        .team-span {
+          font-size: 15px;
+          border: 1px solid #3b82f6;
+          background-color: #3b82f6;
+          color: #fff;
+          width: 30%;
+          height: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 1rem;
+          .delete-span {
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 5px;
+          }
+        }
+      }
+      .valid {
+        font-size: 1.2rem;
+        color: red;
       }
     }
   }

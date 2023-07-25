@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { styled } from "styled-components";
 import DatePicker, { DateObject } from "react-multi-date-picker";
 import { StIntroWrapper } from "./stIntroWrapper";
-import { StInput, StInputLink } from "./stInputFrom";
+import { StInput, StInputLink } from "./stInputForm";
 import { StPreview, StImg } from "./stPreviewImg";
 import { useDispatch } from "react-redux";
 import Button from "../../global/Button";
@@ -47,6 +47,11 @@ const ProjectIntro = ({ setStep, step, uploadRequest, setUploadRequest }) => {
       errors.startDate = "시작일을 지정해주세요.";
     } else if (uploadRequest.startDate > today) {
       errors.startDate = "오늘보다 전 날이어야 합니다.";
+    }
+    if (uploadRequest.endDate === "") {
+      errors.endDate = "종료일을 지정해주세요.";
+    } else if (uploadRequest.endDate > today) {
+      errors.endDate = "종료일은 오늘 이후일 수 없습니다.";
     }
     return errors;
   };
@@ -117,7 +122,7 @@ const ProjectIntro = ({ setStep, step, uploadRequest, setUploadRequest }) => {
       });
     }
   }, []);
-  console.log(uploadRequest.pic);
+  console.log(uploadRequest);
   return (
     <StIntroWrapper>
       <ul className="introduction">
@@ -164,9 +169,6 @@ const ProjectIntro = ({ setStep, step, uploadRequest, setUploadRequest }) => {
                 className="file-input"
                 id="filePicture"
               />
-              {!errors.pic && !errors.youtube && (
-                <div className="valid">{errors.pic}</div>
-              )}
             </>
           ) : (
             <div className="file-link">
@@ -193,16 +195,14 @@ const ProjectIntro = ({ setStep, step, uploadRequest, setUploadRequest }) => {
               uploadRequest={uploadRequest}
               setUploadRequest={setUploadRequest}
             />
-            {errors.startDate && (
-              <div className="valid">{errors.startDate}</div>
-            )}
             <DatePick
               end={"end"}
               uploadRequest={uploadRequest}
               setUploadRequest={setUploadRequest}
             />
-            {errors.endDate && <div className="valid">{errors.endDate}</div>}
           </div>
+          {errors.startDate && <div className="valid">{errors.startDate}</div>}
+          {errors.endDate && <div className="valid">{errors.endDate}</div>}
         </li>
         <li>
           <StPreview>
@@ -227,6 +227,7 @@ const ProjectIntro = ({ setStep, step, uploadRequest, setUploadRequest }) => {
               <StImg src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" />
             )}
           </StPreview>
+          {errors.pic && <div className="valid">{errors.pic}</div>}
         </li>
       </ul>
       <div className="button-box">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StDropWrap } from "../recruit-create/stRecruitInfoList";
+import { StCategoryWrap } from "./stCategoryWrap";
 import { StSelect } from "../recruit-create/stSelect";
 import { useDispatch } from "react-redux";
 import { addProject } from "../../modules/upload";
@@ -14,10 +14,9 @@ const ProjectCategory = ({
 }) => {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
-  const [saveValue, setSaveValue] = useState({
-    category: [],
-  });
-
+  const [cates, setCates] = useState([]);
+  const [cat2, setCat2] = useState([]);
+  const copy = [...categoryOption];
   const validate = () => {
     let errors = {};
     if (uploadRequest.categories.length === 0) {
@@ -26,11 +25,22 @@ const ProjectCategory = ({
     return errors;
   };
   const onChangeCategory = (e) => {
+    setCates([...e]);
     setUploadRequest({
       ...uploadRequest,
       categories: [...e],
     });
   };
+  const onChangeCategorySecond = (e) => {
+    setCat2([...e]);
+    setUploadRequest({
+      ...uploadRequest,
+      categories: [...cates, ...e],
+    });
+    //console.log(e);
+  };
+  console.log(uploadRequest.categories);
+  const arr = copy.filter((e) => !cates.includes(e));
   const onClickNext = () => {
     const errors = validate();
     if (Object.keys(errors).length === 0) {
@@ -42,7 +52,7 @@ const ProjectCategory = ({
     }
   };
   useEffect(() => {
-    const savedData = localStorage.getItem("saveItem");
+    const savedData = localStorage.getItem("saveItem_project");
     if (savedData) {
       setUploadRequest(JSON.parse(savedData));
     } else {
@@ -64,7 +74,7 @@ const ProjectCategory = ({
     }
   }, []);
   return (
-    <StDropWrap>
+    <StCategoryWrap>
       <ul className="skill">
         <li>
           <label>카테고리 *</label>
@@ -76,12 +86,10 @@ const ProjectCategory = ({
             placeholder="프로젝트 카테고리"
             noOptionsMessage={() => "옵션이 더 이상 없어요."}
             onChange={onChangeCategory}
-            value={uploadRequest.categories}
+            value={cates}
           />
-          {errors.categories ? (
+          {errors.categories && (
             <div className="valid">{errors.categories}</div>
-          ) : (
-            <div className="valid"></div>
           )}
         </li>
         <li>
@@ -89,14 +97,13 @@ const ProjectCategory = ({
           <StSelect
             className="react-select-container"
             classNamePrefix="react-select"
-            options={categoryOption}
+            options={arr}
             isMulti
             placeholder="프로젝트 카테고리"
             noOptionsMessage={() => "옵션이 더 이상 없어요."}
-            onChange={onChangeCategory}
-            // value={saveValue.skill}
+            onChange={onChangeCategorySecond}
+            value={cat2}
           />
-          <div className="valid"></div>
         </li>
       </ul>
       <div className="button-box">
@@ -107,7 +114,7 @@ const ProjectCategory = ({
           다음
         </Button>
       </div>
-    </StDropWrap>
+    </StCategoryWrap>
   );
 };
 

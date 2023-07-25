@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { StInput } from "./stInputFrom";
+import { StInput, StInputMember } from "./stInputForm";
 import { StTeamWrapper } from "./stTeamWrapper";
 import { useDispatch } from "react-redux";
 import { addProject } from "../../modules/upload";
@@ -11,6 +11,10 @@ const ProjectTeam = ({ setStep, step, uploadRequest, setUploadRequest }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
+  const [values, setValues] = useState("");
+  const [members, setMembers] = useState([]);
+  const [spans, setSpans] = useState([]);
+
   const validate = () => {
     let errors = {};
     if (uploadRequest.teamName.length === 0) {
@@ -30,11 +34,12 @@ const ProjectTeam = ({ setStep, step, uploadRequest, setUploadRequest }) => {
       teamName: e.target.value,
     });
   };
+  const onChangeValues = (e) => {
+    setValues(e.target.value);
+  };
   const onChangeMember = (e) => {
-    setUploadRequest({
-      ...uploadRequest,
-      members: [...e],
-    });
+    setMembers([...members, e.target.value]);
+    console.log(members);
   };
   const onChangeGithub = (e) => {
     setUploadRequest({
@@ -48,37 +53,58 @@ const ProjectTeam = ({ setStep, step, uploadRequest, setUploadRequest }) => {
       deploy: e.target.value,
     });
   };
+  const deleteMembers = (id) => {
+    // console.log(id);
+    // console.log(members);
+    // console.log(spans);
+    setMembers(spans.splice(id, 1));
+  };
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter" && values.trim() !== "") {
+      setSpans([...spans, values]);
+      setValues("");
+      setMembers([...members, values]);
+      setUploadRequest({
+        ...uploadRequest,
+        members: [...members, values],
+      });
+    }
+  };
+  console.log(uploadRequest.members);
   const submitProject = () => {
     const errors = validate();
     if (Object.keys(errors).length === 0) {
       dispatch(addProject(uploadRequest));
-      localStorage.removeItem("saveItem_project");
+      localStorage.removeItem(
+        "saveItem_project",
+        JSON.stringify(uploadRequest)
+      );
       navigate("/");
     }
     setErrors(errors);
   };
-  useEffect(() => {
-    const savedData = localStorage.getItem("saveItem_project");
-    if (savedData) {
-      setUploadRequest(JSON.parse(savedData));
-    } else {
-      setUploadRequest({
-        ...uploadRequest,
-        title: "",
-        startDate: "",
-        endDate: "",
-        pic: "",
-        youtube: "",
-        contents: "",
-        skills: [],
-        categories: [],
-        teamName: "",
-        members: [],
-        github: "",
-        deploy: "",
-      });
-    }
-  }, []);
+  //   useEffect(() => {
+  //     const savedData = localStorage.getItem("saveItem_project");
+  //     if (savedData) {
+  //       setUploadRequest(JSON.parse(savedData));
+  //     } else {
+  //       setUploadRequest({
+  //         ...uploadRequest,
+  //         title: "",
+  //         startDate: "",
+  //         endDate: "",
+  //         pic: "",
+  //         youtube: "",
+  //         contents: "",
+  //         skills: [],
+  //         categories: [],
+  //         teamName: "",
+  //         members: [],
+  //         github: "",
+  //         deploy: "",
+  //       });
+  //     }
+  //   }, []);
   return (
     <StTeamWrapper>
       <ul>
@@ -94,15 +120,24 @@ const ProjectTeam = ({ setStep, step, uploadRequest, setUploadRequest }) => {
         </li>
         <li>
           <div className="team-title">팀원</div>
-          <div>
-            <StInput
+          <div className="team-member">
+            {spans.map((e, i) => (
+              <span key={i} className="team-span">
+                {e}
+                <span className="delete-span" onClick={() => deleteMembers(i)}>
+                  X
+                </span>
+              </span>
+            ))}
+            <StInputMember
               type="text"
               placeholder="팀원을 입력해주세요."
-              value={uploadRequest.members}
-              onChange={onChangeMember}
+              value={values}
+              onChange={onChangeValues}
+              onKeyPress={handleKeyPress}
             />
-            {errors.members && <div className="valid">{errors.members}</div>}
           </div>
+          {errors.members && <div className="valid">{errors.members}</div>}
         </li>
       </ul>
       <ul>

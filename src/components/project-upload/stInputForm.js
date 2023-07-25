@@ -8,8 +8,7 @@ export const StInput = styled.input`
   height: 60px;
   box-sizing: border-box;
   padding-left: 1.1rem;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 15px;
   margin-top: 10px;
 `;
 
@@ -22,4 +21,13 @@ export const StInputLink = styled.input`
   padding-left: 1.1rem;
   font-size: 15px;
   box-sizing: border-box;
+`;
+
+export const StInputMember = styled.input`
+  border: none;
+  font-size: 15px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  outline: none;
 `;

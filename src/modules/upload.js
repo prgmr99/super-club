@@ -30,9 +30,7 @@ const upload = (state = initialState, action) => {
     case ADD_PROJECT:
       const title = action.payload.title;
       const skills = action.payload.skills.map((e) => e.id);
-      const categories = action.payload.skills.map((e) => e.id);
-      const members = action.payload.members.map((e) => e.id);
-
+      const categories = action.payload.categories.map((e) => e.id);
       return {
         ...state,
         title,
@@ -43,7 +41,7 @@ const upload = (state = initialState, action) => {
         contents: action.payload.contents,
         skills,
         categories,
-        members,
+        members: action.payload.members,
         github: action.payload.github,
         deploy: action.payload.deploy,
       };
