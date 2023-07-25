@@ -178,7 +178,7 @@ const RecruitInfoList = ({
         </li>
         <li>
           <label>모집 마감일 *</label>
-          <DatePick onChangeEndDate={onChangeEndDate} />
+          <DatePick onChangeEndDate={onChangeEndDate} end={"end-recruit"} />
           {errors.endDate && <div className="valid">{errors.endDate}</div>}
         </li>
       </ul>

@@ -4,7 +4,13 @@ import InputIcon from "react-multi-date-picker/components/input_icon";
 import transition from "react-element-popper/animations/transition";
 import opacity from "react-element-popper/animations/opacity";
 
-const DatePick = ({ setUploadRequest, uploadRequest, start, end }) => {
+const DatePick = ({
+  setUploadRequest,
+  uploadRequest,
+  start,
+  end,
+  onChangeEndDate,
+}) => {
   const [dateValue, setDateValue] = useState(new Date());
   //console.log(start, end);
   const onChangeDate = (e) => {
@@ -19,6 +25,8 @@ const DatePick = ({ setUploadRequest, uploadRequest, start, end }) => {
         ...uploadRequest,
         endDate: new DateObject(e).format("YYYY-MM-DD"),
       });
+    } else if (end === "end-recruit") {
+      onChangeEndDate(new DateObject(e).format("YYYY-MM-DD"));
     }
   };
   useEffect(() => {
