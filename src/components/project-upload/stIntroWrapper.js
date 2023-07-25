@@ -28,6 +28,11 @@ export const StIntroWrapper = styled.ul`
       .intro-title {
         font-size: 2.6rem;
       }
+      .ssum {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .valid {
         font-size: 1.2rem;
         color: red;
@@ -88,17 +93,33 @@ export const StIntroWrapper = styled.ul`
     display: none;
   }
   .file-label {
-    margin-top: 1rem;
-    font-weight: 200;
-    &:hover {
-      color: #0984e3;
-      transition: ease-in-out 0.5s;
-    }
-    cursor: pointer;
+    border: none;
+    outline: gray solid 1px;
+    border-radius: 1rem;
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    padding-left: 1.1rem;
+    font-size: 15px;
+    font-weight: 350;
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: start;
+    align-items: center;
   }
   .file-link {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    .youtube-btn {
+      height: 60px;
+      margin-top: 10px;
+      border-radius: 1rem;
+      border: none;
+      background-color: #0047ff;
+      opacity: 0.8;
+      color: white;
+    }
   }
 `;

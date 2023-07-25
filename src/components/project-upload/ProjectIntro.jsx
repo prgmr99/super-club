@@ -137,28 +137,30 @@ const ProjectIntro = ({ setStep, step, uploadRequest, setUploadRequest }) => {
           {errors.title && <div className="valid">{errors.title}</div>}
         </li>
         <li>
-          <div className="intro-title">썸네일 선택</div>
-          <div>
-            <input
-              type="radio"
-              name="ssum"
-              onChange={handleImg}
-              value="picture"
-              defaultChecked
-            />
-            <label for="picture">사진</label>
-            <input
-              type="radio"
-              value="video"
-              name="ssum"
-              onChange={handleVideo}
-            />
-            <label for="video">영상</label>
+          <div className="intro-title ssum">
+            썸네일 선택
+            <div>
+              <input
+                type="radio"
+                name="ssum"
+                onChange={handleImg}
+                value="picture"
+                defaultChecked
+              />
+              <label for="picture">사진</label>
+              <input
+                type="radio"
+                value="video"
+                name="ssum"
+                onChange={handleVideo}
+              />
+              <label for="video">영상</label>
+            </div>
           </div>
           {show ? (
             <>
               <label className="file-label" htmlFor="filePicture">
-                사진 선택하기
+                {"사진 선택하기"}
               </label>
               <input
                 type="file"
@@ -180,7 +182,9 @@ const ProjectIntro = ({ setStep, step, uploadRequest, setUploadRequest }) => {
                 ref={imgRef}
                 id="fileVideo"
               />
-              <button onClick={handleSubmit}>등록</button>
+              <button className="youtube-btn" onClick={handleSubmit}>
+                등록
+              </button>
             </div>
           )}
         </li>

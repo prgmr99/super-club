@@ -17,10 +17,11 @@ export const StInputLink = styled.input`
   outline: gray solid 1px;
   border-radius: 1rem;
   width: 90%;
-  height: 27px;
+  height: 60px;
   padding-left: 1.1rem;
   font-size: 15px;
   box-sizing: border-box;
+  margin-top: 10px;
 `;
 
 export const StInputMember = styled.input`
