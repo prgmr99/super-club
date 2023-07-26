@@ -107,6 +107,12 @@ export const StIntroWrapper = styled.ul`
     display: flex;
     justify-content: start;
     align-items: center;
+    &:hover {
+      border-color: #0047ff;
+    }
+    &:focus {
+      border: 2px solid #0047ff;
+    }
   }
   .file-link {
     display: flex;

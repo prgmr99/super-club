@@ -10,6 +10,12 @@ export const StInput = styled.input`
   padding-left: 1.1rem;
   font-size: 15px;
   margin-top: 10px;
+  &:hover {
+    border-color: #0047ff;
+  }
+  &:focus {
+    border: 2px solid #0047ff;
+  }
 `;
 
 export const StInputLink = styled.input`
@@ -22,6 +28,12 @@ export const StInputLink = styled.input`
   font-size: 15px;
   box-sizing: border-box;
   margin-top: 10px;
+  &:hover {
+    border-color: #0047ff;
+  }
+  &:focus {
+    border: 2px solid #0047ff;
+  }
 `;
 
 export const StInputMember = styled.input`
@@ -31,4 +43,10 @@ export const StInputMember = styled.input`
   height: 100%;
   width: 100%;
   outline: none;
+  &:hover {
+    border-color: #0047ff;
+  }
+  &:focus {
+    border: 2px solid #0047ff;
+  }
 `;
