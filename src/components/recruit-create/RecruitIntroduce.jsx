@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StIntroduce } from "./stRecruitIntroduce";
 import Button from "../../global/Button";
 import { useNavigate } from "react-router-dom";
-import { addRecruit } from "./../../modules/recruit";
+import { addRecruit, postRecruitData } from "./../../modules/recruit";
 import { useDispatch } from "react-redux";
 
 const RecruitIntroduce = ({
@@ -32,13 +32,14 @@ const RecruitIntroduce = ({
   };
 
   const submitRecruit = () => {
-    const errors = validate();
-    if (Object.keys(errors).length === 0) {
-      dispatch(addRecruit(recruitRequest));
-      localStorage.removeItem("saveItem");
-      navigate("/recruit");
-    }
-    setErrors(errors);
+    // const errors = validate();
+    // if (Object.keys(errors).length === 0) {
+    //   dispatch(addRecruit(recruitRequest));
+    //   localStorage.removeItem("saveItem");
+    //   navigate("/recruit");
+    // }
+    // setErrors(errors);
+    dispatch(postRecruitData(recruitRequest));
   };
 
   const onChangeHandler = (e) => {
