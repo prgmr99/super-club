@@ -21,7 +21,7 @@ const RecruitInfoList = ({
   // addRecruit
   const dispatch = useDispatch();
   const state = useSelector((state) => state.recruit);
-  console.log(recruitRequest);
+  // console.log(recruitRequest);
 
   const onChangeProgress = (e) => {
     setRecruitRequest({ ...recruitRequest, progress: e });

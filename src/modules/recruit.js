@@ -24,7 +24,7 @@ const initalState = {
 
 // reducer (순수함수)
 const recruit = (state = initalState, action) => {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case ADD_RECRUIT:
       // console.log("id :", action.payload.progress.id);
