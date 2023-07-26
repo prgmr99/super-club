@@ -15,28 +15,33 @@ import CommentList from "../comment/CommentList";
 const RecruitDetailWrap = () => {
   return (
     <StWraper>
-      <RecruitDetailHeader />
-      <RecruitDetailMeta />
-      <RecruitDetailGithub />
-      <Quarter />
-      <RecruitDetailInfo />
-      <Quarter />
-      <RecruitDetailDesc />
-
-      <Quarter />
-
-      {/* 댓글 */}
-      <Reply location="recruit-detail">
-        <SlBubble />
-        <span>30 개</span>
-      </Reply>
-
-      <CommentForm />
-      <div className="comment-flex">
-        <CommentList />
+      <div className="bookmark">
+        <BookMark />
       </div>
+      <div className="flex-colum">
+        <RecruitDetailHeader />
+        <RecruitDetailMeta />
+        <RecruitDetailGithub />
+        <Quarter />
+        <RecruitDetailInfo />
+        <Quarter />
+        <RecruitDetailDesc />
 
-      <BookMark />
+        <Quarter />
+
+        {/* 댓글 */}
+        <Reply location="recruit-detail">
+          <SlBubble />
+          <span>30 개</span>
+        </Reply>
+
+        <CommentForm />
+        <div className="comment-flex">
+          <CommentList />
+          <CommentList />
+          <CommentList />
+        </div>
+      </div>
     </StWraper>
   );
 };

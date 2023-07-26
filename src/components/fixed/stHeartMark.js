@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const StHeartMark = styled.div`
   border: 1px solid #eee;
   width: 6.5rem;
-  position: fixed;
+  position: sticky;
   top: 30rem;
   left: 18rem;
   border-radius: 80px;
