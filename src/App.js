@@ -27,7 +27,7 @@ function App() {
           <Route path="/project/detail" element={<ProjectDetailPage />} />
           <Route path="/recruit" element={<RecruitMainPage />} />
           <Route path="/recruit/create" element={<RecruitCreatePage />} />
-          <Route path="/recruit/detail:id" element={<RecruitDetailPage />} />
+          <Route path="/recruit/detail/:id" element={<RecruitDetailPage />} />
           <Route path="/mypost" element={<PostPage />} />
           <Route path="/mylikes" element={<LikePage />} />
           <Route path="*" element={<NotFound />} />

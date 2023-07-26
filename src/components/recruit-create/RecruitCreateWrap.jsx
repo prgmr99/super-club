@@ -17,6 +17,7 @@ const RecruitCreateWrap = () => {
     title: "",
     contents: "",
     duration: "",
+    participants: 0,
   });
 
   const stepPage = {

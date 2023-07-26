@@ -59,7 +59,10 @@ const RecruitInfoList = ({
     if (recruitRequest.skill.length === 0) {
       errors.skill = "최소 하나는 선택해주세요.";
     } else if (recruitRequest.skill.length > 10) {
-      errors.skill = "최대 10개 선택이 가능합니다.";
+      errors.skill = "최대 10개 선택이 가능해요.";
+    }
+    if (recruitRequest.participants === 0) {
+      errors.participants = "최소 한명 이상은 모집해야해요.";
     }
     return errors;
   };
@@ -95,12 +98,19 @@ const RecruitInfoList = ({
     });
   };
 
-  const onChangeGithub = (e) => {
+  const onChangeInput = (e) => {
     const { name, value } = e.target;
-    setRecruitRequest({
-      ...recruitRequest,
-      [name]: value,
-    });
+    if (name === "participants") {
+      setRecruitRequest({
+        ...recruitRequest,
+        [name]: Number(value),
+      });
+    } else {
+      setRecruitRequest({
+        ...recruitRequest,
+        [name]: value,
+      });
+    }
   };
 
   const onClickNext = () => {
@@ -117,8 +127,6 @@ const RecruitInfoList = ({
     // setStep(step + 1);
   };
 
-  // console.log(recruitRequest);
-
   useEffect(() => {
     const savedData = localStorage.getItem("saveItem");
     if (savedData) {
@@ -133,9 +141,12 @@ const RecruitInfoList = ({
         title: "",
         contents: "",
         duration: "",
+        participants: 0,
       });
     }
   }, []);
+
+  // console.log(recruitRequest);
 
   return (
     <StDropWrap>
@@ -217,8 +228,22 @@ const RecruitInfoList = ({
             placeholder="Github ID를 작성하면 잔디를 보실 수 있습니다."
             name="github"
             value={recruitRequest.github}
-            onChange={onChangeGithub}
+            onChange={onChangeInput}
           />
+        </li>
+        <li className="participants">
+          <label>모집 인원 *</label>
+          <input
+            type="number"
+            placeholder="모집 인원의 명수를 적어주세요"
+            name="participants"
+            value={recruitRequest.participants}
+            onChange={onChangeInput}
+            max={10}
+          />
+          {errors.participants && (
+            <div className="valid">{errors.participants}</div>
+          )}
         </li>
       </ul>
       <div className="button-box">

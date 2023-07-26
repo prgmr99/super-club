@@ -55,6 +55,7 @@ export const postRecruitData = (payload) => {
       github: payload.github,
       title: payload.title,
       contents: payload.contents,
+      participants: payload.participants,
     };
 
     console.log(recruitInfo);

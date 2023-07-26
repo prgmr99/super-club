@@ -2,11 +2,20 @@ import React from "react";
 import { StRecruitMainPostingBox } from "./stRecruitMainPostingBox";
 import { HiOutlineEye, HiUserCircle } from "react-icons/hi";
 import { HiOutlineChatBubbleLeft } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 
 const RecruitMainPostingBox = () => {
+  const navigate = useNavigate();
+
+  //임시임 지워도 됨
+  const clickId = (e) => {
+    console.log("눌림");
+    console.log(e.target.id);
+    navigate(`/recruit/detail/:${e.target.id}`);
+  };
   return (
     <StRecruitMainPostingBox>
-      <article className="recruit_wrap">
+      <article className="recruit_wrap" id="1" onClick={clickId}>
         <div className="recruit_d_day">🔥 D-2</div>
         <div className="recruit_view">
           <div className="recruit_view_deadline">마감일 | 2023.08.20</div>
