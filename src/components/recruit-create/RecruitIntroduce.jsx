@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { StIntroduce } from "./stRecruitIntroduce";
 import Button from "../../global/Button";
 import { useNavigate } from "react-router-dom";
-
 import { addRecruit } from "./../../modules/recruit";
 import { useDispatch } from "react-redux";
 
@@ -15,10 +14,31 @@ const RecruitIntroduce = ({
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    let errors = {};
+    if (recruitRequest.title.length === 0) {
+      errors.title = "필수로 입력하셔야 합니다.";
+    } else if (recruitRequest.title.length <= 5) {
+      errors.title = "최소 5글자 이상은 작성해야 합니다.";
+    }
+    if (recruitRequest.contents.length === 0) {
+      errors.contents = "필수로 입력하셔야 합니다.";
+    } else if (recruitRequest.contents.length <= 10) {
+      errors.contents = "최소 10글자 이상은 작성해야 합니다.";
+    }
+    return errors;
+  };
+
   const submitRecruit = () => {
-    dispatch(addRecruit(recruitRequest));
-    localStorage.removeItem("saveItem");
-    navigate("/recruit");
+    const errors = validate();
+    if (Object.keys(errors).length === 0) {
+      dispatch(addRecruit(recruitRequest));
+      localStorage.removeItem("saveItem");
+      navigate("/recruit");
+    }
+    setErrors(errors);
   };
 
   const onChangeHandler = (e) => {
@@ -36,6 +56,7 @@ const RecruitIntroduce = ({
         onChange={onChangeHandler}
         value={recruitRequest.title}
       />
+      {errors.title && <div className="valid">{errors.title}</div>}
 
       <div className="title-box">
         <label htmlFor="desc">프로젝트 소개글 *</label>
@@ -49,8 +70,11 @@ const RecruitIntroduce = ({
         onChange={onChangeHandler}
         value={recruitRequest.contents}
       />
-      <div className="current-number">
-        {recruitRequest.contents.length}/1500
+      <div className="content-bottom">
+        {errors.contents && <div className="valid">{errors.contents}</div>}
+        <div className="current-number">
+          {recruitRequest.contents.length}/1500
+        </div>
       </div>
       <div className="button-box">
         <Button purpose="step" onClick={() => setStep(step - 1)}>

@@ -7,7 +7,7 @@ export const StIntro = styled.div`
   justify-content: center;
   .intro_desc {
     width: 80%;
-    height: 80%;
+    height: 93%;
     display: flex;
     justify-content: space-between;
     align-items: center;

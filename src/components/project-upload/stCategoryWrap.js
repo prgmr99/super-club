@@ -1,13 +1,13 @@
 import { styled } from "styled-components";
 
-export const StDropWrap = styled.ul`
+export const StCategoryWrap = styled.ul`
   /* background-color: pink; */
   ul {
     margin-bottom: 2rem;
     display: flex;
     /* flex-direction: column; */
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     gap: 5rem;
     li {
       width: 45%;

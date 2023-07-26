@@ -8,7 +8,7 @@ export const StIntroduce = styled.div`
   justify-content: center;
   position: relative;
   font-size: 1.7rem;
-  gap: 1.5rem;
+  gap: 1.2rem;
   label {
     width: 90%;
     display: flex;
@@ -36,6 +36,12 @@ export const StIntroduce = styled.div`
     &:focus {
       border: 2px solid #0047ff;
     }
+  }
+  .valid {
+    font-size: 1.2rem;
+    color: red;
+    display: flex;
+    width: 90%;
   }
   .title-box {
     /* background-color: pink; */
@@ -75,13 +81,20 @@ export const StIntroduce = styled.div`
       border: 2px solid #2563eb;
     }
   }
-  .current-number {
-    width: 90%;
+  .content-bottom {
     display: flex;
-    justify-content: end;
-    color: gray;
-    cursor: default;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    .current-number {
+      width: 90%;
+      display: flex;
+      justify-content: end;
+      color: gray;
+      cursor: default;
+    }
   }
+
   .button-box {
     width: 90%;
     display: flex;
