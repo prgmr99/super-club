@@ -6,18 +6,22 @@ import RecruitMainTechStack from "./RecruitMainTechStack";
 import RecruitMainPosting from "./RecruitMainPosting";
 import RecruitMainPostingFilter from "./RecruitMainPostingFilter";
 import GlobalLayout from "../../global/GlobalLayout";
+import Footer from "../../global/Footer";
 
 const RecruitMain = () => {
   return (
-    <StWrapper>
-      <RecruitMainBanner />
-      <GlobalLayout>
-        <RecruitMainCategory />
-        <RecruitMainTechStack />
-        <RecruitMainPostingFilter />
-        <RecruitMainPosting />
-      </GlobalLayout>
-    </StWrapper>
+    <>
+      <StWrapper>
+        <RecruitMainBanner />
+        <GlobalLayout>
+          <RecruitMainCategory />
+          <RecruitMainTechStack />
+          <RecruitMainPostingFilter />
+          <RecruitMainPosting />
+        </GlobalLayout>
+      </StWrapper>
+      <Footer />
+    </>
   );
 };
 

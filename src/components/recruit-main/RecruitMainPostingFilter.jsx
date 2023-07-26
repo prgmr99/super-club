@@ -3,7 +3,6 @@ import { StPostingFilter } from "./stRecruitMainPostingFilter";
 
 const RecruitMainPostingFilter = () => {
   const [recuiting, setRecuiting] = useState(false);
-
   const recuitingHandler = (e) => {
     e.target.checked ? setRecuiting(true) : setRecuiting(false);
     console.log(e);
@@ -12,7 +11,7 @@ const RecruitMainPostingFilter = () => {
   return (
     <StPostingFilter>
       <ul>
-        <li>최신순(기본)</li>
+        <li>최신순</li>
         <li>스크랩 순</li>
         <li>조회수 순</li>
       </ul>

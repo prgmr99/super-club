@@ -1,28 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StRecruitMainPostingBox } from "./stRecruitMainPostingBox";
 import { HiOutlineEye, HiUserCircle } from "react-icons/hi";
 import { HiOutlineChatBubbleLeft } from "react-icons/hi2";
 
 const RecruitMainPostingBox = () => {
-  const techStackArray = [
-    { id: 1, title: "javascript" },
-    { id: 2, title: "typescript" },
-    { id: 3, title: "react" },
-    { id: 4, title: "svelte" },
-    { id: 5, title: "python" },
-    { id: 6, title: "java" },
-  ];
-  const techStackLength = techStackArray.length;
-  const techStackLimit = techStackArray.slice(0, 5);
-  const techStackHandler = () => {
-    if (
-      // techStackLength !== techStackLimit &&
-      techStackLength > techStackLimit
-    ) {
-      // console.log(true);
-      // console.log(techStackLimit);
-      console.log(techStackLimit);
-    }
+  const [techStackArray, setTechStackArray] = useState([
+    { id: 1, title: "javascript", img: "icon__tech-stack--javascript.svg" },
+    { id: 2, title: "typescript", img: "icon__tech-stack--typescript.svg" },
+    { id: 3, title: "react", img: "icon__tech-stack--react.svg" },
+    { id: 4, title: "svelte", img: "icon__tech-stack--svelte.svg" },
+    { id: 5, title: "python", img: "icon__tech-stack--python.svg" },
+    { id: 6, title: "aws", img: "icon__tech-stack--aws.svg" },
+    { id: 7, title: "java", img: "icon__tech-stack--java.svg" },
+  ]);
+
+  const getMaxArr = () => {
+    return techStackArray.slice(0, 5).map((el) => (
+      <li key={el.id}>
+        <img src={el.img} alt={el.title} />
+      </li>
+    ));
   };
 
   return (
@@ -45,35 +42,8 @@ const RecruitMainPostingBox = () => {
         <div className="recruit_title">
           [팀원 모집] 포폴용 프로젝트에서 디자이너 분을 모십니다!
         </div>
-        <div className="recruit_tech_stack" onClick={techStackHandler}>
-          <ul onClick={techStackHandler}>
-            {techStackArray.map(() => (
-              <li>
-                <img src="icon__tech-stack--javascript.svg" alt="JavaScript" />
-              </li>
-            ))}
-            {/*<li>
-              <img src="icon__tech-stack--javascript.svg" alt="JavaScript" />
-            </li>
-            <li>
-              <img src="icon__tech-stack--typescript.svg" alt="TypeScript" />
-            </li>
-            <li>
-              <img src="icon__tech-stack--react.svg" alt="React" />
-            </li>
-            <li>
-              <img src="icon__tech-stack--vue.svg" alt="Vue" />
-            </li>
-            <li>
-              <img src="icon__tech-stack--svelte.svg" alt="Svelte" />
-            </li>
-            <li>
-              <img src="icon__tech-stack--vue.svg" alt="Vue" />
-            </li>
-            <li>
-              <img src="icon__tech-stack--svelte.svg" alt="Svelte" />
-            </li>*/}
-          </ul>
+        <div className="recruit_tech_stack">
+          <ul>{getMaxArr()}</ul>
         </div>
         <div className="recruit_job_position">
           <ul>
