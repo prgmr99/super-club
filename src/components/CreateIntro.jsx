@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { StIntro } from "./stCreateIntro";
 import Button from "../global/Button";
-
 import { useLocation } from "react-router-dom";
 import Confirm from "../global/Confirm";
 
 const CreateIntro = ({ setStep }) => {
   const [openConfirm, setOpenConfirm] = useState(false);
+  const [openConfirmProject, setOpenConfirmProject] = useState(false);
 
   const location = useLocation();
 
@@ -93,16 +93,16 @@ const CreateIntro = ({ setStep }) => {
     }
   };
 
-  useEffect(() => {
-    const savedItem = localStorage.getItem("saveItem");
-    if (savedItem) {
-      setOpenConfirm(true);
-    }
-  }, []);
-
-  return (
-    <StIntro>
-      {location.pathname === "/project/upload" ? (
+  const checkConfirmProject = () => {
+    if (openConfirmProject) {
+      return (
+        <Confirm
+          setStep={setStep}
+          setOpenConfirmProject={setOpenConfirmProject}
+        />
+      );
+    } else {
+      return (
         <div className="intro_desc">
           <h2>프로젝트를 등록해봅시다!</h2>
           <div className="intro_desc_order">{divideRecruit(uploadIntro)}</div>
@@ -114,6 +114,25 @@ const CreateIntro = ({ setStep }) => {
             등록하기
           </Button>
         </div>
+      );
+    }
+  };
+
+  useEffect(() => {
+    const savedItem = localStorage.getItem("saveItem");
+    const savedItem_project = localStorage.getItem("saveItem_project");
+    if (savedItem) {
+      setOpenConfirm(true);
+    }
+    if (savedItem_project) {
+      setOpenConfirmProject(true);
+    }
+  }, []);
+
+  return (
+    <StIntro>
+      {location.pathname === "/project/upload" ? (
+        <>{checkConfirmProject()}</>
       ) : (
         <>{checkConfirm()}</>
       )}

@@ -18,6 +18,19 @@ export const StAboutWrapper = styled.div`
       margin-top: 20px;
     }
   }
+  .content-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .current-number {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      color: gray;
+      cursor: default;
+    }
+  }
 
   .current-number {
     width: 100%;
@@ -32,6 +45,11 @@ export const StAboutWrapper = styled.div`
     line-height: 200%;
     font-size: 2rem;
     margin-bottom: 1.5rem;
+  }
+  .valid {
+    width: 20%;
+    font-size: 1.2rem;
+    color: red;
   }
   .about-textarea {
     width: 750px;

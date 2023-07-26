@@ -80,16 +80,7 @@ const TopTen = () => {
       views: "41회",
     },
   ];
-  console.log(index);
-  console.log((index + 1) % 4);
-  console.log(back);
-  // const dataMap = () =>{
-  //   return data.map((el,index)=>(
 
-  //   ))
-  // }
-  //console.log(index - 1);
-  //console.log(testData[index - 1].title);
   return (
     <StTop>
       <h2>프로JET Top 10</h2>
