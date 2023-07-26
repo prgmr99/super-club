@@ -10,7 +10,7 @@ import {
 } from "./data/recruitOption";
 import { useDispatch, useSelector } from "react-redux";
 import DatePick from "../../global/DatePick";
-import { addRecruit, postRecruitData } from "../../modules/recruit";
+import { addRecruit, postRecruitData } from "../../modules/recruit/postRecruit";
 
 const RecruitInfoList = ({
   setStep,

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StIntroduce } from "./stRecruitIntroduce";
 import Button from "../../global/Button";
 import { useNavigate } from "react-router-dom";
-import { addRecruit, postRecruitData } from "./../../modules/recruit";
+import { postRecruitData } from "../../modules/recruit/postRecruit";
 import { useDispatch } from "react-redux";
 
 const RecruitIntroduce = ({
@@ -32,14 +32,15 @@ const RecruitIntroduce = ({
   };
 
   const submitRecruit = () => {
-    // const errors = validate();
-    // if (Object.keys(errors).length === 0) {
-    //   dispatch(addRecruit(recruitRequest));
-    //   localStorage.removeItem("saveItem");
-    //   navigate("/recruit");
-    // }
-    // setErrors(errors);
-    dispatch(postRecruitData(recruitRequest));
+    const errors = validate();
+    if (Object.keys(errors).length === 0) {
+      dispatch(postRecruitData(recruitRequest));
+      localStorage.removeItem("saveItem");
+      navigate("/recruit");
+    } else {
+      setErrors(errors);
+    }
+    // dispatch(postRecruitData(recruitRequest));
   };
 
   const onChangeHandler = (e) => {
