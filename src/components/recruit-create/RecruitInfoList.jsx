@@ -10,7 +10,7 @@ import {
 } from "./data/recruitOption";
 import { useDispatch, useSelector } from "react-redux";
 import DatePick from "../../global/DatePick";
-import { addRecruit } from "../../modules/recruit";
+import { addRecruit, postRecruitData } from "../../modules/recruit/postRecruit";
 
 const RecruitInfoList = ({
   setStep,
@@ -85,6 +85,7 @@ const RecruitInfoList = ({
       ...recruitRequest,
       endDate: newDate,
     });
+    // console.log(newDate);
   };
 
   const onChangeSkill = (e) => {
@@ -106,12 +107,17 @@ const RecruitInfoList = ({
     const errors = validate();
     if (Object.keys(errors).length === 0) {
       localStorage.setItem("saveItem", JSON.stringify(recruitRequest));
-      dispatch(addRecruit(recruitRequest));
+      dispatch(postRecruitData(recruitRequest));
       setStep(step + 1);
     } else {
       setErrors(errors);
     }
+
+    // dispatch(postRecruitData(recruitRequest));
+    // setStep(step + 1);
   };
+
+  // console.log(recruitRequest);
 
   useEffect(() => {
     const savedData = localStorage.getItem("saveItem");
@@ -178,7 +184,12 @@ const RecruitInfoList = ({
         </li>
         <li>
           <label>모집 마감일 *</label>
-          <DatePick onChangeEndDate={onChangeEndDate} end={"end-recruit"} />
+          <DatePick
+            onChangeEndDate={onChangeEndDate}
+            end={"end-recruit"}
+            // setRecruitRequest={setRecruitRequest}
+            // recruitRequest={recruitRequest}
+          />
           {errors.endDate && <div className="valid">{errors.endDate}</div>}
         </li>
       </ul>
