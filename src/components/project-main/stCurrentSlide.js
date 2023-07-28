@@ -49,7 +49,10 @@ export const StCurrent = styled.div`
         width: 4rem;
         height: 4rem;
         border-radius: 50%;
-        background-color: #ccc;
+        img {
+          width: 3.8rem;
+          height: 3.8rem;
+        }
       }
     }
     &-heart {

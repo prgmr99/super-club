@@ -1,5 +1,7 @@
 import React from "react";
 import { StBanner } from "./stRecruitMainBanner";
+import { register } from "swiper/element/bundle";
+register();
 
 const RecruitMainBanner = () => {
   return (
