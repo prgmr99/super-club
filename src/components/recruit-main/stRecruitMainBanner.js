@@ -3,13 +3,13 @@ import { styled } from "styled-components";
 export const StBanner = styled.div`
   display: flex;
   swiper-container {
+    overflow-y: hidden;
     cursor: pointer;
     background-color: #888;
     max-width: 100%;
     height: 330px;
     margin-bottom: 10px;
     display: flex;
-    background-color: #161774;
     swiper-slide {
       display: flex;
       width: 100%;
