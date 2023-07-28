@@ -48,6 +48,9 @@ export const StTeamWrapper = styled.ul`
         display: flex;
         align-items: center;
         justify-content: start;
+        &:focus {
+          border: 2px solid #0047ff;
+        }
         .team-span {
           font-size: 15px;
           border: 1px solid #3b82f6;
