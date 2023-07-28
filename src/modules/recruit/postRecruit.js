@@ -1,3 +1,4 @@
+import axios from "axios";
 import { CreateRecruit } from "../../apis/recruit/recruitApi";
 
 // 액션 이름
@@ -67,7 +68,8 @@ export const postRecruitData = (payload) => {
         console.log("다 있어요");
         console.log("서버에 보낼 데이터", recruitInfo);
 
-        const responseData = await CreateRecruit(recruitInfo);
+        // const responseData = await CreateRecruit(recruitInfo);
+        const responseData = await axios.post();
         console.log("서버 응답 데이터:", responseData);
         dispatch(addRecruitSuccess(responseData));
       } else {

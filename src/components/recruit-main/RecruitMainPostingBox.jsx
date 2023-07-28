@@ -13,6 +13,7 @@ const RecruitMainPostingBox = () => {
     console.log(e.target.id);
     navigate(`/recruit/detail/:${e.target.id}`);
   };
+
   return (
     <StRecruitMainPostingBox>
       <article className="recruit_wrap" id="1" onClick={clickId}>

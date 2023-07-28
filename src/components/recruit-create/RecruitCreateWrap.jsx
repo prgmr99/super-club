@@ -8,6 +8,11 @@ import ProgressBar from "../../global/ProgressBar";
 const RecruitCreateWrap = () => {
   const [step, setStep] = useState(0);
 
+  localStorage.setItem(
+    "accesstoken",
+    "OuiukkBi8cWYcCe4TSQVzn1OvFgNKRUcAeNYdLY7CinJXgAAAYmdAslA"
+  );
+
   const [recruitRequest, setRecruitRequest] = useState({
     progress: "",
     position: [],

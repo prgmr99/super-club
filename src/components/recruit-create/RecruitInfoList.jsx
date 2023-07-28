@@ -204,22 +204,6 @@ const RecruitInfoList = ({
           {errors.endDate && <div className="valid">{errors.endDate}</div>}
         </li>
       </ul>
-      <ul className="skill">
-        <li>
-          <label>기술 스택 *</label>
-          <StSelect
-            className="react-select-container"
-            classNamePrefix="react-select"
-            options={skillOption}
-            isMulti
-            placeholder="프로젝트 사용 스택"
-            noOptionsMessage={() => "옵션이 더 이상 없어요."}
-            onChange={onChangeSkill}
-            value={recruitRequest.skill}
-          />
-          {errors.skill && <div className="valid">{errors.skill}</div>}
-        </li>
-      </ul>
       <ul>
         <li className="github">
           <label>GitHub ID</label>
@@ -246,6 +230,23 @@ const RecruitInfoList = ({
           )}
         </li>
       </ul>
+      <ul className="skill">
+        <li>
+          <label>기술 스택 *</label>
+          <StSelect
+            className="react-select-container"
+            classNamePrefix="react-select"
+            options={skillOption}
+            isMulti
+            placeholder="프로젝트 사용 스택"
+            noOptionsMessage={() => "옵션이 더 이상 없어요."}
+            onChange={onChangeSkill}
+            value={recruitRequest.skill}
+          />
+          {errors.skill && <div className="valid">{errors.skill}</div>}
+        </li>
+      </ul>
+
       <div className="button-box">
         <Button purpose="step" onClick={() => setStep(step - 1)}>
           이전
