@@ -20,16 +20,6 @@ const RecruitMainPosting = () => {
   return (
     <StPosting>
       <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
-      <RecruitMainPostingBox />
     </StPosting>
   );
 };

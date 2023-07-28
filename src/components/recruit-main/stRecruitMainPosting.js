@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const StPosting = styled.section`
-  width: 100%;
+  /* width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1fr);
@@ -20,5 +20,5 @@ export const StPosting = styled.section`
 
   @media (max-width: 600px) {
     grid-template-columns: repeat(1, 1fr);
-  }
+  } */
 `;
