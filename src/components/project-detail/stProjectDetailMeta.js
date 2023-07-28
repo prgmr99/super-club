@@ -11,6 +11,7 @@ export const StMeta = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem 0;
   .meta-link {
     display: flex;
     gap: 2rem;

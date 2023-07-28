@@ -3,15 +3,24 @@ import { StRecruitMainPostingBox } from "./stRecruitMainPostingBox";
 import { StPostingFilter } from "./stRecruitMainPostingFilter";
 import { HiOutlineEye, HiUserCircle } from "react-icons/hi";
 import { HiOutlineChatBubbleLeft } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 
 const RecruitMainPostingBox = () => {
+
   const [recuiting, setRecuiting] = useState(false);
   // const [deadline, setDeadline] = useState(false);
+
 
   // const recuitingHandler = (e) => {
   //   e.target.checked ? setRecuiting(true) : setRecuiting(false);
   //   setRecuiting(e.target.checked);
   // };
+
+  const clickId = (e) => {
+    console.log("눌림");
+    console.log(e.target.id);
+    navigate(`/recruit/detail/:${e.target.id}`);
+  };
 
   return (
     <>
@@ -54,6 +63,7 @@ const RecruitMainPostingBox = () => {
                 <HiOutlineChatBubbleLeft />
                 <span className="recruit_view_icons_box_desc">0</span>
               </div>
+
             </div>
           </div>
           <div className="recruit_title">같이 공부할 스터디 구합니다</div>

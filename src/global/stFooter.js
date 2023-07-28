@@ -30,7 +30,7 @@ export const StFooter = styled.div`
       &_part {
         display: flex;
         gap: 1.6rem;
- 
+
         b {
           font-size: 1.4rem;
           font-weight: 600;
@@ -39,8 +39,8 @@ export const StFooter = styled.div`
           display: flex;
           gap: 1rem;
           @media (max-width: 620px) {
-          gap: 1.6rem;
-        }
+            gap: 1.6rem;
+          }
           li {
             display: flex;
             justify-content: flex-start;
@@ -54,35 +54,34 @@ export const StFooter = styled.div`
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap:1rem;
+      gap: 1rem;
       margin-bottom: 1.6rem;
       @media (max-width: 620px) {
         align-items: center;
       }
     }
-      img {
-        cursor: pointer;
-        width: 86%;
-        margin-bottom: 1.6rem;
-        @media (max-width: 620px) {
-          width: 32%;
-        }
+    img {
+      cursor: pointer;
+      width: 86%;
+      margin-bottom: 1.6rem;
+      @media (max-width: 620px) {
+        width: 32%;
       }
-      a {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        font-size: 1.4rem;
-        text-decoration: none;
-        color: #888;
-        font-weight: 600;
-        transition: 0.25s ease-in-out;
-        svg {
-          padding-bottom: 0.4rem;
-        }
-        &:hover {
-          color: #000;
-        }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: #888;
+      font-weight: 600;
+      transition: 0.25s ease-in-out;
+      svg {
+        padding-bottom: 0.4rem;
+      }
+      &:hover {
+        color: #000;
       }
     }
   }

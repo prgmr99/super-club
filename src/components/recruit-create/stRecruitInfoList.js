@@ -98,6 +98,27 @@ export const StDropWrap = styled.ul`
     }
   }
 
+  .participants {
+    width: 45%;
+    input {
+      width: 100%;
+      padding: 0 0.8rem;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      height: 5.6rem;
+      border-radius: 8px;
+      font-size: 1.6rem;
+      outline: none;
+      color: #1f1f1f;
+      font-weight: 700;
+      &:hover {
+        border-color: #0047ff;
+      }
+      &:focus {
+        border: 2px solid #0047ff;
+      }
+    }
+  }
   .button-box {
     width: 100%;
     display: flex;

@@ -31,7 +31,7 @@ export const StView = styled.div`
           return css`
             position: absolute;
             right: 0;
-            top: -10px;
+            top: 5px;
           `;
 
         default:
