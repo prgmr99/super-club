@@ -4,6 +4,7 @@ import ProjectItem from "./ProjectItem";
 
 const ProjectList = () => {
   const item1 = {
+    id: 1,
     src: "https://www.sopt.org/_next/image?url=https%3A%2F%2Fs3.ap-northeast-2.amazonaws.com%2Fsopt-makers-internal%2F%2Fprod%2Fimage%2Fproject%2F202113f1-c798-4c60-beb6-eb20faecd9ed-KakaoTalk_20230528_125513752_02.jpg&w=1920&q=7",
     title: "동네포착",
     view: "45회",
@@ -17,6 +18,7 @@ const ProjectList = () => {
     ],
   };
   const item2 = {
+    id: 2,
     src: "https://www.sopt.org/_next/image?url=https%3A%2F%2Fs3.ap-northeast-2.amazonaws.com%2Fsopt-makers-internal%2F%2Fprod%2Fimage%2Fproject%2Fe96f89d5-8e9c-4677-b933-b8a232f246dc-26.png&w=1920&q=75",
     title: "Re;cord",
     view: "41회",
@@ -30,6 +32,7 @@ const ProjectList = () => {
     ],
   };
   const item3 = {
+    id: 3,
     src: "https://www.sopt.org/_next/image?url=https%3A%2F%2Fs3.ap-northeast-2.amazonaws.com%2Fsopt-makers-internal%2F%2Fprod%2Fimage%2Fproject%2F76b54d6c-8e51-47e5-911c-0c5e3fc91fbf-%E1%84%89%E1%85%A5%E1%86%B7%E1%84%82%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8E%E1%85%AC%E1%84%8C%E1%85%A9%E1%86%BC.png&w=1920&q=75",
     title: "온사이즈 (OWNSIZE)",
     view: "39회",
@@ -43,6 +46,7 @@ const ProjectList = () => {
     ],
   };
   const item4 = {
+    id: 4,
     src: "https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fmedia-sparta.s3.amazonaws.com%2Fmedia%2Ftempvideos%2F20220407%2Fmain_477.png&w=1920&q=75",
     title: "내가HAMA",
     view: "32회",
@@ -57,6 +61,7 @@ const ProjectList = () => {
     ],
   };
   const item5 = {
+    id: 5,
     src: "https://hanghae99.spartacodingclub.kr/_next/image?url=https%3A%2F%2Fstatic.spartacodingclub.kr%2Fhanghae99%2Fexhibitions%2Fsuperior_carrot.png&w=1920&q=75",
     title: "당근플래너",
     view: "30회",
@@ -71,6 +76,7 @@ const ProjectList = () => {
     ],
   };
   const item6 = {
+    id: 6,
     src: "https://www.sopt.org/_next/image?url=https%3A%2F%2Fs3.ap-northeast-2.amazonaws.com%2Fsopt-makers-internal%2F%2Fprod%2Fimage%2Fproject%2Fec01d062-eb14-4513-aa59-3e80b6d62af6-thumbnail.png&w=1920&q=75",
     title: "Cherish",
     view: "27회",
@@ -83,6 +89,7 @@ const ProjectList = () => {
       "icon__tech-stack--mysql.svg",
     ],
   };
+
   return (
     <StListWrap>
       <ProjectItem items={item1} />

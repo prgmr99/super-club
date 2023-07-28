@@ -3,8 +3,8 @@ import { styled } from "styled-components";
 export const StBookMark = styled.div`
   border: 1px solid #eee;
   width: 6.5rem;
-  position: fixed;
-  top: 30rem;
+  position: sticky;
+  top: 10rem;
   left: 18rem;
   border-radius: 80px;
   padding: 0.8rem 0;

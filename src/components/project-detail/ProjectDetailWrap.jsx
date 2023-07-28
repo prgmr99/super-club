@@ -20,34 +20,37 @@ import Quarter from "../../global/Quarter";
 const ProjectDetailWrap = () => {
   return (
     <StWraper>
-      <ProjectDetailHeader />
-      <ProjectDetailMeta />
-      <ProjectDetailCategory />
-      <ProjectDetailVideo />
-      <ProjectDetailSkill />
-      <ProjectDetailDesc />
-      <ProjectDetailTeamMember />
-
-      <View location="project-detail">
-        <div className="view-flex">
-          <AiFillEye />
-          <span>0회</span>
-        </div>
-      </View>
-      <Quarter />
-
-      {/* 댓글 */}
-      <Reply location="project-detail">
-        <SlBubble />
-        <span>30 개</span>
-      </Reply>
-
-      <CommentForm />
-      <div className="comment-flex">
-        <CommentList />
+      <div className="heartmark">
+        <HeartMark />
       </div>
+      <div className="flex-colum">
+        <ProjectDetailHeader />
+        <ProjectDetailMeta />
+        <ProjectDetailCategory />
+        <ProjectDetailVideo />
+        <ProjectDetailSkill />
+        <ProjectDetailDesc />
+        <ProjectDetailTeamMember />
 
-      <HeartMark />
+        <View location="project-detail">
+          <div className="view-flex">
+            <AiFillEye />
+            <span>0회</span>
+          </div>
+        </View>
+        <Quarter />
+
+        {/* 댓글 */}
+        <Reply location="project-detail">
+          <SlBubble />
+          <span>30 개</span>
+        </Reply>
+
+        <CommentForm />
+        <div className="comment-flex">
+          <CommentList />
+        </div>
+      </div>
     </StWraper>
   );
 };

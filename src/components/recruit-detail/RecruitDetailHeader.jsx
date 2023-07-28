@@ -5,7 +5,9 @@ const RecruitDetailHeader = () => {
   return (
     <StHeader>
       <div className="recruit-state">모집중</div>
-      <div className="recruit-title">모집 제목적는 부분입니다~</div>
+      <div className="recruit-title">
+        [팀원모집 포폴용 프로젝트에서 디자이너 분을 모십니다!]
+      </div>
     </StHeader>
   );
 };

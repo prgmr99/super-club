@@ -2,7 +2,7 @@ import React from "react";
 import { StInfo } from "./stRecruitDetailInfo";
 
 const RecruitDetailInfo = () => {
-  const skill = ["React", "TS", "Recoil", "Java", "AWS", "Vue"];
+  const skill = ["JavaScript", "TypeScript", "React", "Svelte", "Python"];
   const getSkill = () => {
     return skill.map((el) => {
       return (
@@ -28,11 +28,11 @@ const RecruitDetailInfo = () => {
       <ul>
         <li>
           <label>모집 포지션</label>
-          <div className="result">프론트엔드, 백엔드</div>
+          <div className="result">프론트엔드, 백엔드, 디자이너</div>
         </li>
         <li>
           <label>모집 마감일</label>
-          <div className="result">2023-07-22</div>
+          <div className="result">2023-08-20</div>
         </li>
       </ul>
 
