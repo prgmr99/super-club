@@ -168,26 +168,28 @@ const RecruitMainCategory = () => {
   ];
 
   const [activeTab, setActiveTab] = useState(tabData[0].id);
-  const [clickCount, setClickCount] = useState(0);
-  console.log(clickCount);
+  const [selectedItems, setSelectedItems] = useState([]);
+  // console.log("selectedItems : ", selectedItems);
 
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
   };
-
-  const handleTechClick = (techId) => {
-    if (clickCount >= 5) {
-      return;
-    }
-
-    setClickCount((prevCount) => prevCount + 1);
-    console.log(setClickCount);
-  };
-
   const getActiveTabContent = () => {
     const activeTabData = tabData.find((tab) => tab.id === activeTab);
     return activeTabData ? activeTabData.content : [];
   };
+
+  const handleTechClick = (item) => {
+    // 이미 선택된 아이템이라면 선택 해제
+    if (selectedItems.includes(item)) {
+      setSelectedItems(selectedItems.filter((i) => i !== item));
+    } else {
+      // 새로운 아이템 선택
+      setSelectedItems([...selectedItems, item]);
+    }
+  };
+
+  const listItems = ["아이템 1", "아이템 2", "아이템 3", "아이템 4"];
 
   return (
     <StCategory>
@@ -211,7 +213,18 @@ const RecruitMainCategory = () => {
       <div className="position_tech_stack_wrapper">
         <ul>
           {getActiveTabContent().map((item, index) => (
-            <li key={index} onClick={() => handleTechClick(item.id)}>
+            <li
+              key={index}
+              onClick={() => handleTechClick(item.id)}
+              style={{
+                color: selectedItems.includes(item.id)
+                  ? "var(--main-color)"
+                  : "#000",
+                border: selectedItems.includes(item.id)
+                  ? "1px solid var(--main-color)"
+                  : "1px solid #eee",
+              }}
+            >
               <img src={item.image} alt={item.title} />
               <span> {item.title}</span>
             </li>
