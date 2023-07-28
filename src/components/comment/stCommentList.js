@@ -8,4 +8,6 @@ export const StCommentList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
+  gap: 0.5rem;
+  margin-top: 1rem;
 `;

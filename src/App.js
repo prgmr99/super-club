@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { register } from "swiper/element/bundle";
+import { register } from "swiper/element/bundle";
 import {
   ProjectMainPage,
   ProjectDetailPage,
@@ -14,7 +14,7 @@ import {
 
 import { NotFound, Header, Footer } from "./global";
 
-// register();
+register();
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ProjectMainPage />} />
           <Route path="/project/upload" element={<ProjectUploadPage />} />
-          <Route path="/project/detail" element={<ProjectDetailPage />} />
+          <Route path="/project/detail/:id" element={<ProjectDetailPage />} />
           <Route path="/recruit" element={<RecruitMainPage />} />
           <Route path="/recruit/create" element={<RecruitCreatePage />} />
           <Route path="/recruit/detail/:id" element={<RecruitDetailPage />} />

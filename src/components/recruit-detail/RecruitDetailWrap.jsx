@@ -11,6 +11,7 @@ import Reply from "../../global/Reply";
 import { SlBubble } from "react-icons/sl";
 import CommentForm from "../comment/CommentForm";
 import CommentList from "../comment/CommentList";
+import Footer from "./../../global/Footer";
 
 const RecruitDetailWrap = () => {
   return (
@@ -42,6 +43,8 @@ const RecruitDetailWrap = () => {
           <CommentList />
         </div>
       </div>
+
+      {/* <Footer /> */}
     </StWraper>
   );
 };

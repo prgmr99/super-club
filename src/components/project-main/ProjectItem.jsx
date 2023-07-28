@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import View from "../../global/View";
 import { AiFillEye, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { StProjectItem } from "./stProjectItem";
+import { useNavigate } from "react-router-dom";
 
 const ProjectItem = ({ items }) => {
+  const navigate = useNavigate();
   const [heart, setHeart] = useState(true);
   const handleHeart = () => {
     setHeart((cur) => !cur);
   };
+  const onClickDetail = (e) => {
+    console.log(e);
+    navigate(`/project/detail/:${e.target.id}`);
+  };
   return (
-    <StProjectItem>
+    <StProjectItem onClick={onClickDetail}>
       <img src={items.src} alt="" />
       <div className="item-meta">
         <div className="item-meta__title">{items.title}</div>

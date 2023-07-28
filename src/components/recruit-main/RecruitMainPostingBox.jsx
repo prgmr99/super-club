@@ -5,6 +5,7 @@ import { HiOutlineChatBubbleLeft } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 
 const RecruitMainPostingBox = () => {
+  const navigate = useNavigate();
   const [techStackArray, setTechStackArray] = useState([
     { id: 1, title: "javascript", img: "icon__tech-stack--javascript.svg" },
     { id: 2, title: "typescript", img: "icon__tech-stack--typescript.svg" },
@@ -21,6 +22,12 @@ const RecruitMainPostingBox = () => {
         <img src={el.img} alt={el.title} />
       </li>
     ));
+  };
+
+  const clickId = (e) => {
+    console.log("눌림");
+    console.log(e.target.id);
+    navigate(`/recruit/detail/:${e.target.id}`);
   };
 
   return (
