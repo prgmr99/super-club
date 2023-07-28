@@ -28,17 +28,22 @@ export const StProjectItem = styled.div`
     padding: 0 1.5rem;
     box-sizing: border-box;
     svg {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 2rem;
+      height: 2rem;
       margin-right: 0.5rem;
+    }
+    &__title {
+      font-size: 2rem;
     }
   }
   .item-desc {
+    margin-top: 1.5rem;
     max-height: 10rem;
     height: 10rem;
     padding: 0 1.5rem;
     text-align: start;
     box-sizing: border-box;
+    font-size: 1.5rem;
   }
   .item-skill {
     display: flex;
@@ -51,6 +56,10 @@ export const StProjectItem = styled.div`
       height: 3rem;
       border-radius: 50%;
       background-color: #fff;
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
     }
   }
   .item-heart {
@@ -59,6 +68,7 @@ export const StProjectItem = styled.div`
     right: 1rem;
     width: 3rem;
     height: 3rem;
+    color: red;
     cursor: pointer;
   }
 `;

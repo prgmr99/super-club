@@ -83,28 +83,6 @@ const ProjectTeam = ({ setStep, step, uploadRequest, setUploadRequest }) => {
     }
     setErrors(errors);
   };
-  //   useEffect(() => {
-  //     const savedData = localStorage.getItem("saveItem_project");
-  //     if (savedData) {
-  //       setUploadRequest(JSON.parse(savedData));
-  //     } else {
-  //       setUploadRequest({
-  //         ...uploadRequest,
-  //         title: "",
-  //         startDate: "",
-  //         endDate: "",
-  //         pic: "",
-  //         youtube: "",
-  //         contents: "",
-  //         skills: [],
-  //         categories: [],
-  //         teamName: "",
-  //         members: [],
-  //         github: "",
-  //         deploy: "",
-  //       });
-  //     }
-  //   }, []);
   return (
     <StTeamWrapper>
       <ul>

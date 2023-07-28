@@ -47,6 +47,6 @@ export const StInputMember = styled.input`
     border-color: #0047ff;
   }
   &:focus {
-    border: 2px solid #0047ff;
+    border: none;
   }
 `;
