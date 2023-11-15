@@ -1,7 +1,17 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import upload from "./modules/upload";
 
-const rootReducer = combineReducers({});
+import { createLogger } from "redux-logger";
+import ReduxThunk from "redux-thunk";
+import postRecruit from "./modules/recruit/postRecruit";
 
-const store = createStore(rootReducer);
+const logger = createLogger();
+
+const rootReducer = combineReducers({
+  postRecruit,
+  upload,
+});
+
+const store = createStore(rootReducer, applyMiddleware(logger, ReduxThunk));
 
 export default store;
